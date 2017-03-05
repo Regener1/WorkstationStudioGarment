@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a5c4dfacefc64080bc6db0ddd97ab785" Name="Diagram1">
+        <EntityTypeShape EntityType="StudioDBModel.BASKET" Width="1.5" PointX="3.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDBModel.CLIENT" Width="1.5" PointX="0.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDBModel.ORDER" Width="1.5" PointX="3.625" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDBModel.PRODUCT" Width="1.5" PointX="5.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDBModel.PRODUCT_STRUCTURE" Width="1.5" PointX="8.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDBModel.STORAGE" Width="1.5" PointX="8.5" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="StudioDBModel.FK_BASKET_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDBModel.FK_BASKET_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDBModel.FK_ORDER_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDBModel.FK_PRODUCT_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDBModel.FK_PRODUCT_STRUCTURE_0_0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

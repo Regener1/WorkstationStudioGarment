@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище StudioDBModel" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Regener\Documents\Visual Studio 2015\Projects\WorkstationStudioGarment\WorkstationStudioGarment\WorkstationStudioGarment\bin\Debug\studio.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BASKET">
+          <Key>
+            <PropertyRef Name="id_basket" />
+          </Key>
+          <Property Name="id_basket" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="count" Type="integer" Nullable="false" />
+          <Property Name="id_client" Type="integer" />
+          <Property Name="id_product" Type="integer" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="id_client" />
+          </Key>
+          <Property Name="id_client" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="patronymic" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="mail" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="sex" Type="bit" Nullable="false" />
+          <Property Name="growth" Type="integer" Nullable="false" />
+          <Property Name="chest" Type="integer" Nullable="false" />
+          <Property Name="waist" Type="integer" Nullable="false" />
+          <Property Name="hip" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_date" Type="datetime" Nullable="false" />
+          <Property Name="order_time" Type="datetime" Nullable="false" />
+          <Property Name="order_status" Type="bit" Nullable="false" />
+          <Property Name="total_sum" Type="real" Nullable="false" />
+          <Property Name="id_basket" Type="integer" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="size" Type="integer" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="photo" Type="blob" Nullable="false" />
+          <Property Name="price" Type="real" Nullable="false" />
+          <Property Name="id_storage" Type="integer" />
+        </EntityType>
+        <EntityType Name="PRODUCT_STRUCTURE">
+          <Key>
+            <PropertyRef Name="id_product_structure" />
+          </Key>
+          <Property Name="id_product_structure" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="count" Type="integer" Nullable="false" />
+          <Property Name="id_product" Type="integer" />
+        </EntityType>
+        <EntityType Name="STORAGE">
+          <Key>
+            <PropertyRef Name="id_storage" />
+          </Key>
+          <Property Name="id_storage" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="delivery_date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="count" Type="integer" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BASKET_0_0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASKET_1_0">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_0_0">
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="0..1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASKET">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_0_0">
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORAGE">
+              <PropertyRef Name="id_storage" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_STRUCTURE_0_0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT_STRUCTURE" Type="Self.PRODUCT_STRUCTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="PRODUCT_STRUCTURE">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище StudioDBModelContainer">
+          <EntitySet Name="BASKET" EntityType="Self.BASKET" store:Type="Tables" />
+          <EntitySet Name="CLIENT" EntityType="Self.CLIENT" store:Type="Tables" />
+          <EntitySet Name="ORDER" EntityType="Self.ORDER" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" store:Type="Tables" />
+          <EntitySet Name="STORAGE" EntityType="Self.STORAGE" store:Type="Tables" />
+          <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="BASKET" EntitySet="BASKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASKET_1_0" Association="Self.FK_BASKET_1_0">
+            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="BASKET" EntitySet="BASKET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_0_0" Association="Self.FK_ORDER_0_0">
+            <End Role="BASKET" EntitySet="BASKET" />
+            <End Role="ORDER" EntitySet="ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_0_0" Association="Self.FK_PRODUCT_0_0">
+            <End Role="STORAGE" EntitySet="STORAGE" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_STRUCTURE_0_0" Association="Self.FK_PRODUCT_STRUCTURE_0_0">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="PRODUCT_STRUCTURE" EntitySet="PRODUCT_STRUCTURE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudioDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BASKET">
+          <Key>
+            <PropertyRef Name="id_basket" />
+          </Key>
+          <Property Name="id_basket" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int64" Nullable="false" />
+          <Property Name="id_client" Type="Int64" />
+          <Property Name="id_product" Type="Int64" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_BASKET_0_0" FromRole="BASKET" ToRole="PRODUCT" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_BASKET_1_0" FromRole="BASKET" ToRole="CLIENT" />
+          <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_0_0" FromRole="BASKET" ToRole="ORDER" />
+        </EntityType>
+        <EntityType Name="CLIENT">
+          <Key>
+            <PropertyRef Name="id_client" />
+          </Key>
+          <Property Name="id_client" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="mail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone_number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sex" Type="Boolean" Nullable="false" />
+          <Property Name="growth" Type="Int64" Nullable="false" />
+          <Property Name="chest" Type="Int64" Nullable="false" />
+          <Property Name="waist" Type="Int64" Nullable="false" />
+          <Property Name="hip" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_1_0" FromRole="CLIENT" ToRole="BASKET" />
+        </EntityType>
+        <EntityType Name="ORDER">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_date" Type="DateTime" Nullable="false" />
+          <Property Name="order_time" Type="DateTime" Nullable="false" />
+          <Property Name="order_status" Type="Boolean" Nullable="false" />
+          <Property Name="total_sum" Type="Decimal" Nullable="false" />
+          <Property Name="id_basket" Type="Int64" />
+          <NavigationProperty Name="BASKET" Relationship="Self.FK_ORDER_0_0" FromRole="ORDER" ToRole="BASKET" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="size" Type="Int64" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="2147483647" FixedLength="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Nullable="false" />
+          <Property Name="id_storage" Type="Int64" />
+          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="PRODUCT" ToRole="BASKET" />
+          <NavigationProperty Name="STORAGE" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="STORAGE" />
+          <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_0_0" FromRole="PRODUCT" ToRole="PRODUCT_STRUCTURE" />
+        </EntityType>
+        <EntityType Name="PRODUCT_STRUCTURE">
+          <Key>
+            <PropertyRef Name="id_product_structure" />
+          </Key>
+          <Property Name="id_product_structure" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int64" Nullable="false" />
+          <Property Name="id_product" Type="Int64" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_PRODUCT_STRUCTURE_0_0" FromRole="PRODUCT_STRUCTURE" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="STORAGE">
+          <Key>
+            <PropertyRef Name="id_storage" />
+          </Key>
+          <Property Name="id_storage" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="delivery_date" Type="DateTime" Nullable="false" />
+          <Property Name="count" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="STORAGE" ToRole="PRODUCT" />
+        </EntityType>
+        <Association Name="FK_BASKET_0_0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASKET_1_0">
+          <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="0..1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ORDER_0_0">
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="0..1" />
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASKET">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="ORDER">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_0_0">
+          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="0..1" />
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STORAGE">
+              <PropertyRef Name="id_storage" />
+            </Principal>
+            <Dependent Role="PRODUCT">
+              <PropertyRef Name="id_storage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_STRUCTURE_0_0">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="PRODUCT_STRUCTURE" Type="Self.PRODUCT_STRUCTURE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="PRODUCT_STRUCTURE">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudioDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BASKETs" EntityType="Self.BASKET" />
+          <EntitySet Name="CLIENTs" EntityType="Self.CLIENT" />
+          <EntitySet Name="ORDERs" EntityType="Self.ORDER" />
+          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+          <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" />
+          <EntitySet Name="STORAGEs" EntityType="Self.STORAGE" />
+          <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="BASKET" EntitySet="BASKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BASKET_1_0" Association="Self.FK_BASKET_1_0">
+            <End Role="CLIENT" EntitySet="CLIENTs" />
+            <End Role="BASKET" EntitySet="BASKETs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORDER_0_0" Association="Self.FK_ORDER_0_0">
+            <End Role="BASKET" EntitySet="BASKETs" />
+            <End Role="ORDER" EntitySet="ORDERs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_0_0" Association="Self.FK_PRODUCT_0_0">
+            <End Role="STORAGE" EntitySet="STORAGEs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_STRUCTURE_0_0" Association="Self.FK_PRODUCT_STRUCTURE_0_0">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="PRODUCT_STRUCTURE" EntitySet="PRODUCT_STRUCTURE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище StudioDBModelContainer" CdmEntityContainer="StudioDB">
+          <EntitySetMapping Name="BASKETs">
+            <EntityTypeMapping TypeName="StudioDBModel.BASKET">
+              <MappingFragment StoreEntitySet="BASKET">
+                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTs">
+            <EntityTypeMapping TypeName="StudioDBModel.CLIENT">
+              <MappingFragment StoreEntitySet="CLIENT">
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="growth" ColumnName="growth" />
+                <ScalarProperty Name="chest" ColumnName="chest" />
+                <ScalarProperty Name="waist" ColumnName="waist" />
+                <ScalarProperty Name="hip" ColumnName="hip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDERs">
+            <EntityTypeMapping TypeName="StudioDBModel.ORDER">
+              <MappingFragment StoreEntitySet="ORDER">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="order_time" ColumnName="order_time" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="total_sum" ColumnName="total_sum" />
+                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="StudioDBModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="id_storage" ColumnName="id_storage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_STRUCTURE">
+            <EntityTypeMapping TypeName="StudioDBModel.PRODUCT_STRUCTURE">
+              <MappingFragment StoreEntitySet="PRODUCT_STRUCTURE">
+                <ScalarProperty Name="id_product_structure" ColumnName="id_product_structure" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORAGEs">
+            <EntityTypeMapping TypeName="StudioDBModel.STORAGE">
+              <MappingFragment StoreEntitySet="STORAGE">
+                <ScalarProperty Name="id_storage" ColumnName="id_storage" />
+                <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
+                <ScalarProperty Name="count" ColumnName="count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
