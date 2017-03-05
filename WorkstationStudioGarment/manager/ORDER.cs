@@ -15,9 +15,9 @@ namespace WorkstationStudioGarment.manager
     public partial class ORDER
     {
         public long id_order { get; set; }
-        public System.DateTime order_date { get; set; }
-        public System.DateTime order_time { get; set; }
-        public bool order_status { get; set; }
+        public string order_date { get; set; }
+        public string order_time { get; set; }
+        public long order_status { get; set; }
         public decimal total_sum { get; set; }
         public Nullable<long> id_basket { get; set; }
     

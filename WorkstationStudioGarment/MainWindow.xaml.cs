@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WorkstationStudioGarment.manager;
 
 namespace WorkstationStudioGarment
 {
@@ -23,6 +24,24 @@ namespace WorkstationStudioGarment
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (StudioDB db = new StudioDB())
+                {
+                    STORAGE storage = new STORAGE();
+                    storage.delivery_date = "2017-03-05";
+                    db.STORAGEs.Add(storage);
+                    db.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

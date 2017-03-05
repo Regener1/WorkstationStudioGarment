@@ -11,94 +11,97 @@ namespace WorkstationStudioGarment.manager
 {
     class DBManager
     {
-        private string path;
 
-        /// <summary>
-        /// Path to database
-        /// </summary>
-        public string Path
-        {
-            get { return path; }
-            set { path = value; }
-        }
+        //private string path;
 
-        /// <summary>
-        /// Creating new database if not exist
-        /// </summary>
-        /// <param name="path">Path to database</param>
-        public void ConnectDataBase(string path)
-        {
-            this.path = path;
+        ///// <summary>
+        ///// Path to database
+        ///// </summary>
+        //public string Path
+        //{
+        //    get { return path; }
+        //    set { path = value; }
+        //}
 
-            try
-            {
-                if (!File.Exists(path))
-                    SQLiteConnection.CreateFile(path);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+        ///// <summary>
+        ///// Creating new database if not exist
+        ///// </summary>
+        ///// <param name="path">Path to database</param>
+        //public void ConnectDataBase(string path)
+        //{
+        //    this.path = path;
 
-        /// <summary>
-        /// Executes a query
-        /// </summary>
-        /// <param name="query">Query</param>
-        public void ExecuteNonQuery(string query)
-        {
-            if (path.Equals(""))
-                throw new Exception("Empty path to database.");
+        //    try
+        //    {
+        //        if (!File.Exists(path))
+        //            SQLiteConnection.CreateFile(path);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
 
-            if (!File.Exists(path))
-                throw new FileNotFoundException("File not found. Path: " + path);
+        ///// <summary>
+        ///// Executes a query
+        ///// </summary>
+        ///// <param name="query">Query</param>
+        //public void ExecuteNonQuery(string query)
+        //{
+        //    if (path.Equals(""))
+        //        throw new Exception("Empty path to database.");
 
-            try
-            {
-                SQLiteConnection sql = new SQLiteConnection(@"Data Source=" + path + ";Version=3");
-                SQLiteCommand command = new SQLiteCommand(query, sql); //запрос
-                sql.Open();//открыли подключение к бд
-                command.ExecuteNonQuery();//выполнили команду
-                sql.Close();//закрыли
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+        //    if (!File.Exists(path))
+        //        throw new FileNotFoundException("File not found. Path: " + path);
 
-        /// <summary>
-        /// Obtains information from the database
-        /// </summary>
-        /// <param name="query">Query</param>
-        /// <returns>New object DataTable</returns>
-        public DataTable ExecuteReader(string query)
-        {
-            DataTable data;
+        //    try
+        //    {
+        //        SQLiteConnection sql = new SQLiteConnection(@"Data Source=" + path + ";Version=3");
+        //        SQLiteCommand command = new SQLiteCommand(query, sql); //запрос
+        //        sql.Open();//открыли подключение к бд
+        //        command.ExecuteNonQuery();//выполнили команду
+        //        sql.Close();//закрыли
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
 
-            if (path.Equals(""))
-                throw new Exception("Empty path to database.");
+        ///// <summary>
+        ///// Obtains information from the database
+        ///// </summary>
+        ///// <param name="query">Query</param>
+        ///// <returns>New object DataTable</returns>
+        //public DataTable ExecuteReader(string query)
+        //{
+        //    DataTable data;
 
-            if (!File.Exists(path))
-                throw new FileNotFoundException("File not found. Path: " + path);
+        //    if (path.Equals(""))
+        //        throw new Exception("Empty path to database.");
 
-            try
-            {
-                SQLiteConnection sql = new SQLiteConnection(@"Data Source=" + path + ";Version=3");
-                SQLiteCommand command = new SQLiteCommand(query, sql);
-                sql.Open();
-                SQLiteDataReader sdr = command.ExecuteReader();
-                data = new DataTable();
-                data.Load(sdr);
-                sdr.Close();
-                sql.Close();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+        //    if (!File.Exists(path))
+        //        throw new FileNotFoundException("File not found. Path: " + path);
 
-            return data;
-        }
+        //    try
+        //    {
+        //        SQLiteConnection sql = new SQLiteConnection(@"Data Source=" + path + ";Version=3");
+        //        SQLiteCommand command = new SQLiteCommand(query, sql);
+        //        sql.Open();
+        //        SQLiteDataReader sdr = command.ExecuteReader();
+        //        data = new DataTable();
+        //        data.Load(sdr);
+        //        sdr.Close();
+        //        sql.Close();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+
+        //    return data;
+        //}
+
+
     }
 }

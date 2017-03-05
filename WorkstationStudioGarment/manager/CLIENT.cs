@@ -28,7 +28,7 @@ namespace WorkstationStudioGarment.manager
         public string patronymic { get; set; }
         public string mail { get; set; }
         public string phone_number { get; set; }
-        public bool sex { get; set; }
+        public long sex { get; set; }
         public long growth { get; set; }
         public long chest { get; set; }
         public long waist { get; set; }
