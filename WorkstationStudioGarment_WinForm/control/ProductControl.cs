@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace WorkstationStudioGarment_WinForm.control
         /// </summary>
         public void AddProduct (string title, string category, int size,
                                 string color, Image photo, decimal price,
-                                int id_storage)
+                                int id_supply)
         {
             try
             {
@@ -26,9 +27,16 @@ namespace WorkstationStudioGarment_WinForm.control
                     product.category = category;
                     product.size = size;
                     product.color = color;
-                    //product.photo = 
+
+                    string image = ConvertImageToByte(photo);
+                    if (image.Equals(""))
+                    {
+                        throw new Exception("Cannot convert image to string.");
+                    }
+
+                    product.photo = image;
                     product.price = price;
-                    product.id_storage = id_storage;
+                    product.id_supply = id_supply;
                     db.PRODUCTs.Add(product);
                     db.SaveChanges();
                 }
@@ -39,23 +47,33 @@ namespace WorkstationStudioGarment_WinForm.control
             }
         }
 
-        private byte[] ConvertImageToByte(Image image)
+        private string ConvertImageToByte(Image image)
         {
-            MemoryStream ms = new MemoryStream();
-
-            return null;
+            string strData = "";
+            try
+            {
+                MemoryStream ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Png);
+                byte[] data = ms.ToArray();
+                strData = Convert.ToBase64String(data);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return strData;
         }
 
-        public void AddProductIntoStorage (string date, int count)
+        public void AddProductIntoSupply (string date, int count)
         {
             try
             {
                 using (StudioDB db = new StudioDB())
                 {
-                    STORAGE storage = new STORAGE();
-                    storage.delivery_date = date;
-                    storage.count = count;
-                    db.STORAGEs.Add(storage);
+                    SUPPLY supply = new SUPPLY();
+                    supply.delivery_date = date;
+                    supply.count = count;
+                    db.SUPPLYs.Add(supply);
                     db.SaveChanges();
                 }
             }

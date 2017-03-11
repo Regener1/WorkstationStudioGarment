@@ -26,13 +26,13 @@ namespace WorkstationStudioGarment_WinForm.manager
         public string category { get; set; }
         public long size { get; set; }
         public string color { get; set; }
-        public byte[] photo { get; set; }
+        public string photo { get; set; }
         public decimal price { get; set; }
-        public long id_storage { get; set; }
+        public long id_supply { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BASKET> BASKETs { get; set; }
-        public virtual STORAGE STORAGE { get; set; }
+        public virtual SUPPLY STORAGE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
     }

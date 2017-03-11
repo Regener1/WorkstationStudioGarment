@@ -9,9 +9,9 @@
         <EntityTypeShape EntityType="studioModel.CLIENT" Width="1.5" PointX="1.25" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="10" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.ORDER" Width="1.5" PointX="4.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="7.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="9.875" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.STORAGE" Width="1.5" PointX="7.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="9.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.SUPPLY" Width="1.5" PointX="7.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="studioModel.FK_BASKET_0_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_BASKET_1_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_ORDER_0_0" ManuallyRouted="false" />

@@ -31,6 +31,6 @@ namespace WorkstationStudioGarment_WinForm.manager
         public virtual DbSet<ORDER> ORDERs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
         public virtual DbSet<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
-        public virtual DbSet<STORAGE> STORAGEs { get; set; }
+        public virtual DbSet<SUPPLY> SUPPLYs { get; set; }
     }
 }
