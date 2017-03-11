@@ -196,10 +196,10 @@
           <Key>
             <PropertyRef Name="id_basket" />
           </Key>
-          <Property Name="id_basket" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="count" Type="Int64" Nullable="false" />
-          <Property Name="id_client" Type="Int64" Nullable="false" />
-          <Property Name="id_product" Type="Int64" Nullable="false" />
+          <Property Name="id_basket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK_BASKET_0_0" FromRole="BASKET" ToRole="PRODUCT" />
           <NavigationProperty Name="CLIENT" Relationship="Self.FK_BASKET_1_0" FromRole="BASKET" ToRole="CLIENT" />
           <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_0_0" FromRole="BASKET" ToRole="ORDER" />
@@ -208,55 +208,55 @@
           <Key>
             <PropertyRef Name="id_client" />
           </Key>
-          <Property Name="id_client" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="login" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="accsess_level" Type="Int64" Nullable="false" />
+          <Property Name="accsess_level" Type="Int32" Nullable="false" />
           <Property Name="surname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="patronymic" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="mail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="phone_number" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="sex" Type="Int64" Nullable="false" />
-          <Property Name="growth" Type="Int64" Nullable="false" />
-          <Property Name="chest" Type="Int64" Nullable="false" />
-          <Property Name="waist" Type="Int64" Nullable="false" />
-          <Property Name="hip" Type="Int64" Nullable="false" />
+          <Property Name="sex" Type="Int32" Nullable="false" />
+          <Property Name="growth" Type="Int32" Nullable="false" />
+          <Property Name="chest" Type="Int32" Nullable="false" />
+          <Property Name="waist" Type="Int32" Nullable="false" />
+          <Property Name="hip" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_1_0" FromRole="CLIENT" ToRole="BASKET" />
         </EntityType>
         <EntityType Name="MATERIAL">
           <Key>
             <PropertyRef Name="id_material" />
           </Key>
-          <Property Name="id_material" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_material" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="count" Type="Int64" Nullable="false" />
+          <Property Name="count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_0_0" FromRole="MATERIAL" ToRole="PRODUCT_STRUCTURE" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
             <PropertyRef Name="id_order" />
           </Key>
-          <Property Name="id_order" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="order_date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="order_time" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="order_status" Type="Int64" Nullable="false" />
+          <Property Name="order_status" Type="Int32" Nullable="false" />
           <Property Name="total_sum" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
-          <Property Name="id_basket" Type="Int64" Nullable="false" />
+          <Property Name="id_basket" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKET" Relationship="Self.FK_ORDER_0_0" FromRole="ORDER" ToRole="BASKET" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
             <PropertyRef Name="id_product" />
           </Key>
-          <Property Name="id_product" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="title" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="size" Type="Int64" Nullable="false" />
+          <Property Name="size" Type="Int32" Nullable="false" />
           <Property Name="color" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="photo" Type="String" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
-          <Property Name="id_supply" Type="Int64" Nullable="false" />
+          <Property Name="id_supply" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="PRODUCT" ToRole="BASKET" />
           <NavigationProperty Name="STORAGE" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="STORAGE" />
           <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_1_0" FromRole="PRODUCT" ToRole="PRODUCT_STRUCTURE" />
@@ -265,10 +265,10 @@
           <Key>
             <PropertyRef Name="id_product_structure" />
           </Key>
-          <Property Name="id_product_structure" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="count" Type="Int64" Nullable="false" />
-          <Property Name="id_product" Type="Int64" Nullable="false" />
-          <Property Name="id_material" Type="Int64" Nullable="false" />
+          <Property Name="id_product_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="count" Type="Int32" Nullable="false" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="id_material" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MATERIAL" Relationship="Self.FK_PRODUCT_STRUCTURE_0_0" FromRole="PRODUCT_STRUCTURE" ToRole="MATERIAL" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK_PRODUCT_STRUCTURE_1_0" FromRole="PRODUCT_STRUCTURE" ToRole="PRODUCT" />
         </EntityType>
@@ -276,9 +276,9 @@
           <Key>
             <PropertyRef Name="id_supply" />
           </Key>
-          <Property Name="id_supply" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_supply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="delivery_date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="count" Type="Int64" Nullable="false" />
+          <Property Name="count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="STORAGE" ToRole="PRODUCT" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">

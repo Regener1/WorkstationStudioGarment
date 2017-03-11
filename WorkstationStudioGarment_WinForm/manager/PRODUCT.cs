@@ -21,14 +21,14 @@ namespace WorkstationStudioGarment_WinForm.manager
             this.PRODUCT_STRUCTURE = new HashSet<PRODUCT_STRUCTURE>();
         }
     
-        public long id_product { get; set; }
+        public int id_product { get; set; }
         public string title { get; set; }
         public string category { get; set; }
-        public long size { get; set; }
+        public int size { get; set; }
         public string color { get; set; }
         public string photo { get; set; }
         public decimal price { get; set; }
-        public long id_supply { get; set; }
+        public int id_supply { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BASKET> BASKETs { get; set; }

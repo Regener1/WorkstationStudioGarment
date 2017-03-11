@@ -20,9 +20,9 @@ namespace WorkstationStudioGarment_WinForm.manager
             this.PRODUCTs = new HashSet<PRODUCT>();
         }
     
-        public long id_supply { get; set; }
+        public int id_supply { get; set; }
         public string delivery_date { get; set; }
-        public long count { get; set; }
+        public int count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTs { get; set; }

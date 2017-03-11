@@ -14,10 +14,10 @@ namespace WorkstationStudioGarment_WinForm.manager
     
     public partial class PRODUCT_STRUCTURE
     {
-        public long id_product_structure { get; set; }
-        public long count { get; set; }
-        public long id_product { get; set; }
-        public long id_material { get; set; }
+        public int id_product_structure { get; set; }
+        public int count { get; set; }
+        public int id_product { get; set; }
+        public int id_material { get; set; }
     
         public virtual MATERIAL MATERIAL { get; set; }
         public virtual PRODUCT PRODUCT { get; set; }

@@ -20,10 +20,10 @@ namespace WorkstationStudioGarment_WinForm.manager
             this.ORDERs = new HashSet<ORDER>();
         }
     
-        public long id_basket { get; set; }
-        public long count { get; set; }
-        public long id_client { get; set; }
-        public long id_product { get; set; }
+        public int id_basket { get; set; }
+        public int count { get; set; }
+        public int id_client { get; set; }
+        public int id_product { get; set; }
     
         public virtual PRODUCT PRODUCT { get; set; }
         public virtual CLIENT CLIENT { get; set; }

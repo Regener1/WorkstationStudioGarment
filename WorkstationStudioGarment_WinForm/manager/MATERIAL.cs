@@ -20,9 +20,9 @@ namespace WorkstationStudioGarment_WinForm.manager
             this.PRODUCT_STRUCTURE = new HashSet<PRODUCT_STRUCTURE>();
         }
     
-        public long id_material { get; set; }
+        public int id_material { get; set; }
         public string name { get; set; }
-        public long count { get; set; }
+        public int count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }

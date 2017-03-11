@@ -20,20 +20,20 @@ namespace WorkstationStudioGarment_WinForm.manager
             this.BASKETs = new HashSet<BASKET>();
         }
     
-        public long id_client { get; set; }
+        public int id_client { get; set; }
         public string login { get; set; }
         public string password { get; set; }
-        public long accsess_level { get; set; }
+        public int accsess_level { get; set; }
         public string surname { get; set; }
         public string name { get; set; }
         public string patronymic { get; set; }
         public string mail { get; set; }
         public string phone_number { get; set; }
-        public long sex { get; set; }
-        public long growth { get; set; }
-        public long chest { get; set; }
-        public long waist { get; set; }
-        public long hip { get; set; }
+        public int sex { get; set; }
+        public int growth { get; set; }
+        public int chest { get; set; }
+        public int waist { get; set; }
+        public int hip { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BASKET> BASKETs { get; set; }

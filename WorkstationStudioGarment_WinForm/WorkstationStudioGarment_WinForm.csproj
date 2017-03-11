@@ -78,6 +78,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\FTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FTest.Designer.cs">
+      <DependentUpon>FTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="manager\BASKET.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
@@ -97,9 +103,6 @@
     <Compile Include="manager\PRODUCT_STRUCTURE.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="manager\STORAGE.cs">
-      <DependentUpon>StudioDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="manager\StorageEntity.cs" />
     <Compile Include="manager\StudioDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -116,8 +119,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StudioDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="manager\SUPPLY.cs">
+      <DependentUpon>StudioDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\FTest.resx">
+      <DependentUpon>FTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -148,9 +157,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="manager\StudioDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

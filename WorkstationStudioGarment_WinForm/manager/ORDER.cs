@@ -14,12 +14,12 @@ namespace WorkstationStudioGarment_WinForm.manager
     
     public partial class ORDER
     {
-        public long id_order { get; set; }
+        public int id_order { get; set; }
         public string order_date { get; set; }
         public string order_time { get; set; }
-        public long order_status { get; set; }
+        public int order_status { get; set; }
         public decimal total_sum { get; set; }
-        public long id_basket { get; set; }
+        public int id_basket { get; set; }
     
         public virtual BASKET BASKET { get; set; }
     }
