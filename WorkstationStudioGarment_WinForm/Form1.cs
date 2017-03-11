@@ -13,9 +13,13 @@ namespace WorkstationStudioGarment_WinForm
 {
     public partial class Form1 : Form
     {
+        FTanya f = new FTanya();
         public Form1()
         {
             InitializeComponent();
+
+            f.ShowDialog();
+
         }
 
         private void btnTestForm_Click(object sender, EventArgs e)

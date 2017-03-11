@@ -206,5 +206,6 @@
         private System.Windows.Forms.TextBox tbDeliveryDate;
         private System.Windows.Forms.Button btnInsertSupply;
         private System.Windows.Forms.Button btnShowProduct;
+
     }
 }
