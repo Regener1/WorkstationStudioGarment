@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище studioModel" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Regener\Documents\Visual Studio 2015\Projects\WorkstationStudioGarment\WorkstationStudioGarment\WorkstationStudioGarment\database\studio.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="studioModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Regener\Documents\Visual Studio 2015\Projects\WorkstationStudioGarment\WorkstationStudioGarment\WorkstationStudioGarment\database\studio.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BASKET">
           <Key>
             <PropertyRef Name="id_basket" />
@@ -48,7 +48,7 @@
           <Property Name="id_order" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="order_date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="order_time" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="order_status" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="order_status" Type="integer" Nullable="false" />
           <Property Name="total_sum" Type="decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_basket" Type="integer" Nullable="false" />
         </EntityType>
@@ -154,7 +154,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище studioModelContainer">
+        <EntityContainer Name="studioModelStoreContainer">
           <EntitySet Name="BASKET" EntityType="Self.BASKET" store:Type="Tables" />
           <EntitySet Name="CLIENT" EntityType="Self.CLIENT" store:Type="Tables" />
           <EntitySet Name="MATERIAL" EntityType="Self.MATERIAL" store:Type="Tables" />
@@ -240,7 +240,7 @@
           <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="order_date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="order_time" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="order_status" Type="Boolean" Nullable="false" />
+          <Property Name="order_status" Type="Int32" Nullable="false" />
           <Property Name="total_sum" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_basket" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKET" Relationship="Self.FK_ORDER_0_0" FromRole="ORDER" ToRole="BASKET" />
@@ -391,7 +391,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище studioModelContainer" CdmEntityContainer="StudioDB">
+        <EntityContainerMapping StorageEntityContainer="studioModelStoreContainer" CdmEntityContainer="StudioDB">
           <EntitySetMapping Name="BASKETs">
             <EntityTypeMapping TypeName="studioModel.BASKET">
               <MappingFragment StoreEntitySet="BASKET">
@@ -493,7 +493,7 @@
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

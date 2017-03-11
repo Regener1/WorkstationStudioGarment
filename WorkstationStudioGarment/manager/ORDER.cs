@@ -17,7 +17,7 @@ namespace WorkstationStudioGarment.manager
         public int id_order { get; set; }
         public string order_date { get; set; }
         public string order_time { get; set; }
-        public bool order_status { get; set; }
+        public int order_status { get; set; }
         public decimal total_sum { get; set; }
         public int id_basket { get; set; }
     
