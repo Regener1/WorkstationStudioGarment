@@ -7,24 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.manager
+namespace WorkstationStudioGarment_WinForm.manager
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MATERIAL
+    public partial class BASKET
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MATERIAL()
+        public BASKET()
         {
-            this.PRODUCT_STRUCTURE = new HashSet<PRODUCT_STRUCTURE>();
+            this.ORDERs = new HashSet<ORDER>();
         }
     
-        public int id_material { get; set; }
-        public string name { get; set; }
-        public int count { get; set; }
+        public long id_basket { get; set; }
+        public long count { get; set; }
+        public long id_client { get; set; }
+        public long id_product { get; set; }
     
+        public virtual PRODUCT PRODUCT { get; set; }
+        public virtual CLIENT CLIENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
+        public virtual ICollection<ORDER> ORDERs { get; set; }
     }
 }

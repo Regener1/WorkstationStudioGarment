@@ -7,35 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.manager
+namespace WorkstationStudioGarment_WinForm.manager
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CLIENT
+    public partial class PRODUCT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CLIENT()
+        public PRODUCT()
         {
             this.BASKETs = new HashSet<BASKET>();
+            this.PRODUCT_STRUCTURE = new HashSet<PRODUCT_STRUCTURE>();
         }
     
-        public int id_client { get; set; }
-        public string login { get; set; }
-        public string password { get; set; }
-        public int accsess_level { get; set; }
-        public string surname { get; set; }
-        public string name { get; set; }
-        public string patronymic { get; set; }
-        public string mail { get; set; }
-        public string phone_number { get; set; }
-        public int sex { get; set; }
-        public int growth { get; set; }
-        public int chest { get; set; }
-        public int waist { get; set; }
-        public int hip { get; set; }
+        public long id_product { get; set; }
+        public string title { get; set; }
+        public string category { get; set; }
+        public long size { get; set; }
+        public string color { get; set; }
+        public byte[] photo { get; set; }
+        public decimal price { get; set; }
+        public long id_storage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BASKET> BASKETs { get; set; }
+        public virtual STORAGE STORAGE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
     }
 }

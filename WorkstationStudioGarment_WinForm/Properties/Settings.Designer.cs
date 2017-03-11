@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.Properties
+namespace WorkstationStudioGarment_WinForm.Properties
 {
 
 

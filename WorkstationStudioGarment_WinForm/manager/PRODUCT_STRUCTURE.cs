@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.manager
+namespace WorkstationStudioGarment_WinForm.manager
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ORDER
+    public partial class PRODUCT_STRUCTURE
     {
-        public int id_order { get; set; }
-        public string order_date { get; set; }
-        public string order_time { get; set; }
-        public int order_status { get; set; }
-        public decimal total_sum { get; set; }
-        public int id_basket { get; set; }
+        public long id_product_structure { get; set; }
+        public long count { get; set; }
+        public long id_product { get; set; }
+        public long id_material { get; set; }
     
-        public virtual BASKET BASKET { get; set; }
+        public virtual MATERIAL MATERIAL { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

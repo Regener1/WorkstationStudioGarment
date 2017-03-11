@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.manager
+namespace WorkstationStudioGarment_WinForm.manager
 {
     using System;
     using System.Data.Entity;

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkstationStudioGarment.manager
+namespace WorkstationStudioGarment_WinForm.manager
 {
     using System;
     using System.Collections.Generic;
@@ -20,9 +20,9 @@ namespace WorkstationStudioGarment.manager
             this.PRODUCTs = new HashSet<PRODUCT>();
         }
     
-        public int id_storage { get; set; }
+        public long id_storage { get; set; }
         public string delivery_date { get; set; }
-        public int count { get; set; }
+        public long count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
