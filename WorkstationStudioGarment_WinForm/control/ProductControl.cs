@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
-//using System.Linq;
+using System.Linq;
 using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.control
@@ -95,9 +95,10 @@ namespace WorkstationStudioGarment_WinForm.control
             {
                 using (StudioDB db = new StudioDB())
                 {
-                    var data = from supply in db.SUPPLies.AsEnumerable()
+                    var data = from supply in db.SUPPLies
                                where supply.id_supply == 1
                                select supply;
+                     dt data.ToList();
                 }
             }
             catch (Exception e)
