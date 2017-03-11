@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorkstationStudioGarment_WinForm.forms;
 
 namespace WorkstationStudioGarment_WinForm
 {
@@ -15,6 +16,12 @@ namespace WorkstationStudioGarment_WinForm
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnTestForm_Click(object sender, EventArgs e)
+        {
+            FTest fTest = new FTest();
+            fTest.ShowDialog();
         }
     }
 }

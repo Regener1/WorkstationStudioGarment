@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Text;
+//using System.Linq;
 using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.control
@@ -64,8 +65,9 @@ namespace WorkstationStudioGarment_WinForm.control
             return strData;
         }
 
-        public void AddProductIntoSupply (string date, int count)
+        public int AddProductIntoSupply (string date, int count)
         {
+            int id = -1;
             try
             {
                 using (StudioDB db = new StudioDB())
@@ -73,14 +75,37 @@ namespace WorkstationStudioGarment_WinForm.control
                     SUPPLY supply = new SUPPLY();
                     supply.delivery_date = date;
                     supply.count = count;
-                    db.SUPPLYs.Add(supply);
+                    db.SUPPLies.Add(supply);
                     db.SaveChanges();
+                    id = supply.id_supply;
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
+
+            return id;
+        }
+
+        public DataTable GetProduct()
+        {
+            DataTable dt;
+            try
+            {
+                using (StudioDB db = new StudioDB())
+                {
+                    var data = from supply in db.SUPPLies.AsEnumerable()
+                               where supply.id_supply == 1
+                               select supply;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return id;
         }
     }
 }

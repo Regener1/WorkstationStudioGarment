@@ -21,7 +21,7 @@
           <Property Name="id_client" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="login" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="accsess_level" Type="integer" Nullable="false" />
+          <Property Name="access_level" Type="integer" Nullable="false" />
           <Property Name="surname" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="patronymic" Type="nvarchar" MaxLength="2147483647" />
@@ -61,9 +61,9 @@
           <Property Name="category" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="size" Type="integer" Nullable="false" />
           <Property Name="color" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="photo" Type="blob" Nullable="false" />
+          <Property Name="photo" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="price" Type="decimal" Precision="53" Scale="0" Nullable="false" />
-          <Property Name="id_storage" Type="integer" Nullable="false" />
+          <Property Name="id_supply" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCT_STRUCTURE">
           <Key>
@@ -74,11 +74,11 @@
           <Property Name="id_product" Type="integer" Nullable="false" />
           <Property Name="id_material" Type="integer" Nullable="false" />
         </EntityType>
-        <EntityType Name="STORAGE">
+        <EntityType Name="SUPPLY">
           <Key>
-            <PropertyRef Name="id_storage" />
+            <PropertyRef Name="id_supply" />
           </Key>
-          <Property Name="id_storage" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_supply" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="delivery_date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="count" Type="integer" Nullable="false" />
         </EntityType>
@@ -119,14 +119,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUCT_0_0">
-          <End Role="STORAGE" Type="Self.STORAGE" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="STORAGE">
-              <PropertyRef Name="id_storage" />
+            <Principal Role="SUPPLY">
+              <PropertyRef Name="id_supply" />
             </Principal>
             <Dependent Role="PRODUCT">
-              <PropertyRef Name="id_storage" />
+              <PropertyRef Name="id_supply" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -161,7 +161,7 @@
           <EntitySet Name="ORDER" EntityType="Self.ORDER" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" store:Type="Tables" />
           <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" store:Type="Tables" />
-          <EntitySet Name="STORAGE" EntityType="Self.STORAGE" store:Type="Tables" />
+          <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" store:Type="Tables" />
           <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="BASKET" EntitySet="BASKET" />
@@ -175,7 +175,7 @@
             <End Role="ORDER" EntitySet="ORDER" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_0_0" Association="Self.FK_PRODUCT_0_0">
-            <End Role="STORAGE" EntitySet="STORAGE" />
+            <End Role="SUPPLY" EntitySet="SUPPLY" />
             <End Role="PRODUCT" EntitySet="PRODUCT" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_STRUCTURE_0_0" Association="Self.FK_PRODUCT_STRUCTURE_0_0">
@@ -211,7 +211,7 @@
           <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="login" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="accsess_level" Type="Int32" Nullable="false" />
+          <Property Name="access_level" Type="Int32" Nullable="false" />
           <Property Name="surname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="patronymic" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
@@ -254,11 +254,11 @@
           <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="size" Type="Int32" Nullable="false" />
           <Property Name="color" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="photo" Type="String" Nullable="false" />
+          <Property Name="photo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_supply" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="PRODUCT" ToRole="BASKET" />
-          <NavigationProperty Name="STORAGE" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="STORAGE" />
+          <NavigationProperty Name="SUPPLY" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="SUPPLY" />
           <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_1_0" FromRole="PRODUCT" ToRole="PRODUCT_STRUCTURE" />
         </EntityType>
         <EntityType Name="PRODUCT_STRUCTURE">
@@ -279,7 +279,7 @@
           <Property Name="id_supply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="delivery_date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="STORAGE" ToRole="PRODUCT" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="SUPPLY" ToRole="PRODUCT" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
@@ -330,10 +330,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUCT_0_0">
-          <End Role="STORAGE" Type="studioModel.SUPPLY" Multiplicity="1" />
+          <End Role="SUPPLY" Type="Self.SUPPLY" Multiplicity="1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="STORAGE">
+            <Principal Role="SUPPLY">
               <PropertyRef Name="id_supply" />
             </Principal>
             <Dependent Role="PRODUCT">
@@ -360,7 +360,7 @@
           <EntitySet Name="ORDERs" EntityType="Self.ORDER" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
           <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" />
-          <EntitySet Name="SUPPLYs" EntityType="studioModel.SUPPLY" />
+          <EntitySet Name="SUPPLies" EntityType="Self.SUPPLY" />
           <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
             <End Role="BASKET" EntitySet="BASKETs" />
@@ -378,7 +378,7 @@
             <End Role="PRODUCT_STRUCTURE" EntitySet="PRODUCT_STRUCTURE" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_0_0" Association="Self.FK_PRODUCT_0_0">
-            <End Role="STORAGE" EntitySet="SUPPLYs" />
+            <End Role="SUPPLY" EntitySet="SUPPLies" />
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_STRUCTURE_1_0" Association="Self.FK_PRODUCT_STRUCTURE_1_0">
@@ -408,7 +408,7 @@
                 <ScalarProperty Name="id_client" ColumnName="id_client" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="accsess_level" ColumnName="accsess_level" />
+                <ScalarProperty Name="access_level" ColumnName="access_level" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="patronymic" ColumnName="patronymic" />
@@ -453,7 +453,7 @@
                 <ScalarProperty Name="color" ColumnName="color" />
                 <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="id_supply" ColumnName="id_storage" />
+                <ScalarProperty Name="id_supply" ColumnName="id_supply" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -467,10 +467,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SUPPLYs">
+          <EntitySetMapping Name="SUPPLies">
             <EntityTypeMapping TypeName="studioModel.SUPPLY">
-              <MappingFragment StoreEntitySet="STORAGE">
-                <ScalarProperty Name="id_supply" ColumnName="id_storage" />
+              <MappingFragment StoreEntitySet="SUPPLY">
+                <ScalarProperty Name="id_supply" ColumnName="id_supply" />
                 <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
                 <ScalarProperty Name="count" ColumnName="count" />
               </MappingFragment>

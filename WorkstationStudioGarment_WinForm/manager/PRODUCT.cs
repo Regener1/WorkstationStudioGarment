@@ -32,7 +32,7 @@ namespace WorkstationStudioGarment_WinForm.manager
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BASKET> BASKETs { get; set; }
-        public virtual SUPPLY STORAGE { get; set; }
+        public virtual SUPPLY SUPPLY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
     }
