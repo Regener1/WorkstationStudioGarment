@@ -4,18 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4fe0154a05bb42fbaad9dae01a6df8f4" Name="Diagram1">
-        <EntityTypeShape EntityType="StudioDBModel.BASKET" Width="1.5" PointX="3.875" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudioDBModel.CLIENT" Width="1.5" PointX="1" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudioDBModel.ORDER" Width="1.5" PointX="4" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudioDBModel.PRODUCT" Width="1.5" PointX="6.625" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudioDBModel.PRODUCT_STRUCTURE" Width="1.5" PointX="9.125" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="StudioDBModel.STORAGE" Width="1.5" PointX="9" PointY="2.125" IsExpanded="true" />
-        <AssociationConnector Association="StudioDBModel.FK_BASKET_0_0" ManuallyRouted="false" />
-        <AssociationConnector Association="StudioDBModel.FK_BASKET_1_0" ManuallyRouted="false" />
-        <AssociationConnector Association="StudioDBModel.FK_ORDER_0_0" ManuallyRouted="false" />
-        <AssociationConnector Association="StudioDBModel.FK_PRODUCT_0_0" ManuallyRouted="false" />
-        <AssociationConnector Association="StudioDBModel.FK_PRODUCT_STRUCTURE_0_0" ManuallyRouted="false" />
+      <Diagram DiagramId="4f45c77901054d589677551eb670dd1e" Name="Diagram1">
+        <EntityTypeShape EntityType="studioModel.BASKET" Width="1.5" PointX="4.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.CLIENT" Width="1.5" PointX="1" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="9.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.ORDER" Width="1.5" PointX="4.125" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="7" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="7" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.STORAGE" Width="1.5" PointX="9.5" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="studioModel.FK_BASKET_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_BASKET_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_ORDER_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_PRODUCT_STRUCTURE_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_PRODUCT_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_PRODUCT_STRUCTURE_1_0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

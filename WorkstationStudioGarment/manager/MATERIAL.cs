@@ -12,14 +12,19 @@ namespace WorkstationStudioGarment.manager
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCT_STRUCTURE
+    public partial class MATERIAL
     {
-        public int id_product_structure { get; set; }
-        public int count { get; set; }
-        public int id_product { get; set; }
-        public int id_material { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MATERIAL()
+        {
+            this.PRODUCT_STRUCTURE = new HashSet<PRODUCT_STRUCTURE>();
+        }
     
-        public virtual MATERIAL MATERIAL { get; set; }
-        public virtual PRODUCT PRODUCT { get; set; }
+        public int id_material { get; set; }
+        public string name { get; set; }
+        public int count { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
     }
 }
