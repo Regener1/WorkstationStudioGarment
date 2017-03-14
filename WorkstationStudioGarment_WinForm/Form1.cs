@@ -13,7 +13,7 @@ namespace WorkstationStudioGarment_WinForm
 {
     public partial class Form1 : Form
     {
-        FTanya f = new FTanya();
+        FRegistration f = new FRegistration();
         public Form1()
         {
             InitializeComponent();

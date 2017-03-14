@@ -71,13 +71,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="control\ClientControl1.cs" />
+    <Compile Include="control\ClientControl.cs" />
     <Compile Include="control\ProductControl.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FRegistration.Designer.cs">
+      <DependentUpon>FRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FTanya.cs">
       <SubType>Form</SubType>
@@ -131,6 +137,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\FRegistration.resx">
+      <DependentUpon>FRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FTanya.resx">
       <DependentUpon>FTanya.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,7 +174,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

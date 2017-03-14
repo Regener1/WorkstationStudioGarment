@@ -88,7 +88,7 @@ namespace WorkstationStudioGarment_WinForm.control
             return id;
         }
 
-        public DataTable GetProduct()
+        public void /*DataTable*/ GetProduct()
         {
             DataTable dt;
             try
@@ -98,7 +98,7 @@ namespace WorkstationStudioGarment_WinForm.control
                     var data = from supply in db.SUPPLies
                                where supply.id_supply == 1
                                select supply;
-                     dt data.ToList();
+                     //dt data.ToList();
                 }
             }
             catch (Exception e)
@@ -106,7 +106,7 @@ namespace WorkstationStudioGarment_WinForm.control
                 throw e;
             }
 
-            return id;
+            //return id;
         }
     }
 }

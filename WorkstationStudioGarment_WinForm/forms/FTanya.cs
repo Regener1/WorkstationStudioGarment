@@ -14,7 +14,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FTanya : Form
     {
-        public ClientControl1 clC = new ClientControl1();
+        public ClientControl clC = new ClientControl();
         CLIENT cl = new CLIENT();
         public FTanya()
         {
@@ -23,13 +23,15 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void bAddClient_Click(object sender, EventArgs e)
         {
-            ClientControl1 clC = new ClientControl1();
+            ClientControl clC = new ClientControl();
             clC.addClients("ghj", "jhgh", "8gj", "ghjghj", "hjjh", "bvghj", "fgfgh", 5, 7, 78, 657, 90);
-             IEnumerable<CLIENT> clll = clC.selectAll();
-             foreach (var array in clll)
-            {
-                this.dGClient.Rows.Add(array);
-            }
+           
+            IEnumerable<CLIENT> clll = clC.selectAll().ToList();
+            
+            //foreach (var array in clll)
+            //{
+            //    this.dGClient.Rows.Add(array);
+            //}
         }
 
     }
