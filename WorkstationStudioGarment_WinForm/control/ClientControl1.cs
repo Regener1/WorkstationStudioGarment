@@ -9,7 +9,7 @@ namespace WorkstationStudioGarment_WinForm.control
 {
     public class ClientControl1
     {
-        public void addClients(string login, string password, string surname, 
+        public void addClients (string login, string password, string surname, 
                                 string name, string patronymic, string mail, string phone_number, 
                                 int sex, int growth, int chest, int waist, int hip)
         {
@@ -21,6 +21,7 @@ namespace WorkstationStudioGarment_WinForm.control
                     client.login = login;
                     client.password = password;
                     client.surname = surname;
+                    client.access_level = 0;
                     client.name = name;
                     client.patronymic = patronymic;
                     client.mail = mail;

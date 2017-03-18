@@ -30,7 +30,6 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnInsert = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbCategory = new System.Windows.Forms.TextBox();
             this.tbSize = new System.Windows.Forms.TextBox();
@@ -65,16 +64,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(578, 10);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 2;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // tbName
             // 
@@ -178,7 +167,6 @@
             this.Controls.Add(this.tbSize);
             this.Controls.Add(this.tbCategory);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FTest";
@@ -194,7 +182,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbCategory;
         private System.Windows.Forms.TextBox tbSize;

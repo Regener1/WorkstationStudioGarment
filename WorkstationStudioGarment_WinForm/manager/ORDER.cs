@@ -21,6 +21,6 @@ namespace WorkstationStudioGarment_WinForm.manager
         public decimal total_sum { get; set; }
         public int id_basket { get; set; }
     
-        public virtual BASKET BASKET { get; set; }
+        public virtual BASKET BASKET { private get; set; }
     }
 }

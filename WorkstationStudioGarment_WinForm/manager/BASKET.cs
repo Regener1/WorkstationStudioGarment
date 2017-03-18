@@ -25,9 +25,9 @@ namespace WorkstationStudioGarment_WinForm.manager
         public int id_client { get; set; }
         public int id_product { get; set; }
     
-        public virtual PRODUCT PRODUCT { get; set; }
-        public virtual CLIENT CLIENT { get; set; }
+        public virtual PRODUCT PRODUCT { private get; set; }
+        public virtual CLIENT CLIENT { private get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
+        public virtual ICollection<ORDER> ORDERs { private get; set; }
     }
 }

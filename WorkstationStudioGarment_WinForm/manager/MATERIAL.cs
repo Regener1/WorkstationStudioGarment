@@ -25,6 +25,6 @@ namespace WorkstationStudioGarment_WinForm.manager
         public int count { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { get; set; }
+        public virtual ICollection<PRODUCT_STRUCTURE> PRODUCT_STRUCTURE { private get; set; }
     }
 }

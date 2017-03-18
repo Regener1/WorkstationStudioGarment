@@ -7,6 +7,9 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using WorkstationStudioGarment_WinForm.manager;
+using System.Windows.Forms;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity;
 
 namespace WorkstationStudioGarment_WinForm.control
 {
@@ -19,6 +22,12 @@ namespace WorkstationStudioGarment_WinForm.control
                                 string color, Image photo, decimal price,
                                 int id_supply)
         {
+            string image = ConvertImageToByte(photo);
+            if (image.Equals(""))
+            {
+                throw new Exception("Cannot convert image to string.");
+            }
+
             try
             {
                 using (StudioDB db = new StudioDB())
@@ -28,13 +37,6 @@ namespace WorkstationStudioGarment_WinForm.control
                     product.category = category;
                     product.size = size;
                     product.color = color;
-
-                    string image = ConvertImageToByte(photo);
-                    if (image.Equals(""))
-                    {
-                        throw new Exception("Cannot convert image to string.");
-                    }
-
                     product.photo = image;
                     product.price = price;
                     product.id_supply = id_supply;
@@ -65,9 +67,8 @@ namespace WorkstationStudioGarment_WinForm.control
             return strData;
         }
 
-        public int AddProductIntoSupply (string date, int count)
+        public int AddSupply (string date, int count)
         {
-            int id = -1;
             try
             {
                 using (StudioDB db = new StudioDB())
@@ -77,36 +78,31 @@ namespace WorkstationStudioGarment_WinForm.control
                     supply.count = count;
                     db.SUPPLies.Add(supply);
                     db.SaveChanges();
-                    id = supply.id_supply;
+                    return supply.id_supply;
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
-
-            return id;
         }
 
-        public DataTable GetProduct()
+        public List<SUPPLY> GetSupply()
         {
-            DataTable dt;
+            
             try
             {
                 using (StudioDB db = new StudioDB())
                 {
-                    var data = from supply in db.SUPPLies
-                               where supply.id_supply == 1
-                               select supply;
-                     dt data.ToList();
+                    var supply = db.SUPPLies.ToList();
+
+                    return supply;
                 }
             }
             catch (Exception e)
             {
                 throw e;
             }
-
-            return id;
         }
     }
 }

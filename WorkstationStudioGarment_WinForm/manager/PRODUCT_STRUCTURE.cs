@@ -19,7 +19,7 @@ namespace WorkstationStudioGarment_WinForm.manager
         public int id_product { get; set; }
         public int id_material { get; set; }
     
-        public virtual MATERIAL MATERIAL { get; set; }
-        public virtual PRODUCT PRODUCT { get; set; }
+        public virtual MATERIAL MATERIAL { private get; set; }
+        public virtual PRODUCT PRODUCT { private get; set; }
     }
 }

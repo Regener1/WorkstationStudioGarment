@@ -15,7 +15,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FTanya : Form
     {
         public ClientControl1 clC = new ClientControl1();
-        CLIENT cl = new CLIENT();
+        //CLIENT cl = new CLIENT();
         public FTanya()
         {
             InitializeComponent();
@@ -25,11 +25,11 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             ClientControl1 clC = new ClientControl1();
             clC.addClients("ghj", "jhgh", "8gj", "ghjghj", "hjjh", "bvghj", "fgfgh", 5, 7, 78, 657, 90);
-             IEnumerable<CLIENT> clll = clC.selectAll();
-             foreach (var array in clll)
-            {
-                this.dGClient.Rows.Add(array);
-            }
+            // IEnumerable<CLIENT> clll = clC.selectAll();
+            // foreach (var array in clll)
+            //{
+            //    this.dGClient.Rows.Add(array);
+            //}
         }
 
     }

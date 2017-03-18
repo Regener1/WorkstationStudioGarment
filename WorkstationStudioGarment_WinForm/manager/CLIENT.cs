@@ -36,6 +36,6 @@ namespace WorkstationStudioGarment_WinForm.manager
         public int hip { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BASKET> BASKETs { get; set; }
+        public virtual ICollection<BASKET> BASKETs { private get; set; }
     }
 }

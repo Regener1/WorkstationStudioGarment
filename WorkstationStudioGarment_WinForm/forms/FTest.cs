@@ -21,19 +21,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             InitializeComponent();
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    pc.AddProduct(tbCategory.Text, tbCategory.Text, Convert.ToInt32(tbSize.Text),
-            //                tbColor.Text, image, Convert.ToDecimal(tbPrice.Text),);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
         private void btnLoadPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -48,7 +35,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                int id = pc.AddProductIntoSupply(tbDeliveryDate.Text, Convert.ToInt32(tbCount.Text));
+                int id = pc.AddSupply(tbDeliveryDate.Text, Convert.ToInt32(tbCount.Text));
 
                 pc.AddProduct(tbCategory.Text, tbCategory.Text, Convert.ToInt32(tbSize.Text),
                             tbColor.Text, image, Convert.ToDecimal(tbPrice.Text), id);
@@ -61,7 +48,15 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnShowProduct_Click(object sender, EventArgs e)
         {
-
-        }
+            try
+            {
+                dataGridView1.DataSource = pc.GetSupply();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
     }
 }
