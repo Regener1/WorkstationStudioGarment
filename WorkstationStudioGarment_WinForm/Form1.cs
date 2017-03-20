@@ -13,19 +13,20 @@ namespace WorkstationStudioGarment_WinForm
 {
     public partial class Form1 : Form
     {
-        FRegistration f = new FRegistration();
+        FAuthorization f = new FAuthorization();
+        //FRegistration f = new FRegistration();
         public Form1()
         {
             InitializeComponent();
-
             f.ShowDialog();
+           // f.ShowDialog();
 
         }
 
         private void btnTestForm_Click(object sender, EventArgs e)
         {
-            FTest fTest = new FTest();
-            fTest.ShowDialog();
+           // FTest fTest = new FTest();
+           // fTest.ShowDialog();
         }
     }
 }

@@ -79,6 +79,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\FAuthorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FAuthorization.Designer.cs">
+      <DependentUpon>FAuthorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FMain.Designer.cs">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\FRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +149,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\FAuthorization.resx">
+      <DependentUpon>FAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FMain.resx">
+      <DependentUpon>FMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FRegistration.resx">
       <DependentUpon>FRegistration.cs</DependentUpon>
     </EmbeddedResource>

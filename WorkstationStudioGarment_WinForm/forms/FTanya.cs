@@ -24,9 +24,9 @@ namespace WorkstationStudioGarment_WinForm.forms
         private void bAddClient_Click(object sender, EventArgs e)
         {
             ClientControl clC = new ClientControl();
-            clC.addClients("ghj", "jhgh", "8gj", "ghjghj", "hjjh", "bvghj", "fgfgh", 5, 7, 78, 657, 90);
+            clC.AddClients("ghj", "jhgh", "8gj", "ghjghj", "hjjh", "bvghj", "fgfgh", 5, 7, 78, 657, 90);
            
-            IEnumerable<CLIENT> clll = clC.selectAll().ToList();
+            IEnumerable<CLIENT> clll = clC.SelectAll().ToList();
             
             //foreach (var array in clll)
             //{

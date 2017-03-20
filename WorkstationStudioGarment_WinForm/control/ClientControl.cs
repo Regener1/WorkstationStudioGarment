@@ -9,7 +9,7 @@ namespace WorkstationStudioGarment_WinForm.control
 {
     public class ClientControl
     {
-        public void addClients(string login, string password, string surname, 
+        public void AddClients(string login, string password, string surname, 
                                 string name, string patronymic, string mail, string phone_number, 
                                 int sex, int growth, int chest, int waist, int hip)
         {
@@ -44,7 +44,7 @@ namespace WorkstationStudioGarment_WinForm.control
         /// <summary>
         /// Select all record from CLIENT table
         /// </summary>
-        public IEnumerable<CLIENT> selectAll()
+        public IEnumerable<CLIENT> SelectAll()
         {
             using (StudioDB db = new StudioDB())
             {
@@ -56,7 +56,7 @@ namespace WorkstationStudioGarment_WinForm.control
         }
 
 
-        public void changeParametrs(string login, string mail, string phone_number,
+        public void ChangeParametrs(string login, string mail, string phone_number,
                                  int growth, int chest, int waist, int hip)
         {
             try
@@ -76,6 +76,20 @@ namespace WorkstationStudioGarment_WinForm.control
                 }
             }
             catch (Exception ex) {
+                throw ex;
+            }
+        }
+
+        public List<CLIENT> SearchClient(string login, string password) { 
+            try {
+                using (StudioDB db = new StudioDB()) {
+                    var tmpclient = from cl in db.CLIENTs
+                                    where cl.login == login && cl.password == password
+                                    select cl;
+                    return tmpclient.ToList();
+                }
+            }
+            catch(Exception ex) {
                 throw ex;
             }
         }

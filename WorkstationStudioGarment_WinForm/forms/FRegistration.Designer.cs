@@ -43,7 +43,6 @@
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbMan = new System.Windows.Forms.CheckBox();
@@ -57,6 +56,7 @@
             this.tbWaist = new System.Windows.Forms.TextBox();
             this.lblHip = new System.Windows.Forms.Label();
             this.tbHip = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // bRegistration
@@ -198,14 +198,6 @@
             this.lblLogin.TabIndex = 18;
             this.lblLogin.Text = "Логин";
             // 
-            // tbPassword
-            // 
-            this.tbPassword.ForeColor = System.Drawing.Color.DarkCyan;
-            this.tbPassword.Location = new System.Drawing.Point(62, 77);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(245, 20);
-            this.tbPassword.TabIndex = 17;
-            // 
             // tbLogin
             // 
             this.tbLogin.ForeColor = System.Drawing.Color.DarkCyan;
@@ -328,12 +320,21 @@
             this.tbHip.Size = new System.Drawing.Size(245, 20);
             this.tbHip.TabIndex = 30;
             // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(62, 77);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(245, 20);
+            this.tbPassword.TabIndex = 32;
+            // 
             // FRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(379, 598);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblHip);
             this.Controls.Add(this.tbHip);
             this.Controls.Add(this.lblWaist);
@@ -346,7 +347,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chWoman);
             this.Controls.Add(this.cbMan);
-            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblLogin);
@@ -387,7 +387,6 @@
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbMan;
@@ -401,5 +400,6 @@
         private System.Windows.Forms.TextBox tbWaist;
         private System.Windows.Forms.Label lblHip;
         private System.Windows.Forms.TextBox tbHip;
+        private System.Windows.Forms.MaskedTextBox tbPassword;
     }
 }

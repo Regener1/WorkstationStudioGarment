@@ -32,7 +32,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
             try
             {
-                cl.addClients(tbLogin.Text, tbPassword.Text, tbSurname.Text, tbName.Text,
+                cl.AddClients(tbLogin.Text, tbPassword.Text, tbSurname.Text, tbName.Text,
                     tbPatronymic.Text, tbMail.Text, tbPhone.Text, sex,
                     Int32.Parse(tbGrowth.Text), Int32.Parse(tbChest.Text),
                     Int32.Parse(tbWaist.Text), Int32.Parse(tbHip.Text));
@@ -42,6 +42,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 MessageBox.Show("Ошибка при регистрации в системе.\n" + ex.Message);    
             }
             MessageBox.Show("Регистрация прошла успешно.");
+            Close();
         }
 
 
