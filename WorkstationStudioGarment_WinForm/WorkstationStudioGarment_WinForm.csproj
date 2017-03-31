@@ -60,6 +60,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,25 +72,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="control\ClientControl1.cs" />
-    <Compile Include="control\ProductControl.cs" />
+    <Compile Include="containers\ProductEntity.cs" />
+    <Compile Include="containers\ProductStructureEntity.cs" />
+    <Compile Include="control\DbManager.cs" />
+    <Compile Include="control\ProductsManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\FTanya.cs">
+    <Compile Include="forms\FAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\FTanya.Designer.cs">
-      <DependentUpon>FTanya.cs</DependentUpon>
+    <Compile Include="forms\FAddProduct.Designer.cs">
+      <DependentUpon>FAddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\FTest.cs">
+    <Compile Include="forms\FAddSupply.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\FTest.Designer.cs">
-      <DependentUpon>FTest.cs</DependentUpon>
+    <Compile Include="forms\FAddSupply.Designer.cs">
+      <DependentUpon>FAddSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FPersonalAreaAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FPersonalAreaAdmin.Designer.cs">
+      <DependentUpon>FPersonalAreaAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="manager\BASKET.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
@@ -97,7 +106,6 @@
     <Compile Include="manager\CLIENT.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="manager\DBManager.cs" />
     <Compile Include="manager\MATERIAL.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
@@ -110,7 +118,6 @@
     <Compile Include="manager\PRODUCT_STRUCTURE.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="manager\StorageEntity.cs" />
     <Compile Include="manager\StudioDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,11 +138,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\FTanya.resx">
-      <DependentUpon>FTanya.cs</DependentUpon>
+    <Compile Include="tool\ImgConverter.cs" />
+    <EmbeddedResource Include="forms\FAddProduct.resx">
+      <DependentUpon>FAddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\FTest.resx">
-      <DependentUpon>FTest.cs</DependentUpon>
+    <EmbeddedResource Include="forms\FAddSupply.resx">
+      <DependentUpon>FAddSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FPersonalAreaAdmin.resx">
+      <DependentUpon>FPersonalAreaAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,7 +178,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="manager\StudioDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

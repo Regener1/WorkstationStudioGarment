@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="studioModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Regener\Documents\Visual Studio 2015\Projects\WorkstationStudioGarment\WorkstationStudioGarment\WorkstationStudioGarment_WinForm\database\studio.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="studioModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Regener\Documents\Visual Studio 2015\Projects\WorkstationStudioGarment_Copy\WorkstationStudioGarment_WinForm\database\studio.db&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BASKET">
           <Key>
             <PropertyRef Name="id_basket" />
@@ -64,6 +64,7 @@
           <Property Name="photo" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="price" Type="decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_supply" Type="integer" Nullable="false" />
+          <Property Name="count" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCT_STRUCTURE">
           <Key>
@@ -80,7 +81,6 @@
           </Key>
           <Property Name="id_supply" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="delivery_date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="count" Type="integer" Nullable="false" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
@@ -257,6 +257,7 @@
           <Property Name="photo" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_supply" Type="Int32" Nullable="false" />
+          <Property Name="count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="PRODUCT" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="SUPPLY" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="SUPPLY" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_1_0" FromRole="PRODUCT" ToRole="PRODUCT_STRUCTURE" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
@@ -265,7 +266,7 @@
           <Key>
             <PropertyRef Name="id_product_structure" />
           </Key>
-          <Property Name="id_product_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_product_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="id_product" Type="Int32" Nullable="false" />
           <Property Name="id_material" Type="Int32" Nullable="false" />
@@ -278,8 +279,7 @@
           </Key>
           <Property Name="id_supply" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="delivery_date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="SUPPLY" ToRole="PRODUCT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Public" />
+          <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="SUPPLY" ToRole="PRODUCT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
@@ -454,6 +454,7 @@
                 <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="id_supply" ColumnName="id_supply" />
+                <ScalarProperty Name="count" ColumnName="count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -472,7 +473,6 @@
               <MappingFragment StoreEntitySet="SUPPLY">
                 <ScalarProperty Name="id_supply" ColumnName="id_supply" />
                 <ScalarProperty Name="delivery_date" ColumnName="delivery_date" />
-                <ScalarProperty Name="count" ColumnName="count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
