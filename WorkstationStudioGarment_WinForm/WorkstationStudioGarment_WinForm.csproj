@@ -72,12 +72,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\ClientControl.cs" />
-    <Compile Include="control\ProductControl.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="control\DbManager.cs" />
+    <Compile Include="forms\FMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="forms\FMain.Designer.cs">
+      <DependentUpon>FMain.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FAuthorization.cs">
       <SubType>Form</SubType>
@@ -85,29 +85,11 @@
     <Compile Include="forms\FAuthorization.Designer.cs">
       <DependentUpon>FAuthorization.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\FMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\FMain.Designer.cs">
-      <DependentUpon>FMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\FRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\FRegistration.Designer.cs">
       <DependentUpon>FRegistration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\FTanya.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\FTanya.Designer.cs">
-      <DependentUpon>FTanya.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\FTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\FTest.Designer.cs">
-      <DependentUpon>FTest.cs</DependentUpon>
     </Compile>
     <Compile Include="manager\BASKET.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
@@ -115,7 +97,6 @@
     <Compile Include="manager\CLIENT.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="manager\DBManager.cs" />
     <Compile Include="manager\MATERIAL.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
@@ -128,7 +109,6 @@
     <Compile Include="manager\PRODUCT_STRUCTURE.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="manager\StorageEntity.cs" />
     <Compile Include="manager\StudioDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,20 +129,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forms\FAuthorization.resx">
-      <DependentUpon>FAuthorization.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\FAuthorization.resx">
+      <DependentUpon>FAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FRegistration.resx">
       <DependentUpon>FRegistration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\FTanya.resx">
-      <DependentUpon>FTanya.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\FTest.resx">
-      <DependentUpon>FTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

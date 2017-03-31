@@ -14,9 +14,11 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FAuthorization : Form
     {
-        FMain fmain = new FMain();
+       // FMain fmain = new FMain();
         FRegistration freg = new FRegistration();
         ClientControl cl = new ClientControl();
+        List<CLIENT> client;
+        public CLIENT ourClient;
         public FAuthorization()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                var client = cl.SearchClient(tbLogin.Text, tbPassword.Text);
+                client = cl.SearchClient(tbLogin.Text, tbPassword.Text);
                 if (client.Count == 0)
                 {
                     lblError.Visible = true;
@@ -36,8 +38,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 else
                 {
                     MessageBox.Show("Вы успешно вошли в систему.");
-                    fmain.SetClient(client[0]);
-                    fmain.ShowDialog();
+                    ourClient = client[0];
                     Close();
                 }
             }

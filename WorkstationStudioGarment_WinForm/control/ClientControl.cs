@@ -93,5 +93,19 @@ namespace WorkstationStudioGarment_WinForm.control
                 throw ex;
             }
         }
+
+        public List<CLIENT> SearchClientByLogin(string login) {
+            try { 
+                using(StudioDB db = new StudioDB()) {
+                    var tmpclient = from cl in db.CLIENTs
+                                    where cl.login == login
+                                    select cl;
+                    return tmpclient.ToList();
+                }
+            }
+            catch(Exception ex) {
+                throw ex;
+            }
+        }
     }
 }
