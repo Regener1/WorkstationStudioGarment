@@ -12,6 +12,7 @@ using System.Data.Entity.Core.Objects;
 using System.Data.Entity;
 using WorkstationStudioGarment_WinForm.containers;
 
+
 namespace WorkstationStudioGarment_WinForm.control
 {
     class DbManager
@@ -338,9 +339,6 @@ namespace WorkstationStudioGarment_WinForm.control
             }
         }
 
-        
-
-        
     }
 }
 
