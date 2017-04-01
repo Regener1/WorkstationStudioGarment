@@ -60,17 +60,26 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
+                if (lvSupplies.SelectedIndices.Count == 0)
+                {
+                    return;
+                }
                 lProducts.Clear();
+                lvProducts.Items.Clear();
                 int idSupply = lSupplies[lvSupplies.SelectedIndices[0]].id_supply;
                 lProducts = pManager.GetSuppliesProducts(idSupply);
 
-                foreach (PRODUCT p in lProducts)
+                if (lProducts.Count != 0)
                 {
-                    lvProducts.Items.Add(new ListViewItem(new string[] { p.id_product.ToString(), p.title,
-                                                                    p.category, p.color,
-                                                                    p.price.ToString(), p.count.ToString(),
-                                                                    p.id_supply.ToString()}));
+                    foreach (PRODUCT p in lProducts)
+                    {
+                        lvProducts.Items.Add(new ListViewItem(new string[] { p.id_product.ToString(), p.title,
+                                                                    p.category, p.size.ToString(),
+                                                                    p.color, p.price.ToString(),
+                                                                    p.count.ToString(), p.id_supply.ToString()}));
+                    }
                 }
+
             }
             catch (Exception ex)
             {
@@ -82,20 +91,26 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
+                if(lvProducts.SelectedIndices.Count == 0)
+                {
+                    return;
+                }
                 Image photo = ImgConverter.ImageFromString(lProducts[lvProducts.SelectedIndices[0]].photo);
                 pictureBoxPhoto.Image = photo;
 
                 int idProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
 
                 lProductStructures.Clear();
+                lvProductStructure.Items.Clear();
                 lProductStructures = pManager.GetProductStructure(idProduct);
+
 
                 foreach (ProductStructureEntity ps in lProductStructures)
                 {
                     lvProductStructure.Items.Add(new ListViewItem(new string[] { ps.MaterialName, ps.Count.ToString() }));
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -103,19 +118,25 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if(lvSupplies.SelectedIndices.Count > 0)
+            if (lvSupplies.SelectedIndices.Count > 0)
             {
                 FAddProduct fAddProduct = new FAddProduct();
                 fAddProduct.IdSupply = lSupplies[lvSupplies.SelectedIndices[0]].id_supply;
                 fAddProduct.ShowDialog();
+
                 PRODUCT newProduct = fAddProduct.GetProduct();
-                lProducts.Add(newProduct);
-                lvProducts.Items.Add(new ListViewItem(new string[] { newProduct.id_product.ToString(), newProduct.title,
-                                                                    newProduct.category, newProduct.color,
-                                                                    newProduct.price.ToString(), newProduct.count.ToString(),
-                                                                    newProduct.id_supply.ToString()}));
+
+                if(newProduct != null)
+                {
+                    lProducts.Add(newProduct);
+                    lvProducts.Items.Add(new ListViewItem(new string[] { newProduct.id_product.ToString(), newProduct.title,
+                                                                    newProduct.category, newProduct.size.ToString(),
+                                                                    newProduct.color, newProduct.price.ToString(),
+                                                                    newProduct.count.ToString(), newProduct.id_supply.ToString()}));
+                }
+
             }
-            
+
         }
 
         private void btnAddSupply_Click(object sender, EventArgs e)
@@ -123,8 +144,17 @@ namespace WorkstationStudioGarment_WinForm.forms
             FAddSupply fAddSupply = new FAddSupply();
             fAddSupply.ShowDialog();
             SUPPLY newSupply = fAddSupply.GetSupply();
-            lSupplies.Add(newSupply);
-            lvSupplies.Items.Add(new ListViewItem(new string[] { newSupply.id_supply.ToString(), newSupply.delivery_date }));
+
+            if (newSupply != null)
+            {
+                lSupplies.Add(newSupply);
+                lvSupplies.Items.Add(new ListViewItem(new string[] { newSupply.id_supply.ToString(), newSupply.delivery_date }));
+            }
+        }
+
+        private void btnAddProductStructure_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

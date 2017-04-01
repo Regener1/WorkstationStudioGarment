@@ -153,6 +153,7 @@
             this.btnAddProductStructure.TabIndex = 39;
             this.btnAddProductStructure.Text = "Добавить состав товара";
             this.btnAddProductStructure.UseVisualStyleBackColor = true;
+            this.btnAddProductStructure.Click += new System.EventHandler(this.btnAddProductStructure_Click);
             // 
             // btnAddSupply
             // 

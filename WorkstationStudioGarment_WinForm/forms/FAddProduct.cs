@@ -64,6 +64,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
 
             pManager.Add(product);
+            Close();
         }
     }
 }

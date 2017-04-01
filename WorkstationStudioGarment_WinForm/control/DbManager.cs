@@ -187,8 +187,11 @@ namespace WorkstationStudioGarment_WinForm.control
                     var structure = from ps in db.PRODUCT_STRUCTURE
                                     join m in db.MATERIALs on ps.id_material equals m.id_material
                                     where ps.id_product == idProduct
-                                    select new ProductStructureEntity(ps.id_product_structure, ps.count, m.name);
-                    return structure.ToList();
+                                    select new { ps.id_product_structure, ps.count, m.name };
+                    return structure
+                        .ToList()
+                        .Select(x => new ProductStructureEntity(x.id_product_structure, x.count, x.name))
+                        .ToList();
                 }
             }
             catch (Exception e)

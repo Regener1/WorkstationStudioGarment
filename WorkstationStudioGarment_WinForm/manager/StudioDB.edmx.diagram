@@ -7,7 +7,7 @@
       <Diagram DiagramId="4fb5653fe5f041dfb9c96a97886db4fe" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="studioModel.BASKET" Width="1.5" PointX="4.125" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.CLIENT" Width="1.5" PointX="1.375" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="9.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="9.875" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.ORDER" Width="1.5" PointX="4" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="6.625" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />

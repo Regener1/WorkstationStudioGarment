@@ -32,6 +32,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             supply = new SUPPLY();
             supply.delivery_date = mtbDeliveryDate.Text;
             pManager.Add(supply);
+            Close();
         }
     }
 }
