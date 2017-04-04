@@ -14,7 +14,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FAddSupply : Form
     {
-        private ProductsManager pManager = new ProductsManager();
+        private ProductsControlService productsControlS = new ProductsControlService();
         private SUPPLY supply;
 
         public FAddSupply()
@@ -31,7 +31,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             supply = new SUPPLY();
             supply.delivery_date = mtbDeliveryDate.Text;
-            pManager.Add(supply);
+            productsControlS.Add(supply);
             Close();
         }
     }

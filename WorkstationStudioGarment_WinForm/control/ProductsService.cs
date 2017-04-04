@@ -8,24 +8,24 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.control
 {
-    class ProductsManager
+    class ProductsService
     {
+
         private DbManager manager = new DbManager();
 
         public void Add(PRODUCT product)
         {
             manager.AddProduct(product);
-            
-            //for (int i = 0; i < productEntity.ProductStructures.Count; i++)
-            //{
-            //    productEntity.ProductStructures[i].id_product = idProduct;
-            //    manager.AddProductStructure(productEntity.ProductStructures[i]);
-            //}
         }
 
         public void Add(SUPPLY supply)
         {
             manager.AddSupply(supply);
+        }
+
+        public void Add(PRODUCT_STRUCTURE productStruct)
+        {
+            manager.AddProductStructure(productStruct);
         }
 
         public void Edit()
@@ -56,7 +56,19 @@ namespace WorkstationStudioGarment_WinForm.control
             {
                 return manager.GetSupplies();
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public List<MATERIAL> GetAllMaterials()
+        {
+            try
+            {
+                return manager.GetMaterials();
+            }
+            catch (Exception e)
             {
                 throw e;
             }

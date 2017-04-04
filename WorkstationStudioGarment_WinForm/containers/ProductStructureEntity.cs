@@ -8,7 +8,7 @@ namespace WorkstationStudioGarment_WinForm.containers
 {
     class ProductStructureEntity
     {
-        private int idProductStructure;
+        private int idMaterial;
         private int count;
         private string materialName;
 
@@ -16,21 +16,21 @@ namespace WorkstationStudioGarment_WinForm.containers
 
         public ProductStructureEntity(int idProductStructure, int count, string materialName)
         {
-            this.idProductStructure = idProductStructure;
+            this.idMaterial = idProductStructure;
             this.count = count;
             this.materialName = materialName;
         }
 
-        public int IdProductStructure
+        public int IdMaterial
         {
             get
             {
-                return idProductStructure;
+                return idMaterial;
             }
 
             set
             {
-                idProductStructure = value;
+                idMaterial = value;
             }
         }
 

@@ -27,6 +27,7 @@ namespace WorkstationStudioGarment_WinForm.control
             {
                 using (StudioDB db = new StudioDB())
                 {
+                    
                     db.PRODUCTs.Add(product);
                     db.SaveChanges();
                     return product.id_product;

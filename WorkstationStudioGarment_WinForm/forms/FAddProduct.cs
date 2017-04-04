@@ -16,7 +16,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FAddProduct : Form
     {
         private int idSupply = -1;
-        private ProductsManager pManager = new ProductsManager();
+        private ProductsControlService productsControlS = new ProductsControlService();
         private PRODUCT product;
 
         public FAddProduct()
@@ -63,7 +63,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 product.id_supply = idSupply;
             }
 
-            pManager.Add(product);
+            productsControlS.Add(product);
             Close();
         }
     }

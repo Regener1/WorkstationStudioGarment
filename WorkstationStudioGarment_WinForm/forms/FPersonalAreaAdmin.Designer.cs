@@ -60,6 +60,7 @@
             this.colHeadPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnMaterialEditor = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
             this.tabPageProductsManager.SuspendLayout();
@@ -125,6 +126,7 @@
             // 
             // tabPageProductsManager
             // 
+            this.tabPageProductsManager.Controls.Add(this.btnMaterialEditor);
             this.tabPageProductsManager.Controls.Add(this.btnAddProductStructure);
             this.tabPageProductsManager.Controls.Add(this.btnAddSupply);
             this.tabPageProductsManager.Controls.Add(this.btnAddProduct);
@@ -208,6 +210,7 @@
             this.lvProductStructure.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeadMaterial,
             this.colHeadMaterialCount});
+            this.lvProductStructure.FullRowSelect = true;
             this.lvProductStructure.Location = new System.Drawing.Point(947, 59);
             this.lvProductStructure.MultiSelect = false;
             this.lvProductStructure.Name = "lvProductStructure";
@@ -240,6 +243,7 @@
             this.lvSupplies.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeadId,
             this.colHeadDeliveryDate});
+            this.lvSupplies.FullRowSelect = true;
             this.lvSupplies.Location = new System.Drawing.Point(7, 59);
             this.lvSupplies.MultiSelect = false;
             this.lvSupplies.Name = "lvSupplies";
@@ -288,6 +292,7 @@
             this.colHeadPrice,
             this.colHeadProductCount,
             this.colHeadIdSupply});
+            this.lvProducts.FullRowSelect = true;
             this.lvProducts.Location = new System.Drawing.Point(272, 59);
             this.lvProducts.MultiSelect = false;
             this.lvProducts.Name = "lvProducts";
@@ -335,6 +340,16 @@
             // 
             this.colHeadIdSupply.Text = "Id поставки";
             this.colHeadIdSupply.Width = 77;
+            // 
+            // btnMaterialEditor
+            // 
+            this.btnMaterialEditor.Location = new System.Drawing.Point(1180, 610);
+            this.btnMaterialEditor.Name = "btnMaterialEditor";
+            this.btnMaterialEditor.Size = new System.Drawing.Size(128, 23);
+            this.btnMaterialEditor.TabIndex = 40;
+            this.btnMaterialEditor.Text = "Редактор материалов";
+            this.btnMaterialEditor.UseVisualStyleBackColor = true;
+            this.btnMaterialEditor.Click += new System.EventHandler(this.btnMaterialEditor_Click);
             // 
             // FPersonalAreaAdmin
             // 
@@ -390,5 +405,6 @@
         private System.Windows.Forms.Button btnAddProductStructure;
         private System.Windows.Forms.Button btnAddSupply;
         private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnMaterialEditor;
     }
 }
