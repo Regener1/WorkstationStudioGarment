@@ -71,17 +71,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="containers\ProductEntity.cs" />
-    <Compile Include="containers\ProductStructureEntity.cs" />
+    <Compile Include="containers\ProductContainer.cs" />
+    <Compile Include="containers\ProductStructureAvailableContainer.cs" />
+    <Compile Include="containers\ProductStructureContainer.cs" />
     <Compile Include="control\BasketService.cs" />
     <Compile Include="control\ClientControl.cs" />
     <Compile Include="control\ClientService.cs" />
     <Compile Include="control\DbManager.cs" />
     <Compile Include="control\MaterialService.cs" />
+    <Compile Include="control\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
-    <Compile Include="control\ProductsControlService.cs" />
+    <Compile Include="control\ProductControlModule.cs" />
     <Compile Include="control\ProductService.cs" />
-    <Compile Include="control\ProductsService.cs" />
     <Compile Include="control\IServiceDAO.cs" />
     <Compile Include="control\ProductStructureService.cs" />
     <Compile Include="control\SupplyService.cs" />

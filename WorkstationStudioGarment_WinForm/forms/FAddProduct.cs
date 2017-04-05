@@ -16,7 +16,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FAddProduct : Form
     {
         private int idSupply = -1;
-        private ProductsControlService productsControlS = new ProductsControlService();
+        private ProductControlModule productsControlS = new ProductControlModule();
         private PRODUCT product;
 
         public FAddProduct()

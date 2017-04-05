@@ -17,11 +17,11 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FPersonalAreaAdmin : Form
     {
 
-        private ProductsControlService productsControlS = new ProductsControlService();
+        private ProductControlModule productsControlS = new ProductControlModule();
 
         private List<SUPPLY> lSupplies = new List<SUPPLY>();
         private List<PRODUCT> lProducts = new List<PRODUCT>();
-        private List<ProductStructureEntity> lProductStructures = new List<ProductStructureEntity>();
+        private List<ProductStructureContainer> lProductStructure = new List<ProductStructureContainer>();
 
         public FPersonalAreaAdmin()
         {
@@ -32,7 +32,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             lSupplies.Clear();
             lProducts.Clear();
-            lProductStructures.Clear();
+            lProductStructure.Clear();
             lvSupplies.Items.Clear();
             lvProducts.Items.Clear();
             lvProductStructure.Items.Clear();
@@ -100,12 +100,12 @@ namespace WorkstationStudioGarment_WinForm.forms
 
                 PRODUCT product = lProducts[lvProducts.SelectedIndices[0]];
 
-                lProductStructures.Clear();
+                lProductStructure.Clear();
                 lvProductStructure.Items.Clear();
-                lProductStructures = productsControlS.GetProductStructure(product);
+                lProductStructure = productsControlS.GetProductStructure(product);
 
 
-                foreach (ProductStructureEntity ps in lProductStructures)
+                foreach (ProductStructureContainer ps in lProductStructure)
                 {
                     lvProductStructure.Items.Add(new ListViewItem(new string[] { ps.MaterialName, ps.Count.ToString() }));
                 }
@@ -158,14 +158,14 @@ namespace WorkstationStudioGarment_WinForm.forms
             fAddProductStructure.IdProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
             fAddProductStructure.ShowDialog();
 
-            lProductStructures.Clear();
+            lProductStructure.Clear();
             lvProductStructure.Items.Clear();
-            //lProductStructures = fAddProductStructure.GetProductStructureList();
+            lProductStructure = fAddProductStructure.GetProductStructure();
 
-            if(lProductStructures != null)
+            if (lProductStructure != null)
             {
 
-                foreach(ProductStructureEntity pse in lProductStructures)
+                foreach(ProductStructureContainer pse in lProductStructure)
                 {
                     lvProductStructure.Items.Add(new ListViewItem(new string[] { pse.MaterialName, pse.Count.ToString() }));
                 }
@@ -184,6 +184,13 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             FMaterialEditor fMaterialEditor = new FMaterialEditor();
             fMaterialEditor.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrderControlModule ocs = new OrderControlModule();
+            List<PRODUCT> products = ocs.AllProducts();
+            ocs.DecreaseMaterialCount(products[5]);
         }
     }
 }

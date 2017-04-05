@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WorkstationStudioGarment_WinForm.containers
 {
-    class ProductStructureEntity
+    public class ProductStructureContainer
     {
         private int idMaterial;
         private int count;
         private string materialName;
 
-        public ProductStructureEntity() { }
+        public ProductStructureContainer() { }
 
-        public ProductStructureEntity(int idProductStructure, int count, string materialName)
+        public ProductStructureContainer(int idProductStructure, int count, string materialName)
         {
             this.idMaterial = idProductStructure;
             this.count = count;

@@ -61,6 +61,7 @@
             this.lvProductStucture.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeadName,
             this.colHeadCount});
+            this.lvProductStucture.FullRowSelect = true;
             this.lvProductStucture.Location = new System.Drawing.Point(12, 41);
             this.lvProductStucture.Name = "lvProductStucture";
             this.lvProductStucture.Size = new System.Drawing.Size(275, 97);

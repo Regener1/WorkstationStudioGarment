@@ -8,7 +8,7 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.control
 {
-    class ProductsControlService
+    class ProductControlModule
     {
         private SupplyService supplyS = new SupplyService();
         private ProductService productS = new ProductService();
@@ -16,7 +16,7 @@ namespace WorkstationStudioGarment_WinForm.control
         private MaterialService materialS = new MaterialService();
 
         /*
-         *НУЖНЫ TRY CATCH 
+         * НУЖНЫ TRY CATCH
          */
         public void Add(SUPPLY entity)
         {
@@ -30,7 +30,7 @@ namespace WorkstationStudioGarment_WinForm.control
 
         public void Add(PRODUCT_STRUCTURE entity)
         {
-
+            productStructureS.Add(entity);
         }
 
         public void Add(MATERIAL entity)
@@ -76,7 +76,7 @@ namespace WorkstationStudioGarment_WinForm.control
         /// </summary>
         /// <param name="productStruct"></param>
         /// <returns></returns>
-        public List<ProductStructureEntity> GetProductStructure(PRODUCT product)
+        public List<ProductStructureContainer> GetProductStructure(PRODUCT product)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace WorkstationStudioGarment_WinForm.control
                                     select new { ps.id_product_structure, ps.count, m.name };
                     return structure
                         .ToList()
-                        .Select(x => new ProductStructureEntity(x.id_product_structure, x.count, x.name))
+                        .Select(x => new ProductStructureContainer(x.id_product_structure, x.count, x.name))
                         .ToList();
                 }
             }

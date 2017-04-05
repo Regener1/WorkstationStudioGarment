@@ -36,6 +36,7 @@
             this.colHeadLogin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadAccess = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageProductsManager = new System.Windows.Forms.TabPage();
+            this.btnMaterialEditor = new System.Windows.Forms.Button();
             this.btnAddProductStructure = new System.Windows.Forms.Button();
             this.btnAddSupply = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             this.colHeadPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnMaterialEditor = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
             this.tabPageProductsManager.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // tabPageUsersManager
             // 
+            this.tabPageUsersManager.Controls.Add(this.button1);
             this.tabPageUsersManager.Controls.Add(this.listViewUsers);
             this.tabPageUsersManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsersManager.Name = "tabPageUsersManager";
@@ -146,6 +148,16 @@
             this.tabPageProductsManager.TabIndex = 1;
             this.tabPageProductsManager.Text = "Products manager";
             this.tabPageProductsManager.UseVisualStyleBackColor = true;
+            // 
+            // btnMaterialEditor
+            // 
+            this.btnMaterialEditor.Location = new System.Drawing.Point(1180, 610);
+            this.btnMaterialEditor.Name = "btnMaterialEditor";
+            this.btnMaterialEditor.Size = new System.Drawing.Size(128, 23);
+            this.btnMaterialEditor.TabIndex = 40;
+            this.btnMaterialEditor.Text = "Редактор материалов";
+            this.btnMaterialEditor.UseVisualStyleBackColor = true;
+            this.btnMaterialEditor.Click += new System.EventHandler(this.btnMaterialEditor_Click);
             // 
             // btnAddProductStructure
             // 
@@ -341,15 +353,15 @@
             this.colHeadIdSupply.Text = "Id поставки";
             this.colHeadIdSupply.Width = 77;
             // 
-            // btnMaterialEditor
+            // button1
             // 
-            this.btnMaterialEditor.Location = new System.Drawing.Point(1180, 610);
-            this.btnMaterialEditor.Name = "btnMaterialEditor";
-            this.btnMaterialEditor.Size = new System.Drawing.Size(128, 23);
-            this.btnMaterialEditor.TabIndex = 40;
-            this.btnMaterialEditor.Text = "Редактор материалов";
-            this.btnMaterialEditor.UseVisualStyleBackColor = true;
-            this.btnMaterialEditor.Click += new System.EventHandler(this.btnMaterialEditor_Click);
+            this.button1.Location = new System.Drawing.Point(567, 162);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FPersonalAreaAdmin
             // 
@@ -406,5 +418,6 @@
         private System.Windows.Forms.Button btnAddSupply;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnMaterialEditor;
+        private System.Windows.Forms.Button button1;
     }
 }

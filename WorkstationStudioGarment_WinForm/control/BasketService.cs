@@ -15,7 +15,6 @@ namespace WorkstationStudioGarment_WinForm.control
             {
                 using (StudioDB db = new StudioDB())
                 {
-
                     db.BASKETs.Add(entity);
                     db.SaveChanges();
                 }

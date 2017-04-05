@@ -14,7 +14,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FMaterialEditor : Form
     {
-        private ProductsControlService productsControlS = new ProductsControlService();
+        private ProductControlModule productsControlS = new ProductControlModule();
         private List<MATERIAL> lMaterials = new List<MATERIAL>();
 
         public FMaterialEditor()
