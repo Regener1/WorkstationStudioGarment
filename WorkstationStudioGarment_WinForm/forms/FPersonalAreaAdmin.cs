@@ -17,10 +17,11 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FPersonalAreaAdmin : Form
     {
 
-        private ProductsManager pManager = new ProductsManager();
+        private ProductControlModule productsControlS = new ProductControlModule();
+
         private List<SUPPLY> lSupplies = new List<SUPPLY>();
         private List<PRODUCT> lProducts = new List<PRODUCT>();
-        private List<ProductStructureEntity> lProductStructures = new List<ProductStructureEntity>();
+        private List<ProductStructureContainer> lProductStructure = new List<ProductStructureContainer>();
 
         public FPersonalAreaAdmin()
         {
@@ -31,7 +32,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             lSupplies.Clear();
             lProducts.Clear();
-            lProductStructures.Clear();
+            lProductStructure.Clear();
             lvSupplies.Items.Clear();
             lvProducts.Items.Clear();
             lvProductStructure.Items.Clear();
@@ -43,7 +44,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             {
                 ClearAllLists();
 
-                lSupplies = pManager.GetAllSupplies();
+                lSupplies = productsControlS.AllSupplies();
 
                 foreach (SUPPLY s in lSupplies)
                 {
@@ -66,8 +67,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 }
                 lProducts.Clear();
                 lvProducts.Items.Clear();
-                int idSupply = lSupplies[lvSupplies.SelectedIndices[0]].id_supply;
-                lProducts = pManager.GetSuppliesProducts(idSupply);
+                lProducts = productsControlS.GetSuppliesProducts(lSupplies[lvSupplies.SelectedIndices[0]]);
 
                 if (lProducts.Count != 0)
                 {
@@ -98,14 +98,14 @@ namespace WorkstationStudioGarment_WinForm.forms
                 Image photo = ImgConverter.ImageFromString(lProducts[lvProducts.SelectedIndices[0]].photo);
                 pictureBoxPhoto.Image = photo;
 
-                int idProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
+                PRODUCT product = lProducts[lvProducts.SelectedIndices[0]];
 
-                lProductStructures.Clear();
+                lProductStructure.Clear();
                 lvProductStructure.Items.Clear();
-                lProductStructures = pManager.GetProductStructure(idProduct);
+                lProductStructure = productsControlS.GetProductStructure(product);
 
 
-                foreach (ProductStructureEntity ps in lProductStructures)
+                foreach (ProductStructureContainer ps in lProductStructure)
                 {
                     lvProductStructure.Items.Add(new ListViewItem(new string[] { ps.MaterialName, ps.Count.ToString() }));
                 }
@@ -154,7 +154,43 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnAddProductStructure_Click(object sender, EventArgs e)
         {
+            FAddProductStructure fAddProductStructure = new FAddProductStructure();
+            fAddProductStructure.IdProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
+            fAddProductStructure.ShowDialog();
 
+            lProductStructure.Clear();
+            lvProductStructure.Items.Clear();
+            lProductStructure = fAddProductStructure.GetProductStructure();
+
+            if (lProductStructure != null)
+            {
+
+                foreach(ProductStructureContainer pse in lProductStructure)
+                {
+                    lvProductStructure.Items.Add(new ListViewItem(new string[] { pse.MaterialName, pse.Count.ToString() }));
+                }
+                
+            }
+        }
+
+        private void btnDeleteClient_Click(object sender, EventArgs e)
+        {
+            ClientService cs = new ClientService();
+            List<CLIENT> clients = cs.All();
+            cs.Delete(clients[0]);
+        }
+
+        private void btnMaterialEditor_Click(object sender, EventArgs e)
+        {
+            FMaterialEditor fMaterialEditor = new FMaterialEditor();
+            fMaterialEditor.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OrderControlModule ocs = new OrderControlModule();
+            List<PRODUCT> products = ocs.AllProducts();
+            ocs.DecreaseMaterialCount(products[5]);
         }
     }
 }

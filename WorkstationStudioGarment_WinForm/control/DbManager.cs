@@ -27,6 +27,7 @@ namespace WorkstationStudioGarment_WinForm.control
             {
                 using (StudioDB db = new StudioDB())
                 {
+                    
                     db.PRODUCTs.Add(product);
                     db.SaveChanges();
                     return product.id_product;
@@ -178,7 +179,7 @@ namespace WorkstationStudioGarment_WinForm.control
         /// </summary>
         /// <param name="product"></param>
         /// <returns></returns>
-        public List<ProductStructureEntity> GetProductStructure(int idProduct)
+        public List<ProductStructureContainer> GetProductStructure(int idProduct)
         {
             try
             {
@@ -190,7 +191,7 @@ namespace WorkstationStudioGarment_WinForm.control
                                     select new { ps.id_product_structure, ps.count, m.name };
                     return structure
                         .ToList()
-                        .Select(x => new ProductStructureEntity(x.id_product_structure, x.count, x.name))
+                        .Select(x => new ProductStructureContainer(x.id_product_structure, x.count, x.name))
                         .ToList();
                 }
             }

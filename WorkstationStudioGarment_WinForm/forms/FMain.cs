@@ -37,13 +37,16 @@ namespace WorkstationStudioGarment_WinForm.forms
             f.ShowDialog();
             client = f.ourClient;
             lblClientLogin.Text = client.login;
-            if (client.sex == 1)
-            {
-                mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Man.png");
-            }
-            else {
-                mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Woman.png");
-            }
+            //if (client.sex == 1)
+            //{
+            //    mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Man.png");
+            //}
+            //else
+            //{
+            //    mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Woman.png");
+            //}
+
+            mannequinImg = new Bitmap(pbMannequin.Width, pbMannequin.Height);
 
             //string srt = dbManager.ImageToString(Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/штаны муж.png"));
             //рисуем изначальный манекен

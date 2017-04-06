@@ -71,16 +71,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="containers\ProductEntity.cs" />
-    <Compile Include="containers\ProductStructureEntity.cs" />
+    <Compile Include="containers\ProductContainer.cs" />
+    <Compile Include="containers\ProductStructureAvailableContainer.cs" />
+    <Compile Include="containers\ProductStructureContainer.cs" />
+    <Compile Include="control\BasketService.cs" />
     <Compile Include="control\ClientControl.cs" />
+    <Compile Include="control\ClientService.cs" />
     <Compile Include="control\DbManager.cs" />
-    <Compile Include="control\ProductsManager.cs" />
+    <Compile Include="control\MaterialService.cs" />
+    <Compile Include="control\OrderControlModule.cs" />
+    <Compile Include="control\OrderService.cs" />
+    <Compile Include="control\ProductControlModule.cs" />
+    <Compile Include="control\ProductService.cs" />
+    <Compile Include="control\IServiceDAO.cs" />
+    <Compile Include="control\ProductStructureService.cs" />
+    <Compile Include="control\SupplyService.cs" />
     <Compile Include="forms\FAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\FAddProduct.Designer.cs">
       <DependentUpon>FAddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FAddProductStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FAddProductStructure.Designer.cs">
+      <DependentUpon>FAddProductStructure.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FAddSupply.cs">
       <SubType>Form</SubType>
@@ -99,6 +115,12 @@
     </Compile>
     <Compile Include="forms\FAuthorization.Designer.cs">
       <DependentUpon>FAuthorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FMaterialEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FMaterialEditor.Designer.cs">
+      <DependentUpon>FMaterialEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FPersonalAreaAdmin.cs">
       <SubType>Form</SubType>
@@ -154,6 +176,9 @@
     <EmbeddedResource Include="forms\FAddProduct.resx">
       <DependentUpon>FAddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\FAddProductStructure.resx">
+      <DependentUpon>FAddProductStructure.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FAddSupply.resx">
       <DependentUpon>FAddSupply.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FAuthorization.resx">
       <DependentUpon>FAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FMaterialEditor.resx">
+      <DependentUpon>FMaterialEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FPersonalAreaAdmin.resx">
       <DependentUpon>FPersonalAreaAdmin.cs</DependentUpon>

@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace WorkstationStudioGarment_WinForm.containers
 {
-    class ProductStructureEntity
+    public class ProductStructureContainer
     {
-        private int idProductStructure;
+        private int idMaterial;
         private int count;
         private string materialName;
 
-        public ProductStructureEntity() { }
+        public ProductStructureContainer() { }
 
-        public ProductStructureEntity(int idProductStructure, int count, string materialName)
+        public ProductStructureContainer(int idProductStructure, int count, string materialName)
         {
-            this.idProductStructure = idProductStructure;
+            this.idMaterial = idProductStructure;
             this.count = count;
             this.materialName = materialName;
         }
 
-        public int IdProductStructure
+        public int IdMaterial
         {
             get
             {
-                return idProductStructure;
+                return idMaterial;
             }
 
             set
             {
-                idProductStructure = value;
+                idMaterial = value;
             }
         }
 

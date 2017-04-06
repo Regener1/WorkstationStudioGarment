@@ -8,15 +8,15 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.containers
 {
-    class ProductEntity
+    class ProductContainer
     {
         //заполнить id поставки и id материала
         private PRODUCT product;
         private List<PRODUCT_STRUCTURE> productStructures;
 
-        public ProductEntity() { }
+        public ProductContainer() { }
 
-        public ProductEntity(PRODUCT product, List<PRODUCT_STRUCTURE> productStructures)
+        public ProductContainer(PRODUCT product, List<PRODUCT_STRUCTURE> productStructures)
         {
             this.product = product;
             this.productStructures = productStructures;
