@@ -52,6 +52,7 @@
             this.lblClientLogin.TabIndex = 0;
             this.lblClientLogin.TabStop = true;
             this.lblClientLogin.Text = "our client\'s login";
+            this.lblClientLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClientLogin_LinkClicked);
             // 
             // label1
             // 
@@ -69,7 +70,7 @@
             this.listViewProducts.Location = new System.Drawing.Point(1, 37);
             this.listViewProducts.MultiSelect = false;
             this.listViewProducts.Name = "listViewProducts";
-            this.listViewProducts.Size = new System.Drawing.Size(178, 537);
+            this.listViewProducts.Size = new System.Drawing.Size(371, 537);
             this.listViewProducts.SmallImageList = this.imageList;
             this.listViewProducts.TabIndex = 2;
             this.listViewProducts.UseCompatibleStateImageBehavior = false;
@@ -98,7 +99,7 @@
             // 
             this.panelMannequin.AllowDrop = true;
             this.panelMannequin.Controls.Add(this.pbMannequin);
-            this.panelMannequin.Location = new System.Drawing.Point(207, 37);
+            this.panelMannequin.Location = new System.Drawing.Point(462, 72);
             this.panelMannequin.Name = "panelMannequin";
             this.panelMannequin.Size = new System.Drawing.Size(222, 537);
             this.panelMannequin.TabIndex = 4;
@@ -108,15 +109,16 @@
             // listBoxClothesOnMannequin
             // 
             this.listBoxClothesOnMannequin.FormattingEnabled = true;
-            this.listBoxClothesOnMannequin.Location = new System.Drawing.Point(435, 345);
+            this.listBoxClothesOnMannequin.Location = new System.Drawing.Point(292, 558);
             this.listBoxClothesOnMannequin.Name = "listBoxClothesOnMannequin";
             this.listBoxClothesOnMannequin.Size = new System.Drawing.Size(194, 108);
             this.listBoxClothesOnMannequin.TabIndex = 5;
+            this.listBoxClothesOnMannequin.SelectedIndexChanged += new System.EventHandler(this.listBoxClothesOnMannequin_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(435, 329);
+            this.label2.Location = new System.Drawing.Point(292, 542);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 13);
             this.label2.TabIndex = 6;
