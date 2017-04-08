@@ -18,6 +18,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         FAuthorization f = new FAuthorization();
         CLIENT client;
         List<PRODUCT> listProduct = new List<PRODUCT>(); //список всех продуктов
+        OrderControlModule orderControlModule = new OrderControlModule();
         DbManager dbManager = new DbManager();
         Image mannequinImg; //картинка с манекеном
         List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
@@ -58,7 +59,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 
             //список всех продуктов
             listProduct.Clear();
-            listProduct = dbManager.GetProducts();
+            listProduct = orderControlModule.AllProducts();
 
 
             // извлекаются все изображения из бд и добавляются в imagelist
