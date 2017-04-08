@@ -52,6 +52,7 @@
             this.lblClientLogin.TabIndex = 0;
             this.lblClientLogin.TabStop = true;
             this.lblClientLogin.Text = "our client\'s login";
+            this.lblClientLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClientLogin_LinkClicked);
             // 
             // label1
             // 
@@ -112,6 +113,7 @@
             this.listBoxClothesOnMannequin.Name = "listBoxClothesOnMannequin";
             this.listBoxClothesOnMannequin.Size = new System.Drawing.Size(194, 108);
             this.listBoxClothesOnMannequin.TabIndex = 5;
+            this.listBoxClothesOnMannequin.SelectedIndexChanged += new System.EventHandler(this.listBoxClothesOnMannequin_SelectedIndexChanged);
             // 
             // label2
             // 

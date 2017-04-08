@@ -23,6 +23,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         Image mannequinImg; //картинка с манекеном
         List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
         List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
+        ClientControl clientControl = new ClientControl();
         public FMain()
         {
             InitializeComponent();
@@ -77,10 +78,10 @@ namespace WorkstationStudioGarment_WinForm.forms
 
             //все продукты добавляются в listView 
             listViewProducts.Clear();
-            for(int i = 0; i < listProduct.Count;i++)  
+            for(int i = 0; i < listProduct.Count; i++)  
             {
                 listViewProducts.Items.Add(new ListViewItem(listProduct[i].title.ToString() + "\n" +
-                                                                    listProduct[i].price.ToString(), i));
+                                                            listProduct[i].price.ToString(), i));
             } 
 
             clothes.Clear(); //очищаем список добавленных на манекен вещей
@@ -92,6 +93,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             int index;
             if (listViewProducts.SelectedIndices.Count > 0)
             {
+                //на манекен мы перетаскиваем индекс одежды, на котором она находилась в listProduct
                 index = listViewProducts.SelectedIndices[0];
                 listViewProducts.DoDragDrop(index.ToString(), DragDropEffects.Move | DragDropEffects.Copy);
             }
@@ -101,14 +103,24 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             //индекс = индекс в listProduct
             int index_selected_product = Int32.Parse(e.Data.GetData(DataFormats.Text).ToString());
-            clothes.Add(ImgConverter.ImageFromString(listProduct[index_selected_product].photo));
+            Image img = ImgConverter.ImageFromString(listProduct[index_selected_product].photo);
+            if (listSelectedProduct.Contains(listProduct[index_selected_product]))
+            {
+                return;
+            } 
+
+            clothes.Add(img);
 
             DrawClothesOnMannequin(clothes); //отрисовка всех изображений на манекене
 
+            //
             //вывод в листбокс выбранных нами продуктов
-            listSelectedProduct.Add(listProduct[index_selected_product]);
-            foreach(var product in listSelectedProduct) {
-                listBoxClothesOnMannequin.Items.Add(product.title +", Размер: " +product.size + ", Цена: " + product.price);
+            //
+            listSelectedProduct.Add(listProduct[index_selected_product]); //сначала добавляем их в обычный список
+            PRODUCT selPoduct = listProduct[index_selected_product]; //выбранный продукт
+            listBoxClothesOnMannequin.Items.Clear();//очищаем листбокс перед обновлением
+            foreach (var pr in listSelectedProduct) {
+                listBoxClothesOnMannequin.Items.Add(pr.title + ", Размер: " + pr.size + ", Цена: " + pr.price);
             }
         }
 
@@ -133,6 +145,28 @@ namespace WorkstationStudioGarment_WinForm.forms
                 gr.DrawImage(i, 0, 0, pbMannequin.Width, pbMannequin.Height);
             }
             pbMannequin.Image = img;
+        }
+
+        private void lblClientLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
+            if (client[0].access_level == 1)
+            {
+                FPersonalAreaAdmin f = new FPersonalAreaAdmin();
+                f.ShowDialog();
+            }
+            else { 
+                ///
+                //здесь будет вывод личного кабинета пользователя
+                ///
+                ///
+                ///
+            }
+        }
+
+        private void listBoxClothesOnMannequin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
