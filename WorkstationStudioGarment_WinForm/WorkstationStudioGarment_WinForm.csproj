@@ -79,13 +79,14 @@
     <Compile Include="control\ClientService.cs" />
     <Compile Include="control\DbManager.cs" />
     <Compile Include="control\MaterialService.cs" />
-    <Compile Include="control\OrderControlModule.cs" />
+    <Compile Include="modules\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
-    <Compile Include="control\ProductControlModule.cs" />
+    <Compile Include="modules\ProductControlModule.cs" />
     <Compile Include="control\ProductService.cs" />
     <Compile Include="control\IServiceDAO.cs" />
     <Compile Include="control\ProductStructureService.cs" />
     <Compile Include="control\SupplyService.cs" />
+    <Compile Include="modules\UserPreferenceModule.cs" />
     <Compile Include="forms\FAddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,11 +129,29 @@
     <Compile Include="forms\FPersonalAreaAdmin.Designer.cs">
       <DependentUpon>FPersonalAreaAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\FPersonalAreaUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FPersonalAreaUser.Designer.cs">
+      <DependentUpon>FPersonalAreaUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\FRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\FRegistration.Designer.cs">
       <DependentUpon>FRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FUserPreference.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FUserPreference.Designer.cs">
+      <DependentUpon>FUserPreference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_controls\ProductViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_controls\ProductViewPanel.Designer.cs">
+      <DependentUpon>ProductViewPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="manager\BASKET.cs">
       <DependentUpon>StudioDB.tt</DependentUpon>
@@ -173,6 +192,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tool\ImgConverter.cs" />
+    <Compile Include="user_controls\UserControlBasket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_controls\UserControlBasket.Designer.cs">
+      <DependentUpon>UserControlBasket.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="forms\FAddProduct.resx">
       <DependentUpon>FAddProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,8 +219,17 @@
     <EmbeddedResource Include="forms\FPersonalAreaAdmin.resx">
       <DependentUpon>FPersonalAreaAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\FPersonalAreaUser.resx">
+      <DependentUpon>FPersonalAreaUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\FRegistration.resx">
       <DependentUpon>FRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FUserPreference.resx">
+      <DependentUpon>FUserPreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_controls\ProductViewPanel.resx">
+      <DependentUpon>ProductViewPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -206,6 +240,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="user_controls\UserControlBasket.resx">
+      <DependentUpon>UserControlBasket.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="manager\StudioDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>StudioDB.Designer.cs</LastGenOutput>
@@ -229,7 +266,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="manager\StudioDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

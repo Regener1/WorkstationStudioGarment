@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.tool;
+using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
@@ -18,8 +19,8 @@ namespace WorkstationStudioGarment_WinForm.forms
         FAuthorization f = new FAuthorization();
         CLIENT client;
         List<PRODUCT> listProduct = new List<PRODUCT>(); //список всех продуктов
-        OrderControlModule orderControlModule = new OrderControlModule();
-        DbManager dbManager = new DbManager();
+        //DbManager dbManager = new DbManager();
+        OrderControlModule orderControl = new OrderControlModule();
         Image mannequinImg; //картинка с манекеном
         List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
         List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
@@ -36,7 +37,13 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             
             f.ShowDialog();
+          
             client = f.ourClient;
+            if (client == null) {
+                MessageBox.Show("Ошибка", "Ошибка при авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+
             lblClientLogin.Text = client.login;
             //if (client.sex == 1)
             //{
@@ -53,15 +60,9 @@ namespace WorkstationStudioGarment_WinForm.forms
             //рисуем изначальный манекен
             DrawClothesOnMannequin(clothes);
 
-            //Image img = new Bitmap(pbMannequin.Width, pbMannequin.Height);
-            //Graphics gr = Graphics.FromImage(img);
-            //gr.DrawImage(mannequinImg, 0, 0, pbMannequin.Width, pbMannequin.Height);
-            //pbMannequin.Image = img;
-
             //список всех продуктов
             listProduct.Clear();
-            listProduct = orderControlModule.AllProducts();
-
+            listProduct = orderControl.AllProducts();
 
             // извлекаются все изображения из бд и добавляются в imagelist
             imageList.Images.Clear();
@@ -86,6 +87,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 
             clothes.Clear(); //очищаем список добавленных на манекен вещей
             listSelectedProduct.Clear(); //очищаем список выбранных нами вещей
+
         }
 
         private void lvProducts_MouseDown(object sender, MouseEventArgs e)
@@ -150,23 +152,62 @@ namespace WorkstationStudioGarment_WinForm.forms
         private void lblClientLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
+            if (client == null) {
+                MessageBox.Show("Ошибка", "Такого клиента не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
             if (client[0].access_level == 1)
             {
                 FPersonalAreaAdmin f = new FPersonalAreaAdmin();
                 f.ShowDialog();
             }
-            else { 
-                ///
-                //здесь будет вывод личного кабинета пользователя
-                ///
-                ///
-                ///
+            else {
+                FPersonalAreaUser f = new FPersonalAreaUser();
+                f.SetClient(client[0]);
+                f.ClearSelectedProducts();
+                f.SetSelectedProducts(listSelectedProduct);
+                f.ShowDialog();
+
             }
         }
 
         private void listBoxClothesOnMannequin_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+		
+		private void FMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            for (int i = 0; i < listSelectedProduct.Count; i++) {
+                BASKET b = new BASKET();
+                b.id_client = client.id_client;
+                b.id_product = listSelectedProduct[i].id_product;
+                b.count = 1;
+                b.id_order = -1;
+                orderControl.Add(b);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserPreferenceModule upm = new UserPreferenceModule(client.id_client);
+            try
+            {
+                upm.Load();
+                List<PRODUCT> userPreference = upm.GetPreferenceList();
+                if (userPreference.Count != 0)
+                {
+                    FUserPreference fUserpreference = new FUserPreference();
+                    fUserpreference.ProductsList = userPreference;
+                    fUserpreference.Show();
+                }
+                Console.WriteLine("Thread Stop");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Thread Stop Exception");
+            }
         }
     }
 }

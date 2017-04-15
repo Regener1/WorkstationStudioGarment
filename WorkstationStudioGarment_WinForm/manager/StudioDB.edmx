@@ -13,6 +13,7 @@
           <Property Name="count" Type="integer" Nullable="false" />
           <Property Name="id_client" Type="integer" Nullable="false" />
           <Property Name="id_product" Type="integer" Nullable="false" />
+          <Property Name="id_order" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="CLIENT">
           <Key>
@@ -50,7 +51,6 @@
           <Property Name="order_time" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="order_status" Type="integer" Nullable="false" />
           <Property Name="total_sum" Type="decimal" Precision="53" Scale="0" Nullable="false" />
-          <Property Name="id_basket" Type="integer" Nullable="false" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
@@ -83,6 +83,18 @@
           <Property Name="delivery_date" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASKET_1_0">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
           <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
           <ReferentialConstraint>
@@ -94,7 +106,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BASKET_1_0">
+        <Association Name="FK_BASKET_2_0">
           <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
           <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
           <ReferentialConstraint>
@@ -103,18 +115,6 @@
             </Principal>
             <Dependent Role="BASKET">
               <PropertyRef Name="id_client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_0_0">
-          <End Role="BASKET" Type="Self.BASKET" Multiplicity="1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BASKET">
-              <PropertyRef Name="id_basket" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="id_basket" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -163,16 +163,16 @@
           <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" store:Type="Tables" />
           <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" store:Type="Tables" />
           <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
-            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="ORDER" EntitySet="ORDER" />
             <End Role="BASKET" EntitySet="BASKET" />
           </AssociationSet>
           <AssociationSet Name="FK_BASKET_1_0" Association="Self.FK_BASKET_1_0">
-            <End Role="CLIENT" EntitySet="CLIENT" />
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="BASKET" EntitySet="BASKET" />
           </AssociationSet>
-          <AssociationSet Name="FK_ORDER_0_0" Association="Self.FK_ORDER_0_0">
+          <AssociationSet Name="FK_BASKET_2_0" Association="Self.FK_BASKET_2_0">
+            <End Role="CLIENT" EntitySet="CLIENT" />
             <End Role="BASKET" EntitySet="BASKET" />
-            <End Role="ORDER" EntitySet="ORDER" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_0_0" Association="Self.FK_PRODUCT_0_0">
             <End Role="SUPPLY" EntitySet="SUPPLY" />
@@ -200,9 +200,10 @@
           <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="id_client" Type="Int32" Nullable="false" />
           <Property Name="id_product" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_BASKET_0_0" FromRole="BASKET" ToRole="PRODUCT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="CLIENT" Relationship="Self.FK_BASKET_1_0" FromRole="BASKET" ToRole="CLIENT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_0_0" FromRole="BASKET" ToRole="ORDER" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="id_order" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORDER" Relationship="Self.FK_BASKET_0_0" FromRole="BASKET" ToRole="ORDER" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_BASKET_1_0" FromRole="BASKET" ToRole="PRODUCT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="CLIENT" Relationship="Self.FK_BASKET_2_0" FromRole="BASKET" ToRole="CLIENT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <EntityType Name="CLIENT">
           <Key>
@@ -222,7 +223,7 @@
           <Property Name="chest" Type="Int32" Nullable="false" />
           <Property Name="waist" Type="Int32" Nullable="false" />
           <Property Name="hip" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_1_0" FromRole="CLIENT" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_2_0" FromRole="CLIENT" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <EntityType Name="MATERIAL">
           <Key>
@@ -242,8 +243,7 @@
           <Property Name="order_time" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="order_status" Type="Int32" Nullable="false" />
           <Property Name="total_sum" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
-          <Property Name="id_basket" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BASKET" Relationship="Self.FK_ORDER_0_0" FromRole="ORDER" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="ORDER" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
@@ -258,7 +258,7 @@
           <Property Name="price" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
           <Property Name="id_supply" Type="Int32" Nullable="false" />
           <Property Name="count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_0_0" FromRole="PRODUCT" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="BASKETs" Relationship="Self.FK_BASKET_1_0" FromRole="PRODUCT" ToRole="BASKET" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="SUPPLY" Relationship="Self.FK_PRODUCT_0_0" FromRole="PRODUCT" ToRole="SUPPLY" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="PRODUCT_STRUCTURE" Relationship="Self.FK_PRODUCT_STRUCTURE_1_0" FromRole="PRODUCT" ToRole="PRODUCT_STRUCTURE" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
@@ -266,7 +266,7 @@
           <Key>
             <PropertyRef Name="id_product_structure" />
           </Key>
-          <Property Name="id_product_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="id_product_structure" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="id_product" Type="Int32" Nullable="false" />
           <Property Name="id_material" Type="Int32" Nullable="false" />
@@ -282,6 +282,18 @@
           <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_0_0" FromRole="SUPPLY" ToRole="PRODUCT" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <Association Name="FK_BASKET_0_0">
+          <End Role="ORDER" Type="Self.ORDER" Multiplicity="1" />
+          <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER">
+              <PropertyRef Name="id_order" />
+            </Principal>
+            <Dependent Role="BASKET">
+              <PropertyRef Name="id_order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BASKET_1_0">
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="1" />
           <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
           <ReferentialConstraint>
@@ -293,7 +305,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BASKET_1_0">
+        <Association Name="FK_BASKET_2_0">
           <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
           <End Role="BASKET" Type="Self.BASKET" Multiplicity="*" />
           <ReferentialConstraint>
@@ -302,18 +314,6 @@
             </Principal>
             <Dependent Role="BASKET">
               <PropertyRef Name="id_client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_0_0">
-          <End Role="BASKET" Type="Self.BASKET" Multiplicity="1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BASKET">
-              <PropertyRef Name="id_basket" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="id_basket" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -353,7 +353,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="StudioDB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="studioDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BASKETs" EntityType="Self.BASKET" />
           <EntitySet Name="CLIENTs" EntityType="Self.CLIENT" />
           <EntitySet Name="MATERIALs" EntityType="Self.MATERIAL" />
@@ -362,16 +362,16 @@
           <EntitySet Name="PRODUCT_STRUCTURE" EntityType="Self.PRODUCT_STRUCTURE" />
           <EntitySet Name="SUPPLies" EntityType="Self.SUPPLY" />
           <AssociationSet Name="FK_BASKET_0_0" Association="Self.FK_BASKET_0_0">
-            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="ORDER" EntitySet="ORDERs" />
             <End Role="BASKET" EntitySet="BASKETs" />
           </AssociationSet>
           <AssociationSet Name="FK_BASKET_1_0" Association="Self.FK_BASKET_1_0">
-            <End Role="CLIENT" EntitySet="CLIENTs" />
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
             <End Role="BASKET" EntitySet="BASKETs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ORDER_0_0" Association="Self.FK_ORDER_0_0">
+          <AssociationSet Name="FK_BASKET_2_0" Association="Self.FK_BASKET_2_0">
+            <End Role="CLIENT" EntitySet="CLIENTs" />
             <End Role="BASKET" EntitySet="BASKETs" />
-            <End Role="ORDER" EntitySet="ORDERs" />
           </AssociationSet>
           <AssociationSet Name="FK_PRODUCT_STRUCTURE_0_0" Association="Self.FK_PRODUCT_STRUCTURE_0_0">
             <End Role="MATERIAL" EntitySet="MATERIALs" />
@@ -391,7 +391,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="studioModelStoreContainer" CdmEntityContainer="StudioDB">
+        <EntityContainerMapping StorageEntityContainer="studioModelStoreContainer" CdmEntityContainer="studioDB">
           <EntitySetMapping Name="BASKETs">
             <EntityTypeMapping TypeName="studioModel.BASKET">
               <MappingFragment StoreEntitySet="BASKET">
@@ -399,6 +399,7 @@
                 <ScalarProperty Name="count" ColumnName="count" />
                 <ScalarProperty Name="id_client" ColumnName="id_client" />
                 <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -439,7 +440,6 @@
                 <ScalarProperty Name="order_time" ColumnName="order_time" />
                 <ScalarProperty Name="order_status" ColumnName="order_status" />
                 <ScalarProperty Name="total_sum" ColumnName="total_sum" />
-                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

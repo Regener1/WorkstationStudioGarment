@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.containers;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.manager;
+using WorkstationStudioGarment_WinForm.modules;
 using WorkstationStudioGarment_WinForm.tool;
 
 namespace WorkstationStudioGarment_WinForm.forms
@@ -186,11 +187,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             fMaterialEditor.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OrderControlModule ocs = new OrderControlModule();
-            List<PRODUCT> products = ocs.AllProducts();
-            ocs.DecreaseMaterialCount(products[5]);
-        }
+        
     }
 }

@@ -74,7 +74,6 @@ namespace WorkstationStudioGarment_WinForm.control
                     obj.ToList()[0].order_time = entity.order_date;
                     obj.ToList()[0].order_status = entity.order_status;
                     obj.ToList()[0].total_sum = entity.total_sum;
-                    obj.ToList()[0].id_basket = entity.id_basket;
                     db.SaveChanges();
                 }
             }

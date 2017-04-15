@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4fb5653fe5f041dfb9c96a97886db4fe" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="studioModel.BASKET" Width="1.5" PointX="4.125" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.CLIENT" Width="1.5" PointX="1.375" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="9.875" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.ORDER" Width="1.5" PointX="4" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="6.625" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="studioModel.SUPPLY" Width="1.5" PointX="9" PointY="2.125" IsExpanded="true" />
+      <Diagram DiagramId="7dbe4d30314a4f6ebfa272b8cc9b4469" Name="Diagram1">
+        <EntityTypeShape EntityType="studioModel.BASKET" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.CLIENT" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.MATERIAL" Width="1.5" PointX="9.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.ORDER" Width="1.5" PointX="3.625" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT" Width="1.5" PointX="5.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.PRODUCT_STRUCTURE" Width="1.5" PointX="7.875" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="studioModel.SUPPLY" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="studioModel.FK_BASKET_0_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_BASKET_1_0" ManuallyRouted="false" />
-        <AssociationConnector Association="studioModel.FK_ORDER_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="studioModel.FK_BASKET_2_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_PRODUCT_STRUCTURE_0_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_PRODUCT_0_0" ManuallyRouted="false" />
         <AssociationConnector Association="studioModel.FK_PRODUCT_STRUCTURE_1_0" ManuallyRouted="false" />

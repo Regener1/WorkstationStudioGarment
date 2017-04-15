@@ -61,6 +61,14 @@
             this.colHeadPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
             this.tabPageProductsManager.SuspendLayout();
@@ -88,10 +96,12 @@
             // 
             // tabPageUsersManager
             // 
+            this.tabPageUsersManager.Controls.Add(this.listView1);
             this.tabPageUsersManager.Controls.Add(this.listViewUsers);
             this.tabPageUsersManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsersManager.Name = "tabPageUsersManager";
             this.tabPageUsersManager.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUsersManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPageUsersManager.Size = new System.Drawing.Size(1469, 654);
             this.tabPageUsersManager.TabIndex = 0;
             this.tabPageUsersManager.Text = "Users manager";
@@ -107,14 +117,15 @@
             this.listViewUsers.Dock = System.Windows.Forms.DockStyle.Left;
             this.listViewUsers.Location = new System.Drawing.Point(3, 3);
             this.listViewUsers.Name = "listViewUsers";
-            this.listViewUsers.Size = new System.Drawing.Size(276, 648);
+            this.listViewUsers.Size = new System.Drawing.Size(281, 648);
             this.listViewUsers.TabIndex = 0;
             this.listViewUsers.UseCompatibleStateImageBehavior = false;
-            this.listViewUsers.View = System.Windows.Forms.View.List;
+            this.listViewUsers.View = System.Windows.Forms.View.Details;
             // 
             // colHeadFIO
             // 
             this.colHeadFIO.Text = "ФИО";
+            this.colHeadFIO.Width = 137;
             // 
             // colHeadLogin
             // 
@@ -351,6 +362,59 @@
             this.colHeadIdSupply.Text = "Id поставки";
             this.colHeadIdSupply.Width = 77;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(339, 75);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(669, 521);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Название";
+            this.columnHeader2.Width = 95;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Категория";
+            this.columnHeader3.Width = 88;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Размер";
+            this.columnHeader4.Width = 76;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Цвет";
+            this.columnHeader5.Width = 73;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Цена";
+            this.columnHeader6.Width = 84;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Количество";
+            this.columnHeader7.Width = 77;
+            // 
             // FPersonalAreaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,5 +470,13 @@
         private System.Windows.Forms.Button btnAddSupply;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnMaterialEditor;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

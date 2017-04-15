@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.manager;
+using WorkstationStudioGarment_WinForm.modules;
 using WorkstationStudioGarment_WinForm.tool;
 
 namespace WorkstationStudioGarment_WinForm.forms

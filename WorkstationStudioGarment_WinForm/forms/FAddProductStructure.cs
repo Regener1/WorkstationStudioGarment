@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.containers;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.manager;
+using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {

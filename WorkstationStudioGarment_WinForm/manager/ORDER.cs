@@ -14,13 +14,19 @@ namespace WorkstationStudioGarment_WinForm.manager
     
     public partial class ORDER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ORDER()
+        {
+            this.BASKETs = new HashSet<BASKET>();
+        }
+    
         public int id_order { get; set; }
         public string order_date { get; set; }
         public string order_time { get; set; }
         public int order_status { get; set; }
         public decimal total_sum { get; set; }
-        public int id_basket { get; set; }
     
-        public virtual BASKET BASKET { private get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BASKET> BASKETs { private get; set; }
     }
 }

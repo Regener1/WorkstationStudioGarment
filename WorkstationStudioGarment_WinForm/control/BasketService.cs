@@ -73,6 +73,7 @@ namespace WorkstationStudioGarment_WinForm.control
                     obj.ToList()[0].count = entity.count;
                     obj.ToList()[0].id_client = entity.id_client;
                     obj.ToList()[0].id_product = entity.id_product;
+                    obj.ToList()[0].id_order = entity.id_order;
                     db.SaveChanges();
                 }
             }
