@@ -139,9 +139,29 @@ namespace WorkstationStudioGarment_WinForm.modules
                 }
             }
 
-            names.OrderBy(x => x.Value);
-            categories.OrderBy(x => x.Value);
-            colors.OrderBy(x => x.Value);
+            names = names.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            categories = categories.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            colors = colors.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
+            List<string> keys = names.Keys.ToList();
+            for(int i = 0; i < Math.Ceiling(names.Count * 0.7); i++)
+            {
+                names.Remove(keys[i]);
+            }
+
+            keys.Clear();
+            keys = categories.Keys.ToList();
+            for (int i = 0; i < Math.Ceiling(categories.Count * 0.7); i++)
+            {
+                categories.Remove(keys[i]);
+            }
+
+            keys.Clear();
+            keys = colors.Keys.ToList();
+            for (int i = 0; i < Math.Ceiling(colors.Count * 0.7); i++)
+            {
+                colors.Remove(keys[i]);
+            }
 
             average /= clientProducts.Count;
 

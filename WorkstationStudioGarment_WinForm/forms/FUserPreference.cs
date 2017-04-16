@@ -32,8 +32,6 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void FUserPreference_Load(object sender, EventArgs e)
         {
-            int x = 0;
-            int y = 0;
             foreach(PRODUCT entity in productsList)
             {
                 string description = entity.title + Environment.NewLine
@@ -42,11 +40,10 @@ namespace WorkstationStudioGarment_WinForm.forms
                                      + entity.price.ToString();
 
                 ProductViewPanel pvPanel = new ProductViewPanel();
-                pvPanel.Location = new Point(3,y);
+                //pvPanel.Location = new Point(3,y);
                 pvPanel.pbPhoto.Image = ImgConverter.ImageFromString(entity.photo);
                 pvPanel.tbDescription.Text = description;
-                panelProductsView.Controls.Add(pvPanel);
-                y += pvPanel.Height + 10;
+                flpProductsView.Controls.Add(pvPanel);
             }
 
         }

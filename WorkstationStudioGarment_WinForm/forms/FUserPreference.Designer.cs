@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelProductsView = new System.Windows.Forms.Panel();
+            this.flpProductsView = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // panelProductsView
+            // flpProductsView
             // 
-            this.panelProductsView.AutoScroll = true;
-            this.panelProductsView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProductsView.Location = new System.Drawing.Point(0, 0);
-            this.panelProductsView.Name = "panelProductsView";
-            this.panelProductsView.Size = new System.Drawing.Size(714, 476);
-            this.panelProductsView.TabIndex = 0;
+            this.flpProductsView.AutoScroll = true;
+            this.flpProductsView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpProductsView.Location = new System.Drawing.Point(0, 0);
+            this.flpProductsView.Name = "flpProductsView";
+            this.flpProductsView.Size = new System.Drawing.Size(729, 476);
+            this.flpProductsView.TabIndex = 0;
             // 
             // FUserPreference
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 476);
-            this.Controls.Add(this.panelProductsView);
+            this.ClientSize = new System.Drawing.Size(729, 476);
+            this.Controls.Add(this.flpProductsView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FUserPreference";
             this.Text = "FUserPreference";
             this.Load += new System.EventHandler(this.FUserPreference_Load);
@@ -55,6 +56,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelProductsView;
+        private System.Windows.Forms.FlowLayoutPanel flpProductsView;
     }
 }
