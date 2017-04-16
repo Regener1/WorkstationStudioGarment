@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="containers\ClientProductContainer.cs" />
     <Compile Include="containers\ProductContainer.cs" />
     <Compile Include="containers\ProductStructureAvailableContainer.cs" />
     <Compile Include="containers\ProductStructureContainer.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="control\ClientService.cs" />
     <Compile Include="control\DbManager.cs" />
     <Compile Include="control\MaterialService.cs" />
+    <Compile Include="modules\ClientControlModule.cs" />
     <Compile Include="modules\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
     <Compile Include="modules\ProductControlModule.cs" />

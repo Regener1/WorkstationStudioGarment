@@ -31,10 +31,31 @@
             this.menuStripAdmin = new System.Windows.Forms.MenuStrip();
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageUsersManager = new System.Windows.Forms.TabPage();
-            this.listViewUsers = new System.Windows.Forms.ListView();
+            this.lvClients = new System.Windows.Forms.ListView();
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadFIO = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadLogin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadAccess = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tcClientInfo = new System.Windows.Forms.TabControl();
+            this.tabPageClientsProducts = new System.Windows.Forms.TabPage();
+            this.pbClientProductPhoto = new System.Windows.Forms.PictureBox();
+            this.lvClientsProducts = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageClientsInfo = new System.Windows.Forms.TabPage();
             this.tabPageProductsManager = new System.Windows.Forms.TabPage();
             this.btnMaterialEditor = new System.Windows.Forms.Button();
             this.btnAddProductStructure = new System.Windows.Forms.Button();
@@ -61,16 +82,11 @@
             this.colHeadPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
+            this.tcClientInfo.SuspendLayout();
+            this.tabPageClientsProducts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClientProductPhoto)).BeginInit();
             this.tabPageProductsManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +95,7 @@
             // 
             this.menuStripAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuStripAdmin.Name = "menuStripAdmin";
-            this.menuStripAdmin.Size = new System.Drawing.Size(1477, 24);
+            this.menuStripAdmin.Size = new System.Drawing.Size(1300, 24);
             this.menuStripAdmin.TabIndex = 0;
             this.menuStripAdmin.Text = "menuStrip1";
             // 
@@ -91,41 +107,59 @@
             this.tabControlMain.Location = new System.Drawing.Point(0, 24);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1477, 680);
+            this.tabControlMain.Size = new System.Drawing.Size(1300, 738);
             this.tabControlMain.TabIndex = 1;
             // 
             // tabPageUsersManager
             // 
-            this.tabPageUsersManager.Controls.Add(this.listView1);
-            this.tabPageUsersManager.Controls.Add(this.listViewUsers);
+            this.tabPageUsersManager.Controls.Add(this.lvClients);
+            this.tabPageUsersManager.Controls.Add(this.tcClientInfo);
             this.tabPageUsersManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageUsersManager.Name = "tabPageUsersManager";
             this.tabPageUsersManager.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsersManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPageUsersManager.Size = new System.Drawing.Size(1469, 654);
+            this.tabPageUsersManager.Size = new System.Drawing.Size(1292, 712);
             this.tabPageUsersManager.TabIndex = 0;
             this.tabPageUsersManager.Text = "Users manager";
             this.tabPageUsersManager.UseVisualStyleBackColor = true;
             // 
-            // listViewUsers
+            // lvClients
             // 
-            this.listViewUsers.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listViewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvClients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader15,
             this.colHeadFIO,
+            this.columnHeader14,
             this.colHeadLogin,
-            this.colHeadAccess});
-            this.listViewUsers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listViewUsers.Location = new System.Drawing.Point(3, 3);
-            this.listViewUsers.Name = "listViewUsers";
-            this.listViewUsers.Size = new System.Drawing.Size(281, 648);
-            this.listViewUsers.TabIndex = 0;
-            this.listViewUsers.UseCompatibleStateImageBehavior = false;
-            this.listViewUsers.View = System.Windows.Forms.View.Details;
+            this.colHeadAccess,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13});
+            this.lvClients.FullRowSelect = true;
+            this.lvClients.Location = new System.Drawing.Point(6, 6);
+            this.lvClients.MultiSelect = false;
+            this.lvClients.Name = "lvClients";
+            this.lvClients.Size = new System.Drawing.Size(1272, 394);
+            this.lvClients.TabIndex = 0;
+            this.lvClients.UseCompatibleStateImageBehavior = false;
+            this.lvClients.View = System.Windows.Forms.View.Details;
+            this.lvClients.SelectedIndexChanged += new System.EventHandler(this.lvClients_SelectedIndexChanged);
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "id";
             // 
             // colHeadFIO
             // 
             this.colHeadFIO.Text = "ФИО";
             this.colHeadFIO.Width = 137;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Пол";
+            this.columnHeader14.Width = 39;
             // 
             // colHeadLogin
             // 
@@ -134,6 +168,136 @@
             // colHeadAccess
             // 
             this.colHeadAccess.Text = "Доступ";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "E-mail";
+            this.columnHeader8.Width = 104;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Телефон";
+            this.columnHeader9.Width = 122;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Рост";
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Обхват груди";
+            this.columnHeader11.Width = 95;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Обхват талии";
+            this.columnHeader12.Width = 84;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Обхват бедер";
+            this.columnHeader13.Width = 92;
+            // 
+            // tcClientInfo
+            // 
+            this.tcClientInfo.Controls.Add(this.tabPageClientsProducts);
+            this.tcClientInfo.Controls.Add(this.tabPageClientsInfo);
+            this.tcClientInfo.Location = new System.Drawing.Point(10, 410);
+            this.tcClientInfo.Name = "tcClientInfo";
+            this.tcClientInfo.SelectedIndex = 0;
+            this.tcClientInfo.Size = new System.Drawing.Size(1268, 294);
+            this.tcClientInfo.TabIndex = 3;
+            // 
+            // tabPageClientsProducts
+            // 
+            this.tabPageClientsProducts.Controls.Add(this.pbClientProductPhoto);
+            this.tabPageClientsProducts.Controls.Add(this.lvClientsProducts);
+            this.tabPageClientsProducts.Location = new System.Drawing.Point(4, 22);
+            this.tabPageClientsProducts.Name = "tabPageClientsProducts";
+            this.tabPageClientsProducts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageClientsProducts.Size = new System.Drawing.Size(1260, 268);
+            this.tabPageClientsProducts.TabIndex = 0;
+            this.tabPageClientsProducts.Text = "Товары";
+            this.tabPageClientsProducts.UseVisualStyleBackColor = true;
+            // 
+            // pbClientProductPhoto
+            // 
+            this.pbClientProductPhoto.BackColor = System.Drawing.Color.White;
+            this.pbClientProductPhoto.Location = new System.Drawing.Point(926, 6);
+            this.pbClientProductPhoto.Name = "pbClientProductPhoto";
+            this.pbClientProductPhoto.Size = new System.Drawing.Size(328, 256);
+            this.pbClientProductPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbClientProductPhoto.TabIndex = 2;
+            this.pbClientProductPhoto.TabStop = false;
+            // 
+            // lvClientsProducts
+            // 
+            this.lvClientsProducts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader16});
+            this.lvClientsProducts.FullRowSelect = true;
+            this.lvClientsProducts.Location = new System.Drawing.Point(6, 6);
+            this.lvClientsProducts.MultiSelect = false;
+            this.lvClientsProducts.Name = "lvClientsProducts";
+            this.lvClientsProducts.Size = new System.Drawing.Size(914, 256);
+            this.lvClientsProducts.TabIndex = 1;
+            this.lvClientsProducts.UseCompatibleStateImageBehavior = false;
+            this.lvClientsProducts.View = System.Windows.Forms.View.Details;
+            this.lvClientsProducts.SelectedIndexChanged += new System.EventHandler(this.lvClientsProducts_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Название";
+            this.columnHeader2.Width = 95;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Категория";
+            this.columnHeader3.Width = 88;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Размер";
+            this.columnHeader4.Width = 76;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Цвет";
+            this.columnHeader5.Width = 73;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Цена";
+            this.columnHeader6.Width = 84;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Куплено шт.";
+            this.columnHeader7.Width = 77;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Сумма";
+            // 
+            // tabPageClientsInfo
+            // 
+            this.tabPageClientsInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabPageClientsInfo.Name = "tabPageClientsInfo";
+            this.tabPageClientsInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageClientsInfo.Size = new System.Drawing.Size(1260, 268);
+            this.tabPageClientsInfo.TabIndex = 1;
+            this.tabPageClientsInfo.Text = "Информация";
+            this.tabPageClientsInfo.UseVisualStyleBackColor = true;
             // 
             // tabPageProductsManager
             // 
@@ -153,14 +317,14 @@
             this.tabPageProductsManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageProductsManager.Name = "tabPageProductsManager";
             this.tabPageProductsManager.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProductsManager.Size = new System.Drawing.Size(1469, 654);
+            this.tabPageProductsManager.Size = new System.Drawing.Size(1292, 712);
             this.tabPageProductsManager.TabIndex = 1;
             this.tabPageProductsManager.Text = "Products manager";
             this.tabPageProductsManager.UseVisualStyleBackColor = true;
             // 
             // btnMaterialEditor
             // 
-            this.btnMaterialEditor.Location = new System.Drawing.Point(1180, 610);
+            this.btnMaterialEditor.Location = new System.Drawing.Point(1147, 623);
             this.btnMaterialEditor.Name = "btnMaterialEditor";
             this.btnMaterialEditor.Size = new System.Drawing.Size(128, 23);
             this.btnMaterialEditor.TabIndex = 40;
@@ -170,7 +334,7 @@
             // 
             // btnAddProductStructure
             // 
-            this.btnAddProductStructure.Location = new System.Drawing.Point(947, 586);
+            this.btnAddProductStructure.Location = new System.Drawing.Point(821, 586);
             this.btnAddProductStructure.Name = "btnAddProductStructure";
             this.btnAddProductStructure.Size = new System.Drawing.Size(145, 23);
             this.btnAddProductStructure.TabIndex = 39;
@@ -190,7 +354,7 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(272, 586);
+            this.btnAddProduct.Location = new System.Drawing.Point(179, 586);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(124, 23);
             this.btnAddProduct.TabIndex = 37;
@@ -201,7 +365,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1149, 43);
+            this.label2.Location = new System.Drawing.Point(1026, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 36;
@@ -220,7 +384,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(944, 43);
+            this.label1.Location = new System.Drawing.Point(818, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 34;
@@ -232,7 +396,7 @@
             this.colHeadMaterial,
             this.colHeadMaterialCount});
             this.lvProductStructure.FullRowSelect = true;
-            this.lvProductStructure.Location = new System.Drawing.Point(947, 59);
+            this.lvProductStructure.Location = new System.Drawing.Point(821, 59);
             this.lvProductStructure.MultiSelect = false;
             this.lvProductStructure.Name = "lvProductStructure";
             this.lvProductStructure.Size = new System.Drawing.Size(199, 521);
@@ -268,7 +432,7 @@
             this.lvSupplies.Location = new System.Drawing.Point(7, 59);
             this.lvSupplies.MultiSelect = false;
             this.lvSupplies.Name = "lvSupplies";
-            this.lvSupplies.Size = new System.Drawing.Size(259, 521);
+            this.lvSupplies.Size = new System.Drawing.Size(166, 521);
             this.lvSupplies.TabIndex = 31;
             this.lvSupplies.UseCompatibleStateImageBehavior = false;
             this.lvSupplies.View = System.Windows.Forms.View.Details;
@@ -287,7 +451,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(269, 43);
+            this.label10.Location = new System.Drawing.Point(176, 43);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 30;
@@ -295,7 +459,7 @@
             // 
             // pictureBoxPhoto
             // 
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(1152, 59);
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(1026, 59);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(249, 338);
             this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -314,10 +478,10 @@
             this.colHeadProductCount,
             this.colHeadIdSupply});
             this.lvProducts.FullRowSelect = true;
-            this.lvProducts.Location = new System.Drawing.Point(272, 59);
+            this.lvProducts.Location = new System.Drawing.Point(179, 59);
             this.lvProducts.MultiSelect = false;
             this.lvProducts.Name = "lvProducts";
-            this.lvProducts.Size = new System.Drawing.Size(669, 521);
+            this.lvProducts.Size = new System.Drawing.Size(636, 521);
             this.lvProducts.TabIndex = 0;
             this.lvProducts.UseCompatibleStateImageBehavior = false;
             this.lvProducts.View = System.Windows.Forms.View.Details;
@@ -362,71 +526,22 @@
             this.colHeadIdSupply.Text = "Id поставки";
             this.colHeadIdSupply.Width = 77;
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(339, 75);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(669, 521);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Id";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Название";
-            this.columnHeader2.Width = 95;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Категория";
-            this.columnHeader3.Width = 88;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Размер";
-            this.columnHeader4.Width = 76;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Цвет";
-            this.columnHeader5.Width = 73;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Цена";
-            this.columnHeader6.Width = 84;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Количество";
-            this.columnHeader7.Width = 77;
-            // 
             // FPersonalAreaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1477, 704);
+            this.ClientSize = new System.Drawing.Size(1300, 762);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStripAdmin);
             this.MainMenuStrip = this.menuStripAdmin;
             this.Name = "FPersonalAreaAdmin";
             this.Text = "FPersonalAreaAdmin";
+            this.Load += new System.EventHandler(this.FPersonalAreaAdmin_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageUsersManager.ResumeLayout(false);
+            this.tcClientInfo.ResumeLayout(false);
+            this.tabPageClientsProducts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbClientProductPhoto)).EndInit();
             this.tabPageProductsManager.ResumeLayout(false);
             this.tabPageProductsManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
@@ -441,7 +556,7 @@
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageUsersManager;
         private System.Windows.Forms.TabPage tabPageProductsManager;
-        private System.Windows.Forms.ListView listViewUsers;
+        private System.Windows.Forms.ListView lvClients;
         private System.Windows.Forms.ColumnHeader colHeadFIO;
         private System.Windows.Forms.ColumnHeader colHeadLogin;
         private System.Windows.Forms.ColumnHeader colHeadAccess;
@@ -470,7 +585,7 @@
         private System.Windows.Forms.Button btnAddSupply;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnMaterialEditor;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvClientsProducts;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -478,5 +593,18 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.TabControl tcClientInfo;
+        private System.Windows.Forms.TabPage tabPageClientsProducts;
+        private System.Windows.Forms.TabPage tabPageClientsInfo;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.PictureBox pbClientProductPhoto;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
     }
 }

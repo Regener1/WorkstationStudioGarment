@@ -17,7 +17,17 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FPersonalAreaAdmin : Form
     {
+        /*
+         * Clients
+         */
+        private ClientControlModule clientControlS = new ClientControlModule();
 
+        private List<CLIENT> lClients = new List<CLIENT>();
+        private List<ClientProductContainer> lClientsProducts = new List<ClientProductContainer>();
+
+        /*
+         * Products 
+         */
         private ProductControlModule productsControlS = new ProductControlModule();
 
         private List<SUPPLY> lSupplies = new List<SUPPLY>();
@@ -29,7 +39,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             InitializeComponent();
         }
 
-        private void ClearAllLists()
+        private void ClearAllProductLists()
         {
             lSupplies.Clear();
             lProducts.Clear();
@@ -43,7 +53,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                ClearAllLists();
+                ClearAllProductLists();
 
                 lSupplies = productsControlS.AllSupplies();
 
@@ -174,19 +184,83 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        private void btnDeleteClient_Click(object sender, EventArgs e)
-        {
-            ClientService cs = new ClientService();
-            List<CLIENT> clients = cs.All();
-            cs.Delete(clients[0]);
-        }
-
         private void btnMaterialEditor_Click(object sender, EventArgs e)
         {
             FMaterialEditor fMaterialEditor = new FMaterialEditor();
             fMaterialEditor.ShowDialog();
         }
 
-        
+
+        private void FPersonalAreaAdmin_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                lClients.Clear();
+                lvClients.Items.Clear();
+
+                lClients = clientControlS.AllClients();
+
+                foreach(CLIENT entity in lClients)
+                {
+                    lvClients.Items.Add(new ListViewItem(new string[] { entity.id_client.ToString(),
+                                                                        entity.surname + " " + entity.name + " " + entity.patronymic,
+                                                                        entity.sex.ToString(), entity.login,
+                                                                        entity.access_level.ToString(), entity.mail,
+                                                                        entity.phone_number, entity.growth.ToString(),
+                                                                        entity.chest.ToString(), entity.waist.ToString(),
+                                                                        entity.hip.ToString() }));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void lvClients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lvClients.SelectedIndices.Count == 0)
+                {
+                    return;
+                }
+
+                lvClientsProducts.Items.Clear();
+                lClientsProducts.Clear();
+
+                lClientsProducts = clientControlS.GetClientsProduct(lClients[lvClients.SelectedIndices[0]]);
+
+                if(lClientsProducts.Count != 0)
+                {
+                    foreach(var item in lClientsProducts)
+                    {
+                        lvClientsProducts.Items.Add(new ListViewItem(new string[] { item.Product.id_product.ToString(),
+                                                                                    item.Product.title, item.Product.category,
+                                                                                    item.Product.size.ToString(),
+                                                                                    item.Product.color, item.Product.price.ToString(),
+                                                                                    item.Count.ToString(), item.Price.ToString() }));
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void lvClientsProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvClientsProducts.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+
+            pbClientProductPhoto.Image = ImgConverter.ImageFromString(lClientsProducts[lvClientsProducts.SelectedIndices[0]]
+                                                                                                        .Product.photo);
+
+        }
     }
 }
