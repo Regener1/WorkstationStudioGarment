@@ -178,14 +178,14 @@ namespace WorkstationStudioGarment_WinForm.forms
 		
 		private void FMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            for (int i = 0; i < listSelectedProduct.Count; i++) {
-                BASKET b = new BASKET();
-                b.id_client = client.id_client;
-                b.id_product = listSelectedProduct[i].id_product;
-                b.count = 1;
-                b.id_order = -1;
-                orderControl.Add(b);
-            }
+            //for (int i = 0; i < listSelectedProduct.Count; i++) {
+            //    BASKET b = new BASKET();
+            //    b.id_client = client.id_client;
+            //    b.id_product = listSelectedProduct[i].id_product;
+            //    b.count = 1;
+            //    b.id_order = -1;
+            //    orderControl.Add(b);
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -208,6 +208,12 @@ namespace WorkstationStudioGarment_WinForm.forms
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Thread Stop Exception");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FTanyaModule f = new FTanyaModule();
+            f.ShowDialog();
         }
     }
 }

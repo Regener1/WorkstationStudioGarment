@@ -17,7 +17,7 @@ namespace WorkstationStudioGarment_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FPersonalAreaAdmin());
+            Application.Run(new FMain());
         }
     }
 }

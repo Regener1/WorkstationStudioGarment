@@ -17,10 +17,11 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FPersonalAreaUser : Form
     {
-        ClientService clientServise = new ClientService();
+        ClientControlModule clientModule = new ClientControlModule();
+        //ProductControlModule productModule = new ProductControlModule();
         CLIENT client = new CLIENT();
         List<PRODUCT> listSelectedProduct = new List<PRODUCT>();
-        OrderControlModule orderControl = new OrderControlModule();
+        OrderControlModule orderModule = new OrderControlModule();
         List<UserControlBasket> listControls = new List<UserControlBasket>();
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                clientServise.Delete(client);
+                clientModule.Delete(client);
                 MessageBox.Show("Ваш аккаунт успешно удалён");
                 FAuthorization f = new FAuthorization();
                 f.ShowDialog();
@@ -87,40 +88,92 @@ namespace WorkstationStudioGarment_WinForm.forms
                 MessageBox.Show(ex.Message);
             }
 
-            int Y = 0;
-            
-            for (int i = 0; i < listSelectedProduct.Count; i++)
-            {
-                UserControlBasket us = new UserControlBasket();
-                
-                us.tbInfo.Text = "Наименование" + listSelectedProduct[i].title + Environment.NewLine + 
-                                 "Размер: "+ listSelectedProduct[i].size + Environment.NewLine + 
-                                 "Цвет: "+ listSelectedProduct[i].color+ Environment.NewLine + 
-                                 "Цена: "+ listSelectedProduct[i].price+ Environment.NewLine;
-                us.pb.Image = ImgConverter.ImageFromString(listSelectedProduct[i].photo);
-                us.nUDCount.Value = 1;
-                us.nUDCount.Maximum = orderControl.GetProductLimit(listSelectedProduct[i]);
-                us.tbTotal.Text = (us.nUDCount.Value * listSelectedProduct[i].price).ToString();
-
-                us.Location = new Point(0, Y);
-                us.nUDCount.ValueChanged += nUDCount_ValueChanged;
-                listControls.Add(us);
-                panelProduct.Controls.Add(us);
-                Y += us.Height;
-            }
-
-
-            if (listSelectedProduct.Count > 0)
-            {
-                lblCountProducts.Text = "Товаров в корзине :" + listSelectedProduct.Count;
-            }
-            else {
-                lblInfo.Visible = true;
-                btnMain.Visible = true;
-                lblCountProducts.Text = "Товаров в корзине : 0" ;
-            }
+            SetInfo();
+            FillListControls();
         }
 
+        /// <summary>
+        /// Вывод информации о количестве товара в корзине на форму
+        /// </summary>
+        public void SetInfo() 
+        {
+            if (listSelectedProduct.Count > 0)
+            {
+                lblInfo.Visible = false;
+                btnMain.Visible = false;
+                lblCountProducts.Text = "Товаров в корзине: " + listSelectedProduct.Count;
+                btnCreateOrder.Enabled = true;
+                Update();
+            }
+            else
+            {
+                lblInfo.Visible = true;
+                btnMain.Visible = true;
+                lblCountProducts.Text = "Товаров в корзине: 0";
+                btnCreateOrder.Enabled = false;
+                Update();
+            }
+        }
+        /// <summary>
+        /// Заполнение списка с выбранными продуктами на вкладке корзина 
+        /// </summary>
+        public void FillListControls() 
+        {
+            try 
+            {
+                int Y = 0;
+                for (int i = 0; i < listSelectedProduct.Count; i++)
+                {
+                    PRODUCT pr = listSelectedProduct[i];
+                    bool availability = orderModule.CheckForAvailability(pr);
+                    string s = "";
+                    switch (availability) 
+                    {
+                        case true:
+                            s = "Наличие на складе: Да";
+                            break;
+                        case false: 
+                            s = "Наличие на складе: Нет -> ";
+                            break;
+                    }
+                    
+                    UserControlBasket us = new UserControlBasket();
+
+                    ///
+                    ///Проверка на возможность пошить товар, если его нет на складе
+                    ///
+                    if (availability) 
+                    {
+                        us.nUDCount.Value = 1;
+                        us.nUDCount.Maximum = orderModule.GetProductLimit(pr);
+                    } else {
+                        us.nUDCount.Value = 0;
+                        us.nUDCount.Maximum = orderModule.GetSewingLimit(pr);
+                        if (us.nUDCount.Maximum == 0) { 
+                           s += "В данный момент отсутствуют материалы для пошива этого товара";
+                        } else {
+                           s += "Вы можете заказать этот товар на пошив";
+                        }
+                    }
+                    us.tbInfo.Text = "Наименование " + pr.title + Environment.NewLine +
+                                     "Размер: " + pr.size + Environment.NewLine +
+                                     "Цвет: " + pr.color + Environment.NewLine +
+                                     "Цена: " + pr.price + Environment.NewLine +
+                                     s;
+                    us.pb.Image = ImgConverter.ImageFromString(pr.photo); 
+                    us.tbTotal.Text = (us.nUDCount.Value * pr.price).ToString();
+
+                    us.Location = new Point(0, Y);
+                    us.nUDCount.ValueChanged += nUDCount_ValueChanged;
+                    listControls.Add(us);
+                    panelProduct.Controls.Add(us);
+                    Y += us.Height;
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
         void nUDCount_ValueChanged(object sender, EventArgs e)
         {
             for (int i = 0; i < listControls.Count; i++)
@@ -147,7 +200,8 @@ namespace WorkstationStudioGarment_WinForm.forms
                 client.password = tbPassword.Text;
                 client.hip = Int32.Parse(tbHip.Text);
                 client.waist = Int32.Parse(tbWaist.Text);
-                clientServise.Update(client);
+
+                clientModule.Update(client);
                 MessageBox.Show("Данные успешно обновлены");
             }
             catch (Exception ex)
@@ -162,14 +216,70 @@ namespace WorkstationStudioGarment_WinForm.forms
             Close();
         }
 
+        /// <summary>
+        /// Оформление данных в таблицу "заказ" и "корзина" 
+        /// </summary>
+        /// <remarks="При оформлении заказа кол-во товара в наличие уменьшается на кол-во купленного"></remarks>
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
+            try 
+            {
+                ORDER o = new ORDER();
+                o.order_date = DateTime.Today.ToString("d");
+                o.order_status = 0; //какие цифры вообще должны использоваться?
+                o.order_time = DateTime.Now.ToString("H:M:s");
+                orderModule.AddOrder(o);
 
+                for (int i = 0; i < listSelectedProduct.Count; i++)
+                {
+                    bool availability = orderModule.CheckForAvailability(listSelectedProduct[i]);
+
+                    //если не можем пошить товар или выбрано кол-во 0, не записываем его в корзину
+                    if (listControls[i].nUDCount.Maximum == 0 || 
+                        listControls[i].nUDCount.Value == 0) 
+                    {
+                        continue;
+                    }
+
+                    BASKET b = new BASKET();
+                    b.id_client = client.id_client;
+                    b.id_product = listSelectedProduct[i].id_product;
+                    b.count = (int)(listControls[i].nUDCount.Value);
+                    b.id_order = o.id_order;
+                    
+                    orderModule.AddBasket(b);
+
+                    o.total_sum += Decimal.Parse(listControls[i].tbTotal.Text);
+                    if (availability)
+                    {
+                        //orderModule.DecreaseCountOfProduct(listSelectedProduct[i], b.count);
+                        listSelectedProduct[i].count -= b.count;
+                        orderModule.Update(listSelectedProduct[i]);
+                    }
+                    else 
+                    {
+                        orderModule.DecreaseMaterialCount(listSelectedProduct[i]);
+                    }  
+                }
+
+                MessageBox.Show("Ваш заказ успешно оформлен");
+
+                listSelectedProduct.Clear();
+                SetInfo();
+                listControls.Clear();
+                FillListControls();
+                Update();
+                tabControl1.SelectedTab = tabPage3;
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void lblInfo_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

@@ -95,7 +95,7 @@
             // 
             this.menuStripAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuStripAdmin.Name = "menuStripAdmin";
-            this.menuStripAdmin.Size = new System.Drawing.Size(1300, 24);
+            this.menuStripAdmin.Size = new System.Drawing.Size(1284, 24);
             this.menuStripAdmin.TabIndex = 0;
             this.menuStripAdmin.Text = "menuStrip1";
             // 
@@ -107,7 +107,7 @@
             this.tabControlMain.Location = new System.Drawing.Point(0, 24);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1300, 738);
+            this.tabControlMain.Size = new System.Drawing.Size(1284, 738);
             this.tabControlMain.TabIndex = 1;
             // 
             // tabPageUsersManager
@@ -118,7 +118,7 @@
             this.tabPageUsersManager.Name = "tabPageUsersManager";
             this.tabPageUsersManager.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsersManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPageUsersManager.Size = new System.Drawing.Size(1292, 712);
+            this.tabPageUsersManager.Size = new System.Drawing.Size(1276, 712);
             this.tabPageUsersManager.TabIndex = 0;
             this.tabPageUsersManager.Text = "Users manager";
             this.tabPageUsersManager.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 762);
+            this.ClientSize = new System.Drawing.Size(1284, 762);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStripAdmin);
             this.MainMenuStrip = this.menuStripAdmin;

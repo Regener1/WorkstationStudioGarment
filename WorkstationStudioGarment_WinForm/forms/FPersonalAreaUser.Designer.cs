@@ -56,12 +56,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelProduct = new System.Windows.Forms.Panel();
             this.btnMain = new System.Windows.Forms.Button();
             this.lblCountProducts = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panelProduct = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,7 +94,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(693, 459);
+            this.tabPage1.Size = new System.Drawing.Size(667, 458);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Настройки профиля";
             // 
@@ -361,6 +361,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Корзина";
             // 
+            // panelProduct
+            // 
+            this.panelProduct.AutoScroll = true;
+            this.panelProduct.Location = new System.Drawing.Point(0, 41);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(665, 367);
+            this.panelProduct.TabIndex = 5;
+            // 
             // btnMain
             // 
             this.btnMain.Location = new System.Drawing.Point(497, 2);
@@ -411,14 +419,6 @@
             this.tabPage3.Size = new System.Drawing.Size(667, 458);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Заказы";
-            // 
-            // panelProduct
-            // 
-            this.panelProduct.AutoScroll = true;
-            this.panelProduct.Location = new System.Drawing.Point(0, 41);
-            this.panelProduct.Name = "panelProduct";
-            this.panelProduct.Size = new System.Drawing.Size(665, 367);
-            this.panelProduct.TabIndex = 5;
             // 
             // FPersonalAreaUser
             // 

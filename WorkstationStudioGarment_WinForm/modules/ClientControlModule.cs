@@ -21,6 +21,15 @@ namespace WorkstationStudioGarment_WinForm.modules
             return clientS.All();
         }
 
+        public void Delete(CLIENT entity)
+        {
+            clientS.Delete(entity);
+        }
+
+        public void Update(CLIENT entity) 
+        {
+            clientS.Update(entity);
+        }
         public List<ClientProductContainer> GetClientsProduct(CLIENT entity)
         {
             try

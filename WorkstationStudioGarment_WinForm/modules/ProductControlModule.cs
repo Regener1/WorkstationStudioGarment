@@ -49,6 +49,7 @@ namespace WorkstationStudioGarment_WinForm.modules
             return materialS.All();
         }
 
+       
         /// <summary>
         /// Получить все продукты относящиеся к данной поставке
         /// </summary>

@@ -19,16 +19,52 @@ namespace WorkstationStudioGarment_WinForm.modules
         private ProductStructureService productStructureS = new ProductStructureService();
         private MaterialService materialS = new MaterialService();
 
-
-        public void Add(BASKET entity)
+        /// <summary>
+        /// Добавление в таблицу "Корзина"
+        /// </summary>
+        /// <param name="entity"></param>
+        public void AddBasket(BASKET entity)
         {
             basketS.Add(entity);
+        }
+
+        /// <summary>
+        /// Добавление в таблицу "Заказ"
+        /// </summary>
+        /// <param name="entity"></param>
+        public void AddOrder(ORDER entity) {
+            orderS.Add(entity);
         }
 
         public List<PRODUCT> AllProducts()
         {
             return productS.All();
         }
+
+        public void Update(PRODUCT entity)
+        {
+            productS.Update(entity);
+        }
+        /// <summary>
+        /// Уменьшить количество имеющегося товара 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="count"></param>
+        //public void DecreaseCountOfProduct(PRODUCT entity, int count)
+        //{
+        //    try
+        //    {
+        //        using (StudioDB db = new StudioDB())
+        //        {
+        //            entity.count -= count;
+        //            db.SaveChanges();
+        //        }
+        //    }
+        //    catch (Exception ex) 
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         /// <summary>
         /// Уменьшить количество имеющегося материала

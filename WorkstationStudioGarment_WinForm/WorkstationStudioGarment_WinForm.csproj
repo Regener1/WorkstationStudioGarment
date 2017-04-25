@@ -80,6 +80,12 @@
     <Compile Include="control\ClientService.cs" />
     <Compile Include="control\DbManager.cs" />
     <Compile Include="control\MaterialService.cs" />
+    <Compile Include="forms\FTanyaModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FTanyaModule.Designer.cs">
+      <DependentUpon>FTanyaModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="modules\ClientControlModule.cs" />
     <Compile Include="modules\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FRegistration.resx">
       <DependentUpon>FRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FTanyaModule.resx">
+      <DependentUpon>FTanyaModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FUserPreference.resx">
       <DependentUpon>FUserPreference.cs</DependentUpon>
