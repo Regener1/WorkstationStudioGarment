@@ -10,8 +10,9 @@ namespace WorkstationStudioGarment_WinForm.modules
 {
     class UserPreferenceModule
     {
-        private int idClient = 0;
+        private CLIENT client;
 
+        private ClientService clientS = new ClientService(); 
         private ProductService productS = new ProductService();
         private BasketService basketS = new BasketService();
 
@@ -28,26 +29,27 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         private List<string> summary = new List<string>();
 
-        public UserPreferenceModule() { }
-
-        public UserPreferenceModule(int idClient)
-        {
-            this.idClient = idClient;
-        }
-
-        public int IdClient
+        public CLIENT Client
         {
             get
             {
-                return idClient;
+                return client;
             }
 
             set
             {
-                idClient = value;
+                client = value;
             }
         }
 
+        public UserPreferenceModule() { }
+
+        public UserPreferenceModule(CLIENT entity)
+        {
+            this.client = entity;
+        }
+
+        
         public void Load()
         {
             try
@@ -79,7 +81,7 @@ namespace WorkstationStudioGarment_WinForm.modules
                 {
                     var products = from p in db.PRODUCTs
                                    join b in db.BASKETs on p.id_product equals b.id_product
-                                   where b.id_client == idClient
+                                   where b.id_client == client.id_client
                                    select p;
 
                     clientProducts = products.ToList();
@@ -144,21 +146,21 @@ namespace WorkstationStudioGarment_WinForm.modules
             colors = colors.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
             List<string> keys = names.Keys.ToList();
-            for(int i = 0; i < Math.Ceiling(names.Count * 0.7); i++)
+            for(int i = 0; i < Math.Floor(names.Count * 0.7); i++)
             {
                 names.Remove(keys[i]);
             }
 
             keys.Clear();
             keys = categories.Keys.ToList();
-            for (int i = 0; i < Math.Ceiling(categories.Count * 0.7); i++)
+            for (int i = 0; i < Math.Floor(categories.Count * 0.7); i++)
             {
                 categories.Remove(keys[i]);
             }
 
             keys.Clear();
             keys = colors.Keys.ToList();
-            for (int i = 0; i < Math.Ceiling(colors.Count * 0.7); i++)
+            for (int i = 0; i < Math.Floor(colors.Count * 0.7); i++)
             {
                 colors.Remove(keys[i]);
             }
@@ -224,6 +226,32 @@ namespace WorkstationStudioGarment_WinForm.modules
         private bool CheckColor(PRODUCT entity)
         {
             return colors.ContainsKey(entity.color.ToLower());
+        }
+
+
+        public string GetRules()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("средний диапазон цен: [" + minPrice + ";" + maxPrice + "]");
+            sb.AppendLine("наиболее часто встречающиеся наименования:");
+            foreach(var item in names)
+            {
+                sb.AppendLine(item.Key.ToString());
+            }
+
+            sb.AppendLine("наиболее часто встречающиеся категории:");
+            foreach (var item in categories)
+            {
+                sb.AppendLine(item.Key.ToString());
+            }
+
+            sb.AppendLine("наиболее часто встречающиеся цвета:");
+            foreach (var item in colors)
+            {
+                sb.AppendLine(item.Key.ToString());
+            }
+
+            return sb.ToString();
         }
     }
 }

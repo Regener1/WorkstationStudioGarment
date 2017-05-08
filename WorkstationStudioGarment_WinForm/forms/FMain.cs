@@ -190,7 +190,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UserPreferenceModule upm = new UserPreferenceModule(client.id_client);
+            UserPreferenceModule upm = new UserPreferenceModule(client);
             try
             {
                 upm.Load();
@@ -199,6 +199,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 {
                     FUserPreference fUserpreference = new FUserPreference();
                     fUserpreference.ProductsList = userPreference;
+                    fUserpreference.Upm = upm;
                     fUserpreference.Show();
                 }
                 Console.WriteLine("Thread Stop");

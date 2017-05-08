@@ -364,6 +364,7 @@
             // panelProduct
             // 
             this.panelProduct.AutoScroll = true;
+            this.panelProduct.BackColor = System.Drawing.Color.Lavender;
             this.panelProduct.Location = new System.Drawing.Point(0, 41);
             this.panelProduct.Name = "panelProduct";
             this.panelProduct.Size = new System.Drawing.Size(665, 367);

@@ -8,33 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.containers;
-using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.manager;
 using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FAddProductStructure : Form
+    public partial class FEditProductStructure : Form
     {
-        private int idProduct = -1;
         private ProductControlModule productsControlS = new ProductControlModule();
         private List<MATERIAL> lMaterials;
         private List<ProductStructureContainer> psEntities = new List<ProductStructureContainer>();
 
-        public FAddProductStructure()
+        public List<ProductStructureContainer> PsEntities
+        {
+            get
+            {
+                return psEntities;
+            }
+
+            set
+            {
+                psEntities = value;
+            }
+        }
+
+        public FEditProductStructure()
         {
             InitializeComponent();
         }
 
-        public int IdProduct
+        private void UpdateList()
         {
-            get { return idProduct; }
-            set { idProduct = value; }
-        }
-
-        public List<ProductStructureContainer> GetProductStructure()
-        {
-            return psEntities;
+            lvProductStucture.Items.Clear();
+            foreach (ProductStructureContainer pse in psEntities)
+            {
+                lvProductStucture.Items.Add(new ListViewItem(new string[]
+                                                            { pse.MaterialName,
+                                                              pse.Count.ToString()
+                                                            }));
+            }
         }
 
         private void btnAddToList_Click(object sender, EventArgs e)
@@ -51,38 +63,30 @@ namespace WorkstationStudioGarment_WinForm.forms
 
             psEntities.Add(ps);
 
-            lvProductStucture.Items.Clear();
-            foreach (ProductStructureContainer pse in psEntities)
-            {
-                lvProductStucture.Items.Add(new ListViewItem(new string[]
-                                                            { pse.MaterialName,
-                                                              pse.Count.ToString()
-                                                            }));
-            }
+            UpdateList();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnChange_Click(object sender, EventArgs e)
         {
             try
             {
                 foreach (ProductStructureContainer pse in psEntities)
                 {
                     PRODUCT_STRUCTURE productStruct = new PRODUCT_STRUCTURE();
-                    productStruct.id_product = idProduct;
                     productStruct.id_material = pse.IdMaterial;
                     productStruct.count = pse.Count;
-                    productsControlS.Add(productStruct);
+                    productsControlS.Update(productStruct);
                 }
 
                 Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-        private void FAddProductStructure_Load(object sender, EventArgs e)
+        private void FEditProductStructure_Load(object sender, EventArgs e)
         {
             lMaterials = productsControlS.AllMaterials();
 
@@ -91,6 +95,19 @@ namespace WorkstationStudioGarment_WinForm.forms
                 cbMaterial.Items.Add(lMaterials[i].name);
             }
 
+            UpdateList();
+        }
+
+        private void btnRemoveFromList_Click(object sender, EventArgs e)
+        {
+            if(lvProductStucture.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+
+            psEntities.RemoveAt(lvProductStucture.SelectedIndices[0]);
+
+            UpdateList();
         }
     }
 }

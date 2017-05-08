@@ -49,7 +49,22 @@ namespace WorkstationStudioGarment_WinForm.modules
             return materialS.All();
         }
 
-       
+        public void Update(PRODUCT entity)
+        {
+            productS.Update(entity);
+        }
+
+        public void Update(SUPPLY entity)
+        {
+            supplyS.Update(entity);
+        }
+
+        public void Update(PRODUCT_STRUCTURE entity)
+        {
+            productStructureS.Update(entity);
+        }
+
+
         /// <summary>
         /// Получить все продукты относящиеся к данной поставке
         /// </summary>

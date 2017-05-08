@@ -43,7 +43,7 @@
             // 
             // btnLoadMaterials
             // 
-            this.btnLoadMaterials.Location = new System.Drawing.Point(210, 310);
+            this.btnLoadMaterials.Location = new System.Drawing.Point(210, 287);
             this.btnLoadMaterials.Name = "btnLoadMaterials";
             this.btnLoadMaterials.Size = new System.Drawing.Size(139, 23);
             this.btnLoadMaterials.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.colHeadName,
             this.colHeadCount});
             this.lvMaterials.FullRowSelect = true;
-            this.lvMaterials.Location = new System.Drawing.Point(12, 35);
+            this.lvMaterials.Location = new System.Drawing.Point(12, 12);
             this.lvMaterials.MultiSelect = false;
             this.lvMaterials.Name = "lvMaterials";
             this.lvMaterials.Size = new System.Drawing.Size(337, 269);
@@ -83,7 +83,7 @@
             // 
             // btnAddMaterial
             // 
-            this.btnAddMaterial.Location = new System.Drawing.Point(458, 105);
+            this.btnAddMaterial.Location = new System.Drawing.Point(453, 64);
             this.btnAddMaterial.Name = "btnAddMaterial";
             this.btnAddMaterial.Size = new System.Drawing.Size(124, 23);
             this.btnAddMaterial.TabIndex = 2;
@@ -93,7 +93,7 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(454, 53);
+            this.tbName.Location = new System.Drawing.Point(449, 12);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(128, 20);
             this.tbName.TabIndex = 3;
@@ -101,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(365, 56);
+            this.label1.Location = new System.Drawing.Point(360, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             // nudCount
             // 
-            this.nudCount.Location = new System.Drawing.Point(454, 79);
+            this.nudCount.Location = new System.Drawing.Point(449, 38);
             this.nudCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -122,7 +122,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(382, 81);
+            this.label2.Location = new System.Drawing.Point(377, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 6;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 363);
+            this.ClientSize = new System.Drawing.Size(589, 316);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nudCount);
             this.Controls.Add(this.label1);

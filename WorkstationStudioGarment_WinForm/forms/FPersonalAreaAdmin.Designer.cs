@@ -53,10 +53,14 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPageClientsInfo = new System.Windows.Forms.TabPage();
             this.tabPageProductsManager = new System.Windows.Forms.TabPage();
+            this.btnChangeProductStructure = new System.Windows.Forms.Button();
+            this.btnEditProduct = new System.Windows.Forms.Button();
+            this.btnEditSupply = new System.Windows.Forms.Button();
             this.btnMaterialEditor = new System.Windows.Forms.Button();
             this.btnAddProductStructure = new System.Windows.Forms.Button();
             this.btnAddSupply = new System.Windows.Forms.Button();
@@ -82,6 +86,18 @@
             this.colHeadPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageReport = new System.Windows.Forms.TabPage();
+            this.nudYearEnd = new System.Windows.Forms.NumericUpDown();
+            this.nudYearBegin = new System.Windows.Forms.NumericUpDown();
+            this.cbMonthEnd = new System.Windows.Forms.ComboBox();
+            this.cbMonthBegin = new System.Windows.Forms.ComboBox();
+            this.btnCreateChart = new System.Windows.Forms.Button();
+            this.rbRangeDateReport = new System.Windows.Forms.RadioButton();
+            this.rbCurYearReport = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbChart = new System.Windows.Forms.PictureBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
             this.tcClientInfo.SuspendLayout();
@@ -89,13 +105,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbClientProductPhoto)).BeginInit();
             this.tabPageProductsManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
+            this.tabPageReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYearEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYearBegin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChart)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripAdmin
             // 
             this.menuStripAdmin.Location = new System.Drawing.Point(0, 0);
             this.menuStripAdmin.Name = "menuStripAdmin";
-            this.menuStripAdmin.Size = new System.Drawing.Size(1284, 24);
+            this.menuStripAdmin.Size = new System.Drawing.Size(1128, 24);
             this.menuStripAdmin.TabIndex = 0;
             this.menuStripAdmin.Text = "menuStrip1";
             // 
@@ -103,11 +123,13 @@
             // 
             this.tabControlMain.Controls.Add(this.tabPageUsersManager);
             this.tabControlMain.Controls.Add(this.tabPageProductsManager);
+            this.tabControlMain.Controls.Add(this.tabPageReport);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 24);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1284, 738);
+            this.tabControlMain.Size = new System.Drawing.Size(1128, 624);
+            this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.TabIndex = 1;
             // 
             // tabPageUsersManager
@@ -118,9 +140,9 @@
             this.tabPageUsersManager.Name = "tabPageUsersManager";
             this.tabPageUsersManager.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageUsersManager.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPageUsersManager.Size = new System.Drawing.Size(1276, 712);
+            this.tabPageUsersManager.Size = new System.Drawing.Size(1120, 598);
             this.tabPageUsersManager.TabIndex = 0;
-            this.tabPageUsersManager.Text = "Users manager";
+            this.tabPageUsersManager.Text = "Клиенты";
             this.tabPageUsersManager.UseVisualStyleBackColor = true;
             // 
             // lvClients
@@ -141,7 +163,7 @@
             this.lvClients.Location = new System.Drawing.Point(6, 6);
             this.lvClients.MultiSelect = false;
             this.lvClients.Name = "lvClients";
-            this.lvClients.Size = new System.Drawing.Size(1272, 394);
+            this.lvClients.Size = new System.Drawing.Size(1103, 340);
             this.lvClients.TabIndex = 0;
             this.lvClients.UseCompatibleStateImageBehavior = false;
             this.lvClients.View = System.Windows.Forms.View.Details;
@@ -150,6 +172,7 @@
             // columnHeader15
             // 
             this.columnHeader15.Text = "id";
+            this.columnHeader15.Width = 35;
             // 
             // colHeadFIO
             // 
@@ -201,11 +224,11 @@
             // tcClientInfo
             // 
             this.tcClientInfo.Controls.Add(this.tabPageClientsProducts);
-            this.tcClientInfo.Controls.Add(this.tabPageClientsInfo);
-            this.tcClientInfo.Location = new System.Drawing.Point(10, 410);
+            this.tcClientInfo.Location = new System.Drawing.Point(6, 352);
             this.tcClientInfo.Name = "tcClientInfo";
             this.tcClientInfo.SelectedIndex = 0;
-            this.tcClientInfo.Size = new System.Drawing.Size(1268, 294);
+            this.tcClientInfo.Size = new System.Drawing.Size(1103, 239);
+            this.tcClientInfo.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tcClientInfo.TabIndex = 3;
             // 
             // tabPageClientsProducts
@@ -215,7 +238,7 @@
             this.tabPageClientsProducts.Location = new System.Drawing.Point(4, 22);
             this.tabPageClientsProducts.Name = "tabPageClientsProducts";
             this.tabPageClientsProducts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClientsProducts.Size = new System.Drawing.Size(1260, 268);
+            this.tabPageClientsProducts.Size = new System.Drawing.Size(1095, 213);
             this.tabPageClientsProducts.TabIndex = 0;
             this.tabPageClientsProducts.Text = "Товары";
             this.tabPageClientsProducts.UseVisualStyleBackColor = true;
@@ -223,9 +246,10 @@
             // pbClientProductPhoto
             // 
             this.pbClientProductPhoto.BackColor = System.Drawing.Color.White;
-            this.pbClientProductPhoto.Location = new System.Drawing.Point(926, 6);
+            this.pbClientProductPhoto.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbClientProductPhoto.Location = new System.Drawing.Point(764, 3);
             this.pbClientProductPhoto.Name = "pbClientProductPhoto";
-            this.pbClientProductPhoto.Size = new System.Drawing.Size(328, 256);
+            this.pbClientProductPhoto.Size = new System.Drawing.Size(328, 207);
             this.pbClientProductPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbClientProductPhoto.TabIndex = 2;
             this.pbClientProductPhoto.TabStop = false;
@@ -239,13 +263,16 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
+            this.columnHeader17,
+            this.columnHeader18,
             this.columnHeader7,
             this.columnHeader16});
+            this.lvClientsProducts.Dock = System.Windows.Forms.DockStyle.Left;
             this.lvClientsProducts.FullRowSelect = true;
-            this.lvClientsProducts.Location = new System.Drawing.Point(6, 6);
+            this.lvClientsProducts.Location = new System.Drawing.Point(3, 3);
             this.lvClientsProducts.MultiSelect = false;
             this.lvClientsProducts.Name = "lvClientsProducts";
-            this.lvClientsProducts.Size = new System.Drawing.Size(914, 256);
+            this.lvClientsProducts.Size = new System.Drawing.Size(755, 207);
             this.lvClientsProducts.TabIndex = 1;
             this.lvClientsProducts.UseCompatibleStateImageBehavior = false;
             this.lvClientsProducts.View = System.Windows.Forms.View.Details;
@@ -280,6 +307,14 @@
             this.columnHeader6.Text = "Цена";
             this.columnHeader6.Width = 84;
             // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Дата";
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "Время";
+            // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Куплено шт.";
@@ -289,18 +324,11 @@
             // 
             this.columnHeader16.Text = "Сумма";
             // 
-            // tabPageClientsInfo
-            // 
-            this.tabPageClientsInfo.Location = new System.Drawing.Point(4, 22);
-            this.tabPageClientsInfo.Name = "tabPageClientsInfo";
-            this.tabPageClientsInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClientsInfo.Size = new System.Drawing.Size(1260, 268);
-            this.tabPageClientsInfo.TabIndex = 1;
-            this.tabPageClientsInfo.Text = "Информация";
-            this.tabPageClientsInfo.UseVisualStyleBackColor = true;
-            // 
             // tabPageProductsManager
             // 
+            this.tabPageProductsManager.Controls.Add(this.btnChangeProductStructure);
+            this.tabPageProductsManager.Controls.Add(this.btnEditProduct);
+            this.tabPageProductsManager.Controls.Add(this.btnEditSupply);
             this.tabPageProductsManager.Controls.Add(this.btnMaterialEditor);
             this.tabPageProductsManager.Controls.Add(this.btnAddProductStructure);
             this.tabPageProductsManager.Controls.Add(this.btnAddSupply);
@@ -317,14 +345,44 @@
             this.tabPageProductsManager.Location = new System.Drawing.Point(4, 22);
             this.tabPageProductsManager.Name = "tabPageProductsManager";
             this.tabPageProductsManager.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageProductsManager.Size = new System.Drawing.Size(1292, 712);
+            this.tabPageProductsManager.Size = new System.Drawing.Size(1120, 598);
             this.tabPageProductsManager.TabIndex = 1;
-            this.tabPageProductsManager.Text = "Products manager";
+            this.tabPageProductsManager.Text = "Продукты";
             this.tabPageProductsManager.UseVisualStyleBackColor = true;
+            // 
+            // btnChangeProductStructure
+            // 
+            this.btnChangeProductStructure.Location = new System.Drawing.Point(951, 566);
+            this.btnChangeProductStructure.Name = "btnChangeProductStructure";
+            this.btnChangeProductStructure.Size = new System.Drawing.Size(144, 23);
+            this.btnChangeProductStructure.TabIndex = 43;
+            this.btnChangeProductStructure.Text = "Изменить состав товара";
+            this.btnChangeProductStructure.UseVisualStyleBackColor = true;
+            this.btnChangeProductStructure.Click += new System.EventHandler(this.btnChangeProductStructure_Click);
+            // 
+            // btnEditProduct
+            // 
+            this.btnEditProduct.Location = new System.Drawing.Point(720, 365);
+            this.btnEditProduct.Name = "btnEditProduct";
+            this.btnEditProduct.Size = new System.Drawing.Size(132, 23);
+            this.btnEditProduct.TabIndex = 42;
+            this.btnEditProduct.Text = "Изменить продукт";
+            this.btnEditProduct.UseVisualStyleBackColor = true;
+            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
+            // 
+            // btnEditSupply
+            // 
+            this.btnEditSupply.Location = new System.Drawing.Point(6, 566);
+            this.btnEditSupply.Name = "btnEditSupply";
+            this.btnEditSupply.Size = new System.Drawing.Size(166, 23);
+            this.btnEditSupply.TabIndex = 41;
+            this.btnEditSupply.Text = "Изменить поставку";
+            this.btnEditSupply.UseVisualStyleBackColor = true;
+            this.btnEditSupply.Click += new System.EventHandler(this.btnEditSupply_Click);
             // 
             // btnMaterialEditor
             // 
-            this.btnMaterialEditor.Location = new System.Drawing.Point(1147, 623);
+            this.btnMaterialEditor.Location = new System.Drawing.Point(666, 566);
             this.btnMaterialEditor.Name = "btnMaterialEditor";
             this.btnMaterialEditor.Size = new System.Drawing.Size(128, 23);
             this.btnMaterialEditor.TabIndex = 40;
@@ -334,7 +392,7 @@
             // 
             // btnAddProductStructure
             // 
-            this.btnAddProductStructure.Location = new System.Drawing.Point(821, 586);
+            this.btnAddProductStructure.Location = new System.Drawing.Point(800, 566);
             this.btnAddProductStructure.Name = "btnAddProductStructure";
             this.btnAddProductStructure.Size = new System.Drawing.Size(145, 23);
             this.btnAddProductStructure.TabIndex = 39;
@@ -344,9 +402,9 @@
             // 
             // btnAddSupply
             // 
-            this.btnAddSupply.Location = new System.Drawing.Point(10, 586);
+            this.btnAddSupply.Location = new System.Drawing.Point(6, 537);
             this.btnAddSupply.Name = "btnAddSupply";
-            this.btnAddSupply.Size = new System.Drawing.Size(118, 23);
+            this.btnAddSupply.Size = new System.Drawing.Size(166, 23);
             this.btnAddSupply.TabIndex = 38;
             this.btnAddSupply.Text = "Добавить поставку";
             this.btnAddSupply.UseVisualStyleBackColor = true;
@@ -354,7 +412,7 @@
             // 
             // btnAddProduct
             // 
-            this.btnAddProduct.Location = new System.Drawing.Point(179, 586);
+            this.btnAddProduct.Location = new System.Drawing.Point(590, 365);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(124, 23);
             this.btnAddProduct.TabIndex = 37;
@@ -365,7 +423,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1026, 43);
+            this.label2.Location = new System.Drawing.Point(855, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 36;
@@ -373,7 +431,7 @@
             // 
             // btnLoadSupplies
             // 
-            this.btnLoadSupplies.Location = new System.Drawing.Point(6, 6);
+            this.btnLoadSupplies.Location = new System.Drawing.Point(6, 33);
             this.btnLoadSupplies.Name = "btnLoadSupplies";
             this.btnLoadSupplies.Size = new System.Drawing.Size(142, 23);
             this.btnLoadSupplies.TabIndex = 35;
@@ -384,7 +442,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(818, 43);
+            this.label1.Location = new System.Drawing.Point(178, 378);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 34;
@@ -396,10 +454,10 @@
             this.colHeadMaterial,
             this.colHeadMaterialCount});
             this.lvProductStructure.FullRowSelect = true;
-            this.lvProductStructure.Location = new System.Drawing.Point(821, 59);
+            this.lvProductStructure.Location = new System.Drawing.Point(178, 394);
             this.lvProductStructure.MultiSelect = false;
             this.lvProductStructure.Name = "lvProductStructure";
-            this.lvProductStructure.Size = new System.Drawing.Size(199, 521);
+            this.lvProductStructure.Size = new System.Drawing.Size(917, 166);
             this.lvProductStructure.TabIndex = 33;
             this.lvProductStructure.UseCompatibleStateImageBehavior = false;
             this.lvProductStructure.View = System.Windows.Forms.View.Details;
@@ -417,7 +475,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 43);
+            this.label11.Location = new System.Drawing.Point(6, 59);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 32;
@@ -429,10 +487,10 @@
             this.colHeadId,
             this.colHeadDeliveryDate});
             this.lvSupplies.FullRowSelect = true;
-            this.lvSupplies.Location = new System.Drawing.Point(7, 59);
+            this.lvSupplies.Location = new System.Drawing.Point(6, 75);
             this.lvSupplies.MultiSelect = false;
             this.lvSupplies.Name = "lvSupplies";
-            this.lvSupplies.Size = new System.Drawing.Size(166, 521);
+            this.lvSupplies.Size = new System.Drawing.Size(166, 456);
             this.lvSupplies.TabIndex = 31;
             this.lvSupplies.UseCompatibleStateImageBehavior = false;
             this.lvSupplies.View = System.Windows.Forms.View.Details;
@@ -451,7 +509,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(176, 43);
+            this.label10.Location = new System.Drawing.Point(175, 59);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 13);
             this.label10.TabIndex = 30;
@@ -459,9 +517,9 @@
             // 
             // pictureBoxPhoto
             // 
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(1026, 59);
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(858, 75);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(249, 338);
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(237, 313);
             this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPhoto.TabIndex = 1;
             this.pictureBoxPhoto.TabStop = false;
@@ -478,10 +536,10 @@
             this.colHeadProductCount,
             this.colHeadIdSupply});
             this.lvProducts.FullRowSelect = true;
-            this.lvProducts.Location = new System.Drawing.Point(179, 59);
+            this.lvProducts.Location = new System.Drawing.Point(178, 75);
             this.lvProducts.MultiSelect = false;
             this.lvProducts.Name = "lvProducts";
-            this.lvProducts.Size = new System.Drawing.Size(636, 521);
+            this.lvProducts.Size = new System.Drawing.Size(674, 284);
             this.lvProducts.TabIndex = 0;
             this.lvProducts.UseCompatibleStateImageBehavior = false;
             this.lvProducts.View = System.Windows.Forms.View.Details;
@@ -526,11 +584,164 @@
             this.colHeadIdSupply.Text = "Id поставки";
             this.colHeadIdSupply.Width = 77;
             // 
+            // tabPageReport
+            // 
+            this.tabPageReport.Controls.Add(this.btnReport);
+            this.tabPageReport.Controls.Add(this.nudYearEnd);
+            this.tabPageReport.Controls.Add(this.nudYearBegin);
+            this.tabPageReport.Controls.Add(this.cbMonthEnd);
+            this.tabPageReport.Controls.Add(this.cbMonthBegin);
+            this.tabPageReport.Controls.Add(this.btnCreateChart);
+            this.tabPageReport.Controls.Add(this.rbRangeDateReport);
+            this.tabPageReport.Controls.Add(this.rbCurYearReport);
+            this.tabPageReport.Controls.Add(this.label4);
+            this.tabPageReport.Controls.Add(this.label3);
+            this.tabPageReport.Controls.Add(this.pbChart);
+            this.tabPageReport.Location = new System.Drawing.Point(4, 22);
+            this.tabPageReport.Name = "tabPageReport";
+            this.tabPageReport.Size = new System.Drawing.Size(1120, 598);
+            this.tabPageReport.TabIndex = 2;
+            this.tabPageReport.Text = "Отчеты";
+            this.tabPageReport.UseVisualStyleBackColor = true;
+            // 
+            // nudYearEnd
+            // 
+            this.nudYearEnd.Enabled = false;
+            this.nudYearEnd.Location = new System.Drawing.Point(1032, 272);
+            this.nudYearEnd.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudYearEnd.Minimum = new decimal(new int[] {
+            1990,
+            0,
+            0,
+            0});
+            this.nudYearEnd.Name = "nudYearEnd";
+            this.nudYearEnd.Size = new System.Drawing.Size(73, 20);
+            this.nudYearEnd.TabIndex = 11;
+            this.nudYearEnd.Value = new decimal(new int[] {
+            2017,
+            0,
+            0,
+            0});
+            // 
+            // nudYearBegin
+            // 
+            this.nudYearBegin.Enabled = false;
+            this.nudYearBegin.Location = new System.Drawing.Point(1032, 246);
+            this.nudYearBegin.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.nudYearBegin.Minimum = new decimal(new int[] {
+            1990,
+            0,
+            0,
+            0});
+            this.nudYearBegin.Name = "nudYearBegin";
+            this.nudYearBegin.Size = new System.Drawing.Size(73, 20);
+            this.nudYearBegin.TabIndex = 10;
+            this.nudYearBegin.Value = new decimal(new int[] {
+            2017,
+            0,
+            0,
+            0});
+            // 
+            // cbMonthEnd
+            // 
+            this.cbMonthEnd.Enabled = false;
+            this.cbMonthEnd.FormattingEnabled = true;
+            this.cbMonthEnd.Location = new System.Drawing.Point(939, 272);
+            this.cbMonthEnd.Name = "cbMonthEnd";
+            this.cbMonthEnd.Size = new System.Drawing.Size(87, 21);
+            this.cbMonthEnd.TabIndex = 9;
+            // 
+            // cbMonthBegin
+            // 
+            this.cbMonthBegin.Enabled = false;
+            this.cbMonthBegin.FormattingEnabled = true;
+            this.cbMonthBegin.Location = new System.Drawing.Point(939, 246);
+            this.cbMonthBegin.Name = "cbMonthBegin";
+            this.cbMonthBegin.Size = new System.Drawing.Size(87, 21);
+            this.cbMonthBegin.TabIndex = 8;
+            // 
+            // btnCreateChart
+            // 
+            this.btnCreateChart.Location = new System.Drawing.Point(862, 318);
+            this.btnCreateChart.Name = "btnCreateChart";
+            this.btnCreateChart.Size = new System.Drawing.Size(108, 23);
+            this.btnCreateChart.TabIndex = 7;
+            this.btnCreateChart.Text = "Показать график";
+            this.btnCreateChart.UseVisualStyleBackColor = true;
+            this.btnCreateChart.Click += new System.EventHandler(this.btnCreateChart_Click);
+            // 
+            // rbRangeDateReport
+            // 
+            this.rbRangeDateReport.AutoSize = true;
+            this.rbRangeDateReport.Location = new System.Drawing.Point(862, 218);
+            this.rbRangeDateReport.Name = "rbRangeDateReport";
+            this.rbRangeDateReport.Size = new System.Drawing.Size(63, 17);
+            this.rbRangeDateReport.TabIndex = 6;
+            this.rbRangeDateReport.Text = "Период";
+            this.rbRangeDateReport.UseVisualStyleBackColor = true;
+            this.rbRangeDateReport.CheckedChanged += new System.EventHandler(this.rbRangeDateReport_CheckedChanged);
+            // 
+            // rbCurYearReport
+            // 
+            this.rbCurYearReport.AutoSize = true;
+            this.rbCurYearReport.Checked = true;
+            this.rbCurYearReport.Location = new System.Drawing.Point(862, 195);
+            this.rbCurYearReport.Name = "rbCurYearReport";
+            this.rbCurYearReport.Size = new System.Drawing.Size(90, 17);
+            this.rbCurYearReport.TabIndex = 5;
+            this.rbCurYearReport.TabStop = true;
+            this.rbCurYearReport.Text = "Текущий год";
+            this.rbCurYearReport.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(859, 275);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Дата конца:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(859, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Дата начала:";
+            // 
+            // pbChart
+            // 
+            this.pbChart.Location = new System.Drawing.Point(8, 12);
+            this.pbChart.Name = "pbChart";
+            this.pbChart.Size = new System.Drawing.Size(845, 577);
+            this.pbChart.TabIndex = 0;
+            this.pbChart.TabStop = false;
+            // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(1030, 318);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.TabIndex = 12;
+            this.btnReport.Text = "Отчет";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // FPersonalAreaAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 762);
+            this.ClientSize = new System.Drawing.Size(1128, 648);
             this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.menuStripAdmin);
             this.MainMenuStrip = this.menuStripAdmin;
@@ -545,6 +756,11 @@
             this.tabPageProductsManager.ResumeLayout(false);
             this.tabPageProductsManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
+            this.tabPageReport.ResumeLayout(false);
+            this.tabPageReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYearEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYearBegin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,9 +818,25 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.TabControl tcClientInfo;
         private System.Windows.Forms.TabPage tabPageClientsProducts;
-        private System.Windows.Forms.TabPage tabPageClientsInfo;
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.PictureBox pbClientProductPhoto;
         private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.TabPage tabPageReport;
+        private System.Windows.Forms.PictureBox pbChart;
+        private System.Windows.Forms.RadioButton rbRangeDateReport;
+        private System.Windows.Forms.RadioButton rbCurYearReport;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCreateChart;
+        private System.Windows.Forms.NumericUpDown nudYearEnd;
+        private System.Windows.Forms.NumericUpDown nudYearBegin;
+        private System.Windows.Forms.ComboBox cbMonthEnd;
+        private System.Windows.Forms.ComboBox cbMonthBegin;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.Button btnEditSupply;
+        private System.Windows.Forms.Button btnEditProduct;
+        private System.Windows.Forms.Button btnChangeProductStructure;
+        private System.Windows.Forms.Button btnReport;
     }
 }

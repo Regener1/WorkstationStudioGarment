@@ -11,7 +11,6 @@ namespace WorkstationStudioGarment_WinForm.modules
 {
     class ClientControlModule
     {
-
         private ClientService clientS = new ClientService();
         private ProductService productS = new ProductService();
         private BasketService basketS = new BasketService();
@@ -38,11 +37,13 @@ namespace WorkstationStudioGarment_WinForm.modules
                 {
                     var productsInfo = from b in db.BASKETs
                                        join p in db.PRODUCTs on b.id_product equals p.id_product
+                                       join o in db.ORDERs on b.id_order equals o.id_order
                                        where b.id_client == entity.id_client
-                                       select new { p, b.count, price = b.count * p.price };
+                                       select new { p, b.count, o.order_date, o.order_time,
+                                           price = b.count * p.price };
                     return productsInfo
                         .ToList()
-                        .Select(x => new ClientProductContainer(x.p, x.count, x.price))
+                        .Select(x => new ClientProductContainer(x.p, x.order_date, x.order_time, x.count, x.price))
                         .ToList();
                 }
             }

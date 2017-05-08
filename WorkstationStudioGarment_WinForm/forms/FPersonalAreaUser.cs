@@ -155,7 +155,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                            s += "Вы можете заказать этот товар на пошив";
                         }
                     }
-                    us.tbInfo.Text = "Наименование " + pr.title + Environment.NewLine +
+                    us.tbInfo.Text = "Наименование: " + pr.title + Environment.NewLine +
                                      "Размер: " + pr.size + Environment.NewLine +
                                      "Цвет: " + pr.color + Environment.NewLine +
                                      "Цена: " + pr.price + Environment.NewLine +
@@ -178,6 +178,10 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             for (int i = 0; i < listControls.Count; i++)
             {
+                if(listControls[i].nUDCount.Value == 0)
+                    listControls[i].nUDCount.BackColor = Color.Red;
+                else
+                    listControls[i].nUDCount.BackColor = Color.White;
                 listControls[i].tbTotal.Text = (listControls[i].nUDCount.Value * 
                                                 listSelectedProduct[i].price).ToString();
             }
@@ -224,10 +228,26 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try 
             {
+                decimal totalSum = 0;
+                for (int i = 0; i < listSelectedProduct.Count; i++)
+                {
+                    if (listControls[i].nUDCount.Value == 0)
+                    {
+                        continue;
+                    }
+                    totalSum += decimal.Parse(listControls[i].tbTotal.Text);
+                }
+
+                if(totalSum == 0)
+                {
+                    return;
+                }
+
                 ORDER o = new ORDER();
                 o.order_date = DateTime.Today.ToString("d");
                 o.order_status = 0; //какие цифры вообще должны использоваться?
                 o.order_time = DateTime.Now.ToString("H:M:s");
+                o.total_sum = totalSum;
                 orderModule.AddOrder(o);
 
                 for (int i = 0; i < listSelectedProduct.Count; i++)
@@ -235,8 +255,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                     bool availability = orderModule.CheckForAvailability(listSelectedProduct[i]);
 
                     //если не можем пошить товар или выбрано кол-во 0, не записываем его в корзину
-                    if (listControls[i].nUDCount.Maximum == 0 || 
-                        listControls[i].nUDCount.Value == 0) 
+                    if (listControls[i].nUDCount.Value == 0) 
                     {
                         continue;
                     }
@@ -245,11 +264,9 @@ namespace WorkstationStudioGarment_WinForm.forms
                     b.id_client = client.id_client;
                     b.id_product = listSelectedProduct[i].id_product;
                     b.count = (int)(listControls[i].nUDCount.Value);
-                    b.id_order = o.id_order;
-                    
+                    b.id_order = o.id_order;   
                     orderModule.AddBasket(b);
 
-                    o.total_sum += Decimal.Parse(listControls[i].tbTotal.Text);
                     if (availability)
                     {
                         //orderModule.DecreaseCountOfProduct(listSelectedProduct[i], b.count);

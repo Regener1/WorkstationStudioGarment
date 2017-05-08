@@ -43,20 +43,25 @@
             // pb
             // 
             this.pb.BackColor = System.Drawing.Color.White;
-            this.pb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.pb, "pb");
             this.pb.Name = "pb";
             this.pb.TabStop = false;
             // 
             // tbInfo
             // 
+            this.tbInfo.BackColor = System.Drawing.Color.White;
+            this.tbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.tbInfo, "tbInfo");
             this.tbInfo.Name = "tbInfo";
+            this.tbInfo.ReadOnly = true;
             // 
             // nUDCount
             // 
+            this.nUDCount.BackColor = System.Drawing.Color.White;
+            this.nUDCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.nUDCount, "nUDCount");
             this.nUDCount.Name = "nUDCount";
+            this.nUDCount.ReadOnly = true;
             // 
             // label1
             // 
@@ -71,8 +76,11 @@
             // 
             // tbTotal
             // 
+            this.tbTotal.BackColor = System.Drawing.Color.White;
+            this.tbTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.tbTotal, "tbTotal");
             this.tbTotal.Name = "tbTotal";
+            this.tbTotal.ReadOnly = true;
             // 
             // btnDelete
             // 
@@ -86,8 +94,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.label2);

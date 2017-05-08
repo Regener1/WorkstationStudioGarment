@@ -78,16 +78,17 @@
             this.tbLogin.Location = new System.Drawing.Point(89, 75);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(245, 20);
-            this.tbLogin.TabIndex = 20;
+            this.tbLogin.TabIndex = 1;
             this.tbLogin.Tag = "";
             this.tbLogin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbLogin_MouseDown);
             // 
             // bAuthorization
             // 
+            this.bAuthorization.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.bAuthorization.Location = new System.Drawing.Point(154, 143);
             this.bAuthorization.Name = "bAuthorization";
             this.bAuthorization.Size = new System.Drawing.Size(106, 22);
-            this.bAuthorization.TabIndex = 24;
+            this.bAuthorization.TabIndex = 3;
             this.bAuthorization.Text = "Войти";
             this.bAuthorization.UseVisualStyleBackColor = true;
             this.bAuthorization.Click += new System.EventHandler(this.bAuthorization_Click);
@@ -100,7 +101,7 @@
             this.label2.Location = new System.Drawing.Point(86, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 17);
-            this.label2.TabIndex = 25;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Впервые здесь?";
             // 
             // linkRegistration
@@ -114,7 +115,7 @@
             this.linkRegistration.Location = new System.Drawing.Point(207, 185);
             this.linkRegistration.Name = "linkRegistration";
             this.linkRegistration.Size = new System.Drawing.Size(144, 17);
-            this.linkRegistration.TabIndex = 26;
+            this.linkRegistration.TabIndex = 5;
             this.linkRegistration.TabStop = true;
             this.linkRegistration.Text = "Зарегистрироваться";
             this.linkRegistration.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegistration_LinkClicked);
@@ -135,7 +136,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(245, 20);
-            this.tbPassword.TabIndex = 28;
+            this.tbPassword.TabIndex = 2;
             this.tbPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbPassword_MouseDown);
             // 
             // lblError
@@ -146,7 +147,7 @@
             this.lblError.Location = new System.Drawing.Point(142, 41);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(148, 15);
-            this.lblError.TabIndex = 29;
+            this.lblError.TabIndex = 6;
             this.lblError.Text = "Неверный логин/пароль";
             this.lblError.Visible = false;
             // 

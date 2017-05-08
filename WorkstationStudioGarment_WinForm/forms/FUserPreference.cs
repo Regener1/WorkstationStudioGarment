@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.manager;
+using WorkstationStudioGarment_WinForm.modules;
 using WorkstationStudioGarment_WinForm.tool;
 using WorkstationStudioGarment_WinForm.user_controls;
 
@@ -16,6 +17,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FUserPreference : Form
     {
         private List<PRODUCT> productsList;
+        private UserPreferenceModule upm;
 
         public FUserPreference()
         {
@@ -30,9 +32,22 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
+        internal UserPreferenceModule Upm
+        {
+            get
+            {
+                return upm;
+            }
+
+            set
+            {
+                upm = value;
+            }
+        }
+
         private void FUserPreference_Load(object sender, EventArgs e)
         {
-            foreach(PRODUCT entity in productsList)
+            foreach (PRODUCT entity in productsList)
             {
                 string description = entity.title + Environment.NewLine
                                      + entity.category + Environment.NewLine
@@ -46,6 +61,11 @@ namespace WorkstationStudioGarment_WinForm.forms
                 flpProductsView.Controls.Add(pvPanel);
             }
 
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(upm.GetRules());
         }
     }
 }
