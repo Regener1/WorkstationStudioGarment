@@ -13,7 +13,7 @@ using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FEditProductStructure : Form
+    public partial class FEditProductStructure : MetroFramework.Forms.MetroForm
     {
         private ProductControlModule productsControlS = new ProductControlModule();
         private List<MATERIAL> lMaterials;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pbPhoto = new System.Windows.Forms.PictureBox();
-            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.tbDescription = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,19 +46,34 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.BackColor = System.Drawing.Color.White;
-            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDescription.Enabled = false;
-            this.tbDescription.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            // 
+            // 
+            // 
+            this.tbDescription.CustomButton.Image = null;
+            this.tbDescription.CustomButton.Location = new System.Drawing.Point(-104, 2);
+            this.tbDescription.CustomButton.Name = "";
+            this.tbDescription.CustomButton.Size = new System.Drawing.Size(235, 235);
+            this.tbDescription.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbDescription.CustomButton.TabIndex = 1;
+            this.tbDescription.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbDescription.CustomButton.UseSelectable = true;
+            this.tbDescription.CustomButton.Visible = false;
+            this.tbDescription.Lines = new string[0];
             this.tbDescription.Location = new System.Drawing.Point(213, 5);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(5);
+            this.tbDescription.MaxLength = 32767;
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.ReadOnly = true;
-            this.tbDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbDescription.Size = new System.Drawing.Size(132, 240);
-            this.tbDescription.TabIndex = 1;
-            this.tbDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDescription.PasswordChar = '\0';
+            this.tbDescription.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbDescription.SelectedText = "";
+            this.tbDescription.SelectionLength = 0;
+            this.tbDescription.SelectionStart = 0;
+            this.tbDescription.ShortcutsEnabled = true;
+            this.tbDescription.Size = new System.Drawing.Size(134, 240);
+            this.tbDescription.TabIndex = 2;
+            this.tbDescription.UseSelectable = true;
+            this.tbDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // ProductViewPanel
             // 
@@ -71,13 +86,12 @@
             this.Size = new System.Drawing.Size(350, 250);
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         public System.Windows.Forms.PictureBox pbPhoto;
-        public System.Windows.Forms.TextBox tbDescription;
+        public MetroFramework.Controls.MetroTextBox tbDescription;
     }
 }

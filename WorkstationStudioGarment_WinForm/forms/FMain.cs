@@ -14,7 +14,7 @@ using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FMain : Form
+    public partial class FMain : MetroFramework.Forms.MetroForm
     {
         FAuthorization f = new FAuthorization();
         CLIENT client;
@@ -40,9 +40,9 @@ namespace WorkstationStudioGarment_WinForm.forms
           
             client = f.ourClient;
             if (client == null) {
-                MessageBox.Show("Ошибка", "Ошибка при авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroFramework.MetroMessageBox.Show(this, "Ошибка при авторизации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
-                return;
+                
             }
 
             lblClientLogin.Text = client.login;
@@ -149,29 +149,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
             pbMannequin.Image = img;
         }
-
-        private void lblClientLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
-            if (client == null) {
-                MessageBox.Show("Ошибка", "Такого клиента не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-            }
-            if (client[0].access_level == 1)
-            {
-                FPersonalAreaAdmin f = new FPersonalAreaAdmin();
-                f.ShowDialog();
-            }
-            else {
-                FPersonalAreaUser f = new FPersonalAreaUser();
-                f.SetClient(client[0]);
-                f.ClearSelectedProducts();
-                f.SetSelectedProducts(listSelectedProduct);
-                f.ShowDialog();
-
-            }
-        }
-
 		
 		private void FMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -212,6 +189,30 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             FTanyaModule f = new FTanyaModule();
             f.ShowDialog();
+        }
+
+        private void lblClientLogin_LinkClicked(object sender, EventArgs e)
+        {
+            List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
+            if (client == null)
+            {
+                MessageBox.Show("Ошибка", "Такого клиента не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+            }
+            if (client[0].access_level == 1)
+            {
+                FPersonalAreaAdmin f = new FPersonalAreaAdmin();
+                f.ShowDialog();
+            }
+            else
+            {
+                FPersonalAreaUser f = new FPersonalAreaUser();
+                f.SetClient(client[0]);
+                f.ClearSelectedProducts();
+                f.SetSelectedProducts(listSelectedProduct);
+                f.ShowDialog();
+
+            }
         }
     }
 }

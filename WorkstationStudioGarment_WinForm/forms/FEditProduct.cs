@@ -14,7 +14,7 @@ using WorkstationStudioGarment_WinForm.tool;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FEditProduct : Form
+    public partial class FEditProduct : MetroFramework.Forms.MetroForm
     {
         private ProductControlModule productsControlS = new ProductControlModule();
         private PRODUCT product;

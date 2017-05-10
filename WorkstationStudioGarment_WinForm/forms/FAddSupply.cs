@@ -13,7 +13,7 @@ using WorkstationStudioGarment_WinForm.modules;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FAddSupply : Form
+    public partial class FAddSupply : MetroFramework.Forms.MetroForm
     {
         private ProductControlModule productsControlS = new ProductControlModule();
         private SUPPLY supply;

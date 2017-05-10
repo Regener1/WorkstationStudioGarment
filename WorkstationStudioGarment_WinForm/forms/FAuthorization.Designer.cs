@@ -28,102 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblLogin = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
-            this.bAuthorization = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.linkRegistration = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.MaskedTextBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.linkRegistration = new MetroFramework.Controls.MetroLink();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.btnAuthorization = new MetroFramework.Controls.MetroButton();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(30, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(366, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Для входа в систему  введите свой логин и пароль";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblPassword.Location = new System.Drawing.Point(89, 98);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(45, 13);
-            this.lblPassword.TabIndex = 23;
-            this.lblPassword.Text = "Пароль";
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.ForeColor = System.Drawing.Color.DarkCyan;
-            this.lblLogin.Location = new System.Drawing.Point(89, 59);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(38, 13);
-            this.lblLogin.TabIndex = 22;
-            this.lblLogin.Text = "Логин";
             // 
             // tbLogin
             // 
             this.tbLogin.BackColor = System.Drawing.Color.White;
             this.tbLogin.ForeColor = System.Drawing.Color.DarkCyan;
-            this.tbLogin.Location = new System.Drawing.Point(89, 75);
+            this.tbLogin.Location = new System.Drawing.Point(54, 123);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(245, 20);
             this.tbLogin.TabIndex = 1;
             this.tbLogin.Tag = "";
             this.tbLogin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbLogin_MouseDown);
             // 
-            // bAuthorization
-            // 
-            this.bAuthorization.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.bAuthorization.Location = new System.Drawing.Point(154, 143);
-            this.bAuthorization.Name = "bAuthorization";
-            this.bAuthorization.Size = new System.Drawing.Size(106, 22);
-            this.bAuthorization.TabIndex = 3;
-            this.bAuthorization.Text = "Войти";
-            this.bAuthorization.UseVisualStyleBackColor = true;
-            this.bAuthorization.Click += new System.EventHandler(this.bAuthorization_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(86, 185);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Впервые здесь?";
-            // 
-            // linkRegistration
-            // 
-            this.linkRegistration.ActiveLinkColor = System.Drawing.Color.Navy;
-            this.linkRegistration.AutoSize = true;
-            this.linkRegistration.DisabledLinkColor = System.Drawing.Color.DarkCyan;
-            this.linkRegistration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkRegistration.ForeColor = System.Drawing.Color.DarkCyan;
-            this.linkRegistration.LinkColor = System.Drawing.Color.DarkCyan;
-            this.linkRegistration.Location = new System.Drawing.Point(207, 185);
-            this.linkRegistration.Name = "linkRegistration";
-            this.linkRegistration.Size = new System.Drawing.Size(144, 17);
-            this.linkRegistration.TabIndex = 5;
-            this.linkRegistration.TabStop = true;
-            this.linkRegistration.Text = "Зарегистрироваться";
-            this.linkRegistration.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegistration_LinkClicked);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 163);
+            this.label3.Location = new System.Drawing.Point(33, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(295, 13);
             this.label3.TabIndex = 27;
@@ -132,7 +64,7 @@
             // tbPassword
             // 
             this.tbPassword.BackColor = System.Drawing.Color.White;
-            this.tbPassword.Location = new System.Drawing.Point(89, 117);
+            this.tbPassword.Location = new System.Drawing.Point(54, 165);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(245, 20);
@@ -144,29 +76,98 @@
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblError.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblError.Location = new System.Drawing.Point(142, 41);
+            this.lblError.Location = new System.Drawing.Point(107, 89);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(148, 15);
             this.lblError.TabIndex = 6;
             this.lblError.Text = "Неверный логин/пароль";
             this.lblError.Visible = false;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(23, 70);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(318, 19);
+            this.metroLabel1.TabIndex = 28;
+            this.metroLabel1.Text = "Для входа в систему введите свой логин и пароль";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(54, 143);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(54, 19);
+            this.metroLabel13.TabIndex = 91;
+            this.metroLabel13.Text = "Пароль";
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(54, 101);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel12.TabIndex = 90;
+            this.metroLabel12.Text = "Логин";
+            // 
+            // linkRegistration
+            // 
+            this.linkRegistration.Location = new System.Drawing.Point(172, 233);
+            this.linkRegistration.Name = "linkRegistration";
+            this.linkRegistration.Size = new System.Drawing.Size(127, 23);
+            this.linkRegistration.TabIndex = 92;
+            this.linkRegistration.Text = "Зарегистрироваться";
+            this.linkRegistration.UseSelectable = true;
+            this.linkRegistration.Click += new System.EventHandler(this.linkRegistration_LinkClicked);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(54, 233);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(105, 19);
+            this.metroLabel2.TabIndex = 93;
+            this.metroLabel2.Text = "Впервые здесь?";
+            // 
+            // btnAuthorization
+            // 
+            this.btnAuthorization.Location = new System.Drawing.Point(132, 191);
+            this.btnAuthorization.Name = "btnAuthorization";
+            this.btnAuthorization.Size = new System.Drawing.Size(75, 23);
+            this.btnAuthorization.TabIndex = 94;
+            this.btnAuthorization.Text = "Войти";
+            this.btnAuthorization.UseSelectable = true;
+            this.btnAuthorization.Click += new System.EventHandler(this.bAuthorization_Click);
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(340, 253);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(51, 49);
+            this.metroPanel1.TabIndex = 95;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
             // FAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(418, 219);
+            this.ClientSize = new System.Drawing.Size(370, 287);
+            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.btnAuthorization);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.linkRegistration);
+            this.Controls.Add(this.metroLabel13);
+            this.Controls.Add(this.metroLabel12);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.bAuthorization);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.linkRegistration);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.tbLogin);
-            this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.DarkCyan;
             this.Name = "FAuthorization";
             this.Text = "Вход в систему";
@@ -176,16 +177,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.TextBox tbLogin;
-        private System.Windows.Forms.Button bAuthorization;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkRegistration;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox tbPassword;
         private System.Windows.Forms.Label lblError;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLink linkRegistration;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroButton btnAuthorization;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

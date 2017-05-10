@@ -147,38 +147,11 @@
   <data name="&gt;&gt;pb.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="tbInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 5</value>
-  </data>
-  <data name="tbInfo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="tbInfo.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="tbInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 128</value>
-  </data>
-  <data name="tbInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbInfo.Name" xml:space="preserve">
-    <value>tbInfo</value>
-  </data>
-  <data name="&gt;&gt;tbInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbInfo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbInfo.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="nUDCount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 11.25pt</value>
   </data>
   <data name="nUDCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 68</value>
+    <value>295, 59</value>
   </data>
   <data name="nUDCount.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
@@ -199,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nUDCount.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -208,7 +181,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 44</value>
+    <value>292, 35</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
@@ -232,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -241,7 +214,7 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 44</value>
+    <value>417, 35</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
@@ -265,34 +238,73 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
-  <data name="tbTotal.Enabled" type="System.Boolean, mscorlib">
+  <data name="resource.Image" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="resource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 2</value>
+  </data>
+  <data name="resource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 123</value>
+  </data>
+  <data name="resource.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="resource.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="tbTotal.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
+  <data name="tbInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 5</value>
+  </data>
+  <data name="tbInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 128</value>
+  </data>
+  <data name="tbInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;tbInfo.Name" xml:space="preserve">
+    <value>tbInfo</value>
+  </data>
+  <data name="&gt;&gt;tbInfo.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;tbInfo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="resource.Image1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="resource.Location1" type="System.Drawing.Point, System.Drawing">
+    <value>53, 1</value>
+  </data>
+  <data name="resource.Size1" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="resource.TabIndex1" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="resource.Visible1" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="tbTotal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 68</value>
-  </data>
-  <data name="tbTotal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="tbTotal.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>403, 59</value>
   </data>
   <data name="tbTotal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
+    <value>75, 23</value>
   </data>
   <data name="tbTotal.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;tbTotal.Name" xml:space="preserve">
     <value>tbTotal</value>
   </data>
   <data name="&gt;&gt;tbTotal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
   <data name="&gt;&gt;tbTotal.Parent" xml:space="preserve">
     <value>$this</value>
@@ -300,40 +312,28 @@
   <data name="&gt;&gt;tbTotal.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnDelete.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="btnRemove.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
-  <data name="btnDelete.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>System</value>
+  <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>497, 50</value>
   </data>
-  <data name="btnDelete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 11.25pt</value>
+  <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
   </data>
-  <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 59</value>
+  <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="btnDelete.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
+  <data name="&gt;&gt;btnRemove.Name" xml:space="preserve">
+    <value>btnRemove</value>
   </data>
-  <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 29</value>
+  <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroLink, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
-  <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnDelete.Text" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Name" xml:space="preserve">
-    <value>btnDelete</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDelete.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnRemove.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -349,6 +349,6 @@
     <value>UserControlBasket</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>MetroFramework.Controls.MetroUserControl, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
 </root>

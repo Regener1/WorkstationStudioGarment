@@ -14,7 +14,7 @@ using WorkstationStudioGarment_WinForm.tool;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FAddProduct : Form
+    public partial class FAddProduct : MetroFramework.Forms.MetroForm
     {
         private int idSupply = -1;
         private ProductControlModule productsControlS = new ProductControlModule();

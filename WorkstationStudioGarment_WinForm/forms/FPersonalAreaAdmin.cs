@@ -31,7 +31,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         November,
         December
     }
-    public partial class FPersonalAreaAdmin : Form
+    public partial class FPersonalAreaAdmin : MetroFramework.Forms.MetroForm
     {
         /*
          * Clients

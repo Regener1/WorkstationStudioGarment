@@ -28,88 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLoadMaterials = new System.Windows.Forms.Button();
-            this.lvMaterials = new System.Windows.Forms.ListView();
-            this.colHeadId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colHeadCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAddMaterial = new System.Windows.Forms.Button();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.nudCount = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lvMaterials = new MetroFramework.Controls.MetroListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnLoadMaterials = new MetroFramework.Controls.MetroButton();
+            this.tbName = new MetroFramework.Controls.MetroTextBox();
+            this.btnAddMaterial = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLoadMaterials
-            // 
-            this.btnLoadMaterials.Location = new System.Drawing.Point(210, 287);
-            this.btnLoadMaterials.Name = "btnLoadMaterials";
-            this.btnLoadMaterials.Size = new System.Drawing.Size(139, 23);
-            this.btnLoadMaterials.TabIndex = 0;
-            this.btnLoadMaterials.Text = "Загрузить материалы";
-            this.btnLoadMaterials.UseVisualStyleBackColor = true;
-            this.btnLoadMaterials.Click += new System.EventHandler(this.btnLoadMaterials_Click);
-            // 
-            // lvMaterials
-            // 
-            this.lvMaterials.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colHeadId,
-            this.colHeadName,
-            this.colHeadCount});
-            this.lvMaterials.FullRowSelect = true;
-            this.lvMaterials.Location = new System.Drawing.Point(12, 12);
-            this.lvMaterials.MultiSelect = false;
-            this.lvMaterials.Name = "lvMaterials";
-            this.lvMaterials.Size = new System.Drawing.Size(337, 269);
-            this.lvMaterials.TabIndex = 1;
-            this.lvMaterials.UseCompatibleStateImageBehavior = false;
-            this.lvMaterials.View = System.Windows.Forms.View.Details;
-            // 
-            // colHeadId
-            // 
-            this.colHeadId.Text = "Id";
-            this.colHeadId.Width = 45;
-            // 
-            // colHeadName
-            // 
-            this.colHeadName.Text = "Наименование";
-            this.colHeadName.Width = 100;
-            // 
-            // colHeadCount
-            // 
-            this.colHeadCount.Text = "Количество";
-            this.colHeadCount.Width = 100;
-            // 
-            // btnAddMaterial
-            // 
-            this.btnAddMaterial.Location = new System.Drawing.Point(453, 64);
-            this.btnAddMaterial.Name = "btnAddMaterial";
-            this.btnAddMaterial.Size = new System.Drawing.Size(124, 23);
-            this.btnAddMaterial.TabIndex = 2;
-            this.btnAddMaterial.Text = "Добавить материал";
-            this.btnAddMaterial.UseVisualStyleBackColor = true;
-            this.btnAddMaterial.Click += new System.EventHandler(this.btnAddMaterial_Click);
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(449, 12);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(128, 20);
-            this.tbName.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(360, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Наименование";
-            // 
             // nudCount
             // 
-            this.nudCount.Location = new System.Drawing.Point(449, 38);
+            this.nudCount.Location = new System.Drawing.Point(474, 199);
             this.nudCount.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -119,29 +54,134 @@
             this.nudCount.Size = new System.Drawing.Size(128, 20);
             this.nudCount.TabIndex = 5;
             // 
-            // label2
+            // lvMaterials
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(377, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Количество";
+            this.lvMaterials.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvMaterials.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lvMaterials.FullRowSelect = true;
+            this.lvMaterials.Location = new System.Drawing.Point(23, 60);
+            this.lvMaterials.Name = "lvMaterials";
+            this.lvMaterials.OwnerDraw = true;
+            this.lvMaterials.Size = new System.Drawing.Size(337, 269);
+            this.lvMaterials.TabIndex = 7;
+            this.lvMaterials.UseCompatibleStateImageBehavior = false;
+            this.lvMaterials.UseSelectable = true;
+            this.lvMaterials.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "id";
+            this.columnHeader1.Width = 47;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Наименование";
+            this.columnHeader2.Width = 130;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Количество";
+            this.columnHeader3.Width = 119;
+            // 
+            // btnLoadMaterials
+            // 
+            this.btnLoadMaterials.Location = new System.Drawing.Point(225, 335);
+            this.btnLoadMaterials.Name = "btnLoadMaterials";
+            this.btnLoadMaterials.Size = new System.Drawing.Size(135, 23);
+            this.btnLoadMaterials.TabIndex = 8;
+            this.btnLoadMaterials.Text = "Загрузить материалы";
+            this.btnLoadMaterials.UseSelectable = true;
+            this.btnLoadMaterials.Click += new System.EventHandler(this.btnLoadMaterials_Click);
+            // 
+            // tbName
+            // 
+            // 
+            // 
+            // 
+            this.tbName.CustomButton.Image = null;
+            this.tbName.CustomButton.Location = new System.Drawing.Point(106, 1);
+            this.tbName.CustomButton.Name = "";
+            this.tbName.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbName.CustomButton.TabIndex = 1;
+            this.tbName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbName.CustomButton.UseSelectable = true;
+            this.tbName.CustomButton.Visible = false;
+            this.tbName.Lines = new string[0];
+            this.tbName.Location = new System.Drawing.Point(474, 170);
+            this.tbName.MaxLength = 32767;
+            this.tbName.Name = "tbName";
+            this.tbName.PasswordChar = '\0';
+            this.tbName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbName.SelectedText = "";
+            this.tbName.SelectionLength = 0;
+            this.tbName.SelectionStart = 0;
+            this.tbName.ShortcutsEnabled = true;
+            this.tbName.Size = new System.Drawing.Size(128, 23);
+            this.tbName.TabIndex = 9;
+            this.tbName.UseSelectable = true;
+            this.tbName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnAddMaterial
+            // 
+            this.btnAddMaterial.Location = new System.Drawing.Point(474, 225);
+            this.btnAddMaterial.Name = "btnAddMaterial";
+            this.btnAddMaterial.Size = new System.Drawing.Size(128, 23);
+            this.btnAddMaterial.TabIndex = 10;
+            this.btnAddMaterial.Text = "Добавить материал";
+            this.btnAddMaterial.UseSelectable = true;
+            this.btnAddMaterial.Click += new System.EventHandler(this.btnAddMaterial_Click);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(366, 174);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(102, 19);
+            this.metroLabel1.TabIndex = 11;
+            this.metroLabel1.Text = "Наименование";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(366, 200);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(79, 19);
+            this.metroLabel2.TabIndex = 12;
+            this.metroLabel2.Text = "Количество";
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(587, 335);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(51, 49);
+            this.metroPanel1.TabIndex = 96;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
             // 
             // FMaterialEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 316);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.nudCount);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbName);
+            this.ClientSize = new System.Drawing.Size(621, 378);
+            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.btnAddMaterial);
-            this.Controls.Add(this.lvMaterials);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnLoadMaterials);
+            this.Controls.Add(this.lvMaterials);
+            this.Controls.Add(this.nudCount);
             this.Name = "FMaterialEditor";
-            this.Text = "FMaterialEditor";
+            this.Text = "Редактор материалов";
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,16 +189,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLoadMaterials;
-        private System.Windows.Forms.ListView lvMaterials;
-        private System.Windows.Forms.ColumnHeader colHeadId;
-        private System.Windows.Forms.ColumnHeader colHeadName;
-        private System.Windows.Forms.ColumnHeader colHeadCount;
-        private System.Windows.Forms.Button btnAddMaterial;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudCount;
-        private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroListView lvMaterials;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private MetroFramework.Controls.MetroButton btnLoadMaterials;
+        private MetroFramework.Controls.MetroTextBox tbName;
+        private MetroFramework.Controls.MetroButton btnAddMaterial;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

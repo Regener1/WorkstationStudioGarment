@@ -15,7 +15,7 @@ using WorkstationStudioGarment_WinForm.user_controls;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FPersonalAreaUser : Form
+    public partial class FPersonalAreaUser : MetroFramework.Forms.MetroForm
     {
         ClientControlModule clientModule = new ClientControlModule();
         //ProductControlModule productModule = new ProductControlModule();
@@ -286,7 +286,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 listControls.Clear();
                 FillListControls();
                 Update();
-                tabControl1.SelectedTab = tabPage3;
+                metroTabControl1.SelectedTab = tabPage3;
             }
             catch (Exception ex) 
             {

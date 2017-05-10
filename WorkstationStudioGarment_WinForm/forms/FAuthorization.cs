@@ -12,10 +12,10 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FAuthorization : Form
+    public partial class FAuthorization : MetroFramework.Forms.MetroForm
     {
        // FMain fmain = new FMain();
-        FRegistration freg = new FRegistration();
+        FRegistration freg;
         ClientControl cl = new ClientControl();
         List<CLIENT> client;
         public CLIENT ourClient;
@@ -37,7 +37,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 }
                 else
                 {
-                    MessageBox.Show("Вы успешно вошли в систему.");
+                    MetroFramework.MetroMessageBox.Show(this, "Вы успешно вошли в систему.","");
                     ourClient = client[0];
                     Close();
                 }
@@ -46,11 +46,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void linkRegistration_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            freg.ShowDialog();
         }
 
         private void tbLogin_MouseDown(object sender, MouseEventArgs e)
@@ -65,6 +60,12 @@ namespace WorkstationStudioGarment_WinForm.forms
             lblError.Visible = false;
             tbLogin.BackColor = Color.White;
             tbPassword.BackColor = Color.White;
+        }
+
+        private void linkRegistration_LinkClicked(object sender, EventArgs e)
+        {
+            freg = new FRegistration();
+            freg.ShowDialog();
         }
     }
 }

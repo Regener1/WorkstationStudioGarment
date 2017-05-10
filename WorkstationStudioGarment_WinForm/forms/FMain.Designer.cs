@@ -29,54 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblClientLogin = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listViewProducts = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.pbMannequin = new System.Windows.Forms.PictureBox();
             this.panelMannequin = new System.Windows.Forms.Panel();
             this.listBoxClothesOnMannequin = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.listViewProducts = new System.Windows.Forms.ListView();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblClientLogin = new MetroFramework.Controls.MetroLink();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).BeginInit();
             this.panelMannequin.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblClientLogin
-            // 
-            this.lblClientLogin.AutoSize = true;
-            this.lblClientLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblClientLogin.LinkColor = System.Drawing.Color.DarkCyan;
-            this.lblClientLogin.Location = new System.Drawing.Point(578, 9);
-            this.lblClientLogin.Name = "lblClientLogin";
-            this.lblClientLogin.Size = new System.Drawing.Size(96, 15);
-            this.lblClientLogin.TabIndex = 0;
-            this.lblClientLogin.TabStop = true;
-            this.lblClientLogin.Text = "our client\'s login";
-            this.lblClientLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClientLogin_LinkClicked);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(528, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Привет,";
-            // 
-            // listViewProducts
-            // 
-            this.listViewProducts.LargeImageList = this.imageList;
-            this.listViewProducts.Location = new System.Drawing.Point(210, 47);
-            this.listViewProducts.MultiSelect = false;
-            this.listViewProducts.Name = "listViewProducts";
-            this.listViewProducts.Size = new System.Drawing.Size(482, 537);
-            this.listViewProducts.SmallImageList = this.imageList;
-            this.listViewProducts.TabIndex = 2;
-            this.listViewProducts.UseCompatibleStateImageBehavior = false;
-            this.listViewProducts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvProducts_MouseDown);
             // 
             // imageList
             // 
@@ -101,7 +67,7 @@
             // 
             this.panelMannequin.AllowDrop = true;
             this.panelMannequin.Controls.Add(this.pbMannequin);
-            this.panelMannequin.Location = new System.Drawing.Point(698, 47);
+            this.panelMannequin.Location = new System.Drawing.Point(698, 92);
             this.panelMannequin.Name = "panelMannequin";
             this.panelMannequin.Size = new System.Drawing.Size(214, 537);
             this.panelMannequin.TabIndex = 4;
@@ -111,19 +77,10 @@
             // listBoxClothesOnMannequin
             // 
             this.listBoxClothesOnMannequin.FormattingEnabled = true;
-            this.listBoxClothesOnMannequin.Location = new System.Drawing.Point(696, 605);
+            this.listBoxClothesOnMannequin.Location = new System.Drawing.Point(698, 653);
             this.listBoxClothesOnMannequin.Name = "listBoxClothesOnMannequin";
-            this.listBoxClothesOnMannequin.Size = new System.Drawing.Size(216, 95);
+            this.listBoxClothesOnMannequin.Size = new System.Drawing.Size(216, 69);
             this.listBoxClothesOnMannequin.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(693, 589);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Вы добавили на манекен: ";
             // 
             // button1
             // 
@@ -145,26 +102,78 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // listViewProducts
+            // 
+            this.listViewProducts.LargeImageList = this.imageList;
+            this.listViewProducts.Location = new System.Drawing.Point(210, 92);
+            this.listViewProducts.MultiSelect = false;
+            this.listViewProducts.Name = "listViewProducts";
+            this.listViewProducts.Size = new System.Drawing.Size(482, 537);
+            this.listViewProducts.SmallImageList = this.imageList;
+            this.listViewProducts.TabIndex = 2;
+            this.listViewProducts.UseCompatibleStateImageBehavior = false;
+            this.listViewProducts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvProducts_MouseDown);
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(711, 63);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(93, 19);
+            this.metroLabel1.TabIndex = 11;
+            this.metroLabel1.Text = "Здравствуйте,";
+            // 
+            // lblClientLogin
+            // 
+            this.lblClientLogin.Location = new System.Drawing.Point(800, 63);
+            this.lblClientLogin.Name = "lblClientLogin";
+            this.lblClientLogin.Size = new System.Drawing.Size(112, 23);
+            this.lblClientLogin.TabIndex = 12;
+            this.lblClientLogin.Text = "our client\'s login";
+            this.lblClientLogin.UseSelectable = true;
+            this.lblClientLogin.Click += new System.EventHandler(this.lblClientLogin_LinkClicked);
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.Location = new System.Drawing.Point(698, 636);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(165, 19);
+            this.metroLabel2.TabIndex = 13;
+            this.metroLabel2.Text = "Вы добавили на манекен";
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(911, 723);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(51, 49);
+            this.metroPanel1.TabIndex = 96;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(926, 710);
+            this.ClientSize = new System.Drawing.Size(926, 745);
+            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.metroLabel2);
+            this.Controls.Add(this.lblClientLogin);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBoxClothesOnMannequin);
             this.Controls.Add(this.panelMannequin);
             this.Controls.Add(this.listViewProducts);
-            this.Controls.Add(this.lblClientLogin);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.ForeColor = System.Drawing.Color.DarkCyan;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FMain";
             this.Text = "Ателье по продаже и пошиву одежды";
+            this.TransparencyKey = System.Drawing.Color.Empty;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FMain_FormClosing);
             this.Load += new System.EventHandler(this.FMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).EndInit();
@@ -175,16 +184,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel lblClientLogin;
-        private System.Windows.Forms.Label label1;
         public System.Windows.Forms.ImageList imageList;
-        public System.Windows.Forms.ListView listViewProducts;
         private System.Windows.Forms.Panel panelMannequin;
         private System.Windows.Forms.ListBox listBoxClothesOnMannequin;
         private System.Windows.Forms.PictureBox pbMannequin;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.ListView listViewProducts;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLink lblClientLogin;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }

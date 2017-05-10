@@ -11,7 +11,7 @@ using WorkstationStudioGarment_WinForm.control;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
-    public partial class FRegistration : Form
+    public partial class FRegistration : MetroFramework.Forms.MetroForm
     {
 
         ClientControl cl = new ClientControl();
@@ -27,7 +27,8 @@ namespace WorkstationStudioGarment_WinForm.forms
         private void bRegistration_Click(object sender, EventArgs e)
         {
             int sex = 0;
-            if (cbMan.Checked) {
+            if (cbMan.Checked)
+            {
                 sex = 1;
             }
             try
@@ -36,15 +37,30 @@ namespace WorkstationStudioGarment_WinForm.forms
                     tbPatronymic.Text, tbMail.Text, tbPhone.Text, sex,
                     Int32.Parse(tbGrowth.Text), Int32.Parse(tbChest.Text),
                     Int32.Parse(tbWaist.Text), Int32.Parse(tbHip.Text));
+                MetroFramework.MetroMessageBox.Show(this,"Регистрация прошла успешно.");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка при регистрации в системе.\n" + ex.Message);    
+                MetroFramework.MetroMessageBox.Show(this, "Ошибка при регистрации в системе.\n" + ex.Message);
             }
-            MessageBox.Show("Регистрация прошла успешно.");
+
             Close();
         }
 
+        private void cbMan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMan.Checked)
+            {
+                chWoman.Checked = false;
+            }
+        }
 
+        private void chWoman_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chWoman.Checked)
+            {
+                cbMan.Checked = false;
+            }
+        }
     }
 }

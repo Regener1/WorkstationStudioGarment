@@ -124,12 +124,6 @@
     <Compile Include="forms\FSemanticNetProducts.designer.cs">
       <DependentUpon>FSemanticNetProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\FTestPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\FTestPage.Designer.cs">
-      <DependentUpon>FTestPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="modules\ChartControlModule.cs" />
     <Compile Include="modules\ClientControlModule.cs" />
     <Compile Include="modules\OrderControlModule.cs" />
@@ -298,9 +292,6 @@
     <EmbeddedResource Include="forms\FSemanticNetProducts.resx">
       <DependentUpon>FSemanticNetProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\FTestPage.resx">
-      <DependentUpon>FTestPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\FUserPreference.resx">
       <DependentUpon>FUserPreference.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +306,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="user_controls\UserControlBasket.resx">
       <DependentUpon>UserControlBasket.cs</DependentUpon>
@@ -353,6 +345,9 @@
       <DependentUpon>StudioDB.edmx</DependentUpon>
       <LastGenOutput>StudioDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\button_minus_blue.png" />
+    <None Include="Resources\button_plus_red.png" />
+    <None Include="Resources\cross.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

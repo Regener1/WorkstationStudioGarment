@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WorkstationStudioGarment_WinForm.user_controls
 {
-    public partial class UserControlBasket : UserControl
+    public partial class UserControlBasket : MetroFramework.Controls.MetroUserControl
     {
         public UserControlBasket()
         {
