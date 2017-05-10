@@ -42,6 +42,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             if (client == null) {
                 MessageBox.Show("Ошибка", "Ошибка при авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
+                return;
             }
 
             lblClientLogin.Text = client.login;
@@ -171,10 +172,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        private void listBoxClothesOnMannequin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 		
 		private void FMain_FormClosing(object sender, FormClosingEventArgs e)
         {

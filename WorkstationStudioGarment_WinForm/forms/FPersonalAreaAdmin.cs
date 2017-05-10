@@ -110,21 +110,21 @@ namespace WorkstationStudioGarment_WinForm.forms
             double cdy = 0;
             if (maxY == minY)
             {
-                cdy = Math.Round(h / (double)Math.Abs(maxY));
+                cdy = Math.Round((h - 40) / (double)Math.Abs(maxY));
             }
             else
             {
-                cdy = Math.Round(h / ((double)Math.Abs(maxY) + Math.Abs(minY)));
+                cdy = Math.Round((h - 40) / ((double)Math.Abs(maxY) + Math.Abs(minY)));
             }
 
             double zeroY = 0;
             if (maxY > 0)
             {
-                zeroY = (cdy * maxY) - 40;
+                zeroY = (cdy * maxY);
             }
             else
             {
-                zeroY = (h - cdy * Math.Abs(maxY)) + 40;
+                zeroY = (h - cdy * Math.Abs(maxY));
             }
 
 
@@ -139,7 +139,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             g.DrawString("Месяц", new Font("Arial", 10), Brushes.Black, w - 50, (int)zeroY + 5);
             //axe Y
             g.DrawLine(p, 25, h - 10, 25, 20);
-            g.DrawString("Прибыль т.р.", new Font("Arial", 10), Brushes.Black, 5, 5);
+            g.DrawString("Прибыль т.р.", new Font("Arial", 10), Brushes.Black, 25, 5);
 
             //grid X
             int sign = 1;

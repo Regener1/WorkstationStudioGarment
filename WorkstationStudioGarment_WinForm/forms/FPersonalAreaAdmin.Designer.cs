@@ -87,6 +87,7 @@
             this.colHeadProductCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeadIdSupply = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageReport = new System.Windows.Forms.TabPage();
+            this.btnReport = new System.Windows.Forms.Button();
             this.nudYearEnd = new System.Windows.Forms.NumericUpDown();
             this.nudYearBegin = new System.Windows.Forms.NumericUpDown();
             this.cbMonthEnd = new System.Windows.Forms.ComboBox();
@@ -97,7 +98,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pbChart = new System.Windows.Forms.PictureBox();
-            this.btnReport = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPageUsersManager.SuspendLayout();
             this.tcClientInfo.SuspendLayout();
@@ -126,6 +126,7 @@
             this.tabControlMain.Controls.Add(this.tabPageReport);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(0, 24);
+            this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(1128, 624);
@@ -247,9 +248,9 @@
             // 
             this.pbClientProductPhoto.BackColor = System.Drawing.Color.White;
             this.pbClientProductPhoto.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbClientProductPhoto.Location = new System.Drawing.Point(764, 3);
+            this.pbClientProductPhoto.Location = new System.Drawing.Point(852, 3);
             this.pbClientProductPhoto.Name = "pbClientProductPhoto";
-            this.pbClientProductPhoto.Size = new System.Drawing.Size(328, 207);
+            this.pbClientProductPhoto.Size = new System.Drawing.Size(240, 207);
             this.pbClientProductPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbClientProductPhoto.TabIndex = 2;
             this.pbClientProductPhoto.TabStop = false;
@@ -272,7 +273,7 @@
             this.lvClientsProducts.Location = new System.Drawing.Point(3, 3);
             this.lvClientsProducts.MultiSelect = false;
             this.lvClientsProducts.Name = "lvClientsProducts";
-            this.lvClientsProducts.Size = new System.Drawing.Size(755, 207);
+            this.lvClientsProducts.Size = new System.Drawing.Size(843, 207);
             this.lvClientsProducts.TabIndex = 1;
             this.lvClientsProducts.UseCompatibleStateImageBehavior = false;
             this.lvClientsProducts.View = System.Windows.Forms.View.Details;
@@ -285,12 +286,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Название";
-            this.columnHeader2.Width = 95;
+            this.columnHeader2.Width = 126;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Категория";
-            this.columnHeader3.Width = 88;
+            this.columnHeader3.Width = 117;
             // 
             // columnHeader4
             // 
@@ -314,6 +315,7 @@
             // columnHeader18
             // 
             this.columnHeader18.Text = "Время";
+            this.columnHeader18.Width = 80;
             // 
             // columnHeader7
             // 
@@ -604,6 +606,16 @@
             this.tabPageReport.Text = "Отчеты";
             this.tabPageReport.UseVisualStyleBackColor = true;
             // 
+            // btnReport
+            // 
+            this.btnReport.Location = new System.Drawing.Point(1030, 318);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(75, 23);
+            this.btnReport.TabIndex = 12;
+            this.btnReport.Text = "Отчет";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // nudYearEnd
             // 
             this.nudYearEnd.Enabled = false;
@@ -726,16 +738,6 @@
             this.pbChart.Size = new System.Drawing.Size(845, 577);
             this.pbChart.TabIndex = 0;
             this.pbChart.TabStop = false;
-            // 
-            // btnReport
-            // 
-            this.btnReport.Location = new System.Drawing.Point(1030, 318);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(75, 23);
-            this.btnReport.TabIndex = 12;
-            this.btnReport.Text = "Отчет";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // FPersonalAreaAdmin
             // 

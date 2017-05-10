@@ -43,6 +43,18 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -111,6 +123,12 @@
     </Compile>
     <Compile Include="forms\FSemanticNetProducts.designer.cs">
       <DependentUpon>FSemanticNetProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FTestPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FTestPage.Designer.cs">
+      <DependentUpon>FTestPage.cs</DependentUpon>
     </Compile>
     <Compile Include="modules\ChartControlModule.cs" />
     <Compile Include="modules\ClientControlModule.cs" />
@@ -279,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FSemanticNetProducts.resx">
       <DependentUpon>FSemanticNetProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FTestPage.resx">
+      <DependentUpon>FTestPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FUserPreference.resx">
       <DependentUpon>FUserPreference.cs</DependentUpon>
