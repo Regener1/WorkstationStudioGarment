@@ -30,10 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.flpProductsView = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.flpProductsView = new System.Windows.Forms.FlowLayoutPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -61,20 +67,10 @@
             this.tabPage1.Text = "Топ продуктов";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // flpProductsView
-            // 
-            this.flpProductsView.AutoScroll = true;
-            this.flpProductsView.BackColor = System.Drawing.Color.White;
-            this.flpProductsView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpProductsView.Location = new System.Drawing.Point(3, 3);
-            this.flpProductsView.Name = "flpProductsView";
-            this.flpProductsView.Size = new System.Drawing.Size(715, 444);
-            this.flpProductsView.TabIndex = 1;
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.listBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -92,14 +88,64 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Наши постоянные покупатели: ";
             // 
-            // listBox1
+            // flpProductsView
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 40);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(715, 407);
-            this.listBox1.TabIndex = 0;
+            this.flpProductsView.AutoScroll = true;
+            this.flpProductsView.BackColor = System.Drawing.Color.White;
+            this.flpProductsView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpProductsView.Location = new System.Drawing.Point(3, 3);
+            this.flpProductsView.Name = "flpProductsView";
+            this.flpProductsView.Size = new System.Drawing.Size(715, 444);
+            this.flpProductsView.TabIndex = 1;
+            this.flpProductsView.Paint += new System.Windows.Forms.PaintEventHandler(this.flpProductsView_Paint);
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(18, 41);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(609, 392);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Login";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Surname";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Name";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Mail";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Phone";
+            this.columnHeader6.Width = 100;
             // 
             // FTanyaModule
             // 
@@ -123,9 +169,15 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.FlowLayoutPanel flpProductsView;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpProductsView;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
 
     }
 }

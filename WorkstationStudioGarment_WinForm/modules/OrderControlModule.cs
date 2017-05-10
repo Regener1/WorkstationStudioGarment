@@ -41,6 +41,11 @@ namespace WorkstationStudioGarment_WinForm.modules
             return productS.All();
         }
 
+        public List<ORDER> AllOrders()
+        {
+            return  orderS.All();
+        }
+
         public void Update(PRODUCT entity)
         {
             productS.Update(entity);

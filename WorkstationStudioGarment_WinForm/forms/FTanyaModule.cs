@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.manager;
+using WorkstationStudioGarment_WinForm.modules;
 using WorkstationStudioGarment_WinForm.tool;
 using WorkstationStudioGarment_WinForm.user_controls;
 
@@ -26,6 +28,11 @@ namespace WorkstationStudioGarment_WinForm.forms
         List<BASKET> listOrder = new List<BASKET>();
         List<PRODUCT> productsList = new List<PRODUCT>();
         List<PRODUCT> Allproducts = new List<PRODUCT>();
+        ClientControlModule clientControlModule = new ClientControlModule();
+        List<CLIENT> allClients = new List<CLIENT>();
+        List<CLIENT> candidates_list = new List<CLIENT>();
+        TanyaModule tModule = new TanyaModule();
+
         public FTanyaModule()
         {
             InitializeComponent();
@@ -84,6 +91,13 @@ namespace WorkstationStudioGarment_WinForm.forms
                         count--;
                     }
                 }
+
+
+                //клиенты
+                candidates_list = tModule.ShoppersList();
+
+
+
             }
             catch (Exception ex)
             {
@@ -103,6 +117,22 @@ namespace WorkstationStudioGarment_WinForm.forms
                 pvPanel.tbDescription.Text = description;
                 flpProductsView.Controls.Add(pvPanel);
             }
+
+            foreach(var c in candidates_list) {
+
+                string str = c.login + c.name + c.mail;
+                listView1.Items.Add(new ListViewItem(new string[] { c.id_client.ToString(), c.login, c.surname, c.name, c.mail, c.phone_number.ToString() }));
+            }
+        }
+
+        private void flpProductsView_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

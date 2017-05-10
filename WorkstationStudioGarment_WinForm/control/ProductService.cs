@@ -22,7 +22,7 @@ namespace WorkstationStudioGarment_WinForm.control
             }
             catch (Exception e)
             {
-                throw e;
+                throw e; //ERROR!
             }
         }
 
