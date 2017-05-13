@@ -25,13 +25,13 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void LoadMaterials()
         {
-            lvMaterials.Items.Clear();
+            lvMaterials.Rows.Clear();
             lMaterials.Clear();
             lMaterials = productsControlS.AllMaterials();
 
             foreach (MATERIAL m in lMaterials)
             {
-                lvMaterials.Items.Add(new ListViewItem(new string[] { m.id_material.ToString(), m.name, m.count.ToString() }));
+                lvMaterials.Rows.Add(new string[] { m.id_material.ToString(), m.name, m.count.ToString() });
             }
         }
 
