@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="modules\ChartControlModule.cs" />
     <Compile Include="modules\ClientControlModule.cs" />
+    <Compile Include="modules\FiltersModule.cs" />
     <Compile Include="modules\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
     <Compile Include="modules\ProductControlModule.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="forms\FUserPreference.Designer.cs">
       <DependentUpon>FUserPreference.cs</DependentUpon>
     </Compile>
+    <Compile Include="modules\TanyaModule.cs" />
     <Compile Include="modules\UserPreferenceModule.cs" />
     <Compile Include="tool\GraphicsExtension.cs" />
     <Compile Include="tool\GraphModel.cs" />
@@ -345,6 +347,10 @@
       <DependentUpon>StudioDB.edmx</DependentUpon>
       <LastGenOutput>StudioDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\u5.png" />
+    <None Include="Resources\Services-03.png" />
+    <None Include="Resources\go-up.png" />
+    <None Include="Resources\go-down.png" />
     <None Include="Resources\button_minus_blue.png" />
     <None Include="Resources\button_plus_red.png" />
     <None Include="Resources\cross.png" />

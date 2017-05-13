@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblInfo = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblPassword = new MetroFramework.Controls.MetroLabel();
@@ -57,11 +60,22 @@
             this.btnEditClient = new MetroFramework.Controls.MetroButton();
             this.btnDeleteUser = new MetroFramework.Controls.MetroButton();
             this.tabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.panelProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.btnMain = new MetroFramework.Controls.MetroButton();
             this.lblCountProducts = new MetroFramework.Controls.MetroLabel();
             this.btnCreateOrder = new MetroFramework.Controls.MetroButton();
-            this.panelProduct = new MetroFramework.Controls.MetroPanel();
             this.tabPage3 = new MetroFramework.Controls.MetroTabPage();
+            this.mGridClientOrders = new MetroFramework.Controls.MetroGrid();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,6 +83,8 @@
             this.metroTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mGridClientOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // lblInfo
@@ -533,6 +549,7 @@
             this.metroTabControl1.Size = new System.Drawing.Size(701, 507);
             this.metroTabControl1.TabIndex = 41;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -577,11 +594,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panelProduct);
             this.tabPage2.Controls.Add(this.btnMain);
             this.tabPage2.Controls.Add(this.lblCountProducts);
             this.tabPage2.Controls.Add(this.lblInfo);
             this.tabPage2.Controls.Add(this.btnCreateOrder);
-            this.tabPage2.Controls.Add(this.panelProduct);
             this.tabPage2.HorizontalScrollbarBarColor = true;
             this.tabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPage2.HorizontalScrollbarSize = 10;
@@ -593,6 +610,15 @@
             this.tabPage2.VerticalScrollbarBarColor = true;
             this.tabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage2.VerticalScrollbarSize = 10;
+            // 
+            // panelProduct
+            // 
+            this.panelProduct.AutoScroll = true;
+            this.panelProduct.BackColor = System.Drawing.Color.White;
+            this.panelProduct.Location = new System.Drawing.Point(3, 40);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(670, 382);
+            this.panelProduct.TabIndex = 9;
             // 
             // btnMain
             // 
@@ -623,24 +649,9 @@
             this.btnCreateOrder.UseSelectable = true;
             this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
-            // panelProduct
-            // 
-            this.panelProduct.AutoScroll = true;
-            this.panelProduct.HorizontalScrollbar = true;
-            this.panelProduct.HorizontalScrollbarBarColor = true;
-            this.panelProduct.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelProduct.HorizontalScrollbarSize = 10;
-            this.panelProduct.Location = new System.Drawing.Point(8, 40);
-            this.panelProduct.Name = "panelProduct";
-            this.panelProduct.Size = new System.Drawing.Size(665, 382);
-            this.panelProduct.TabIndex = 2;
-            this.panelProduct.VerticalScrollbar = true;
-            this.panelProduct.VerticalScrollbarBarColor = true;
-            this.panelProduct.VerticalScrollbarHighlightOnWheel = false;
-            this.panelProduct.VerticalScrollbarSize = 10;
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.mGridClientOrders);
             this.tabPage3.HorizontalScrollbarBarColor = true;
             this.tabPage3.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPage3.HorizontalScrollbarSize = 10;
@@ -652,6 +663,122 @@
             this.tabPage3.VerticalScrollbarBarColor = true;
             this.tabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.tabPage3.VerticalScrollbarSize = 10;
+            // 
+            // mGridClientOrders
+            // 
+            this.mGridClientOrders.AllowUserToAddRows = false;
+            this.mGridClientOrders.AllowUserToDeleteRows = false;
+            this.mGridClientOrders.AllowUserToResizeRows = false;
+            this.mGridClientOrders.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mGridClientOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mGridClientOrders.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.mGridClientOrders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mGridClientOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.mGridClientOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
+            this.colName,
+            this.colCategory,
+            this.colSize,
+            this.colColor,
+            this.colDate,
+            this.colTime,
+            this.colPrice,
+            this.colCount,
+            this.colSum});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mGridClientOrders.DefaultCellStyle = dataGridViewCellStyle2;
+            this.mGridClientOrders.EnableHeadersVisualStyles = false;
+            this.mGridClientOrders.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mGridClientOrders.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mGridClientOrders.Location = new System.Drawing.Point(3, 3);
+            this.mGridClientOrders.Name = "mGridClientOrders";
+            this.mGridClientOrders.ReadOnly = true;
+            this.mGridClientOrders.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mGridClientOrders.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.mGridClientOrders.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.mGridClientOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mGridClientOrders.Size = new System.Drawing.Size(690, 462);
+            this.mGridClientOrders.TabIndex = 2;
+            // 
+            // colID
+            // 
+            this.colID.HeaderText = "id";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Наименование";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            // 
+            // colCategory
+            // 
+            this.colCategory.HeaderText = "Категория";
+            this.colCategory.Name = "colCategory";
+            this.colCategory.ReadOnly = true;
+            // 
+            // colSize
+            // 
+            this.colSize.HeaderText = "Размер";
+            this.colSize.Name = "colSize";
+            this.colSize.ReadOnly = true;
+            // 
+            // colColor
+            // 
+            this.colColor.HeaderText = "Цвет";
+            this.colColor.Name = "colColor";
+            this.colColor.ReadOnly = true;
+            // 
+            // colDate
+            // 
+            this.colDate.HeaderText = "Дата";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            // 
+            // colTime
+            // 
+            this.colTime.HeaderText = "Время";
+            this.colTime.Name = "colTime";
+            this.colTime.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "Цена";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // colCount
+            // 
+            this.colCount.HeaderText = "Количество";
+            this.colCount.Name = "colCount";
+            this.colCount.ReadOnly = true;
+            // 
+            // colSum
+            // 
+            this.colSum.HeaderText = "Сумма";
+            this.colSum.Name = "colSum";
+            this.colSum.ReadOnly = true;
             // 
             // metroPanel1
             // 
@@ -687,6 +814,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mGridClientOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -725,7 +854,18 @@
         private MetroFramework.Controls.MetroLabel lblCountProducts;
         private MetroFramework.Controls.MetroButton btnMain;
         private MetroFramework.Controls.MetroButton btnCreateOrder;
-        private MetroFramework.Controls.MetroPanel panelProduct;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroGrid mGridClientOrders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSum;
+        private System.Windows.Forms.FlowLayoutPanel panelProduct;
     }
 }

@@ -63,31 +63,31 @@ namespace WorkstationStudioGarment_WinForm.forms
         }
         private void UpdateListViewProducts()
         {
-            lvProducts.Items.Clear();
+            lvProducts.Rows.Clear();
 
             foreach (PRODUCT p in lProducts)
             {
-                lvProducts.Items.Add(new ListViewItem(new string[] { p.id_product.ToString(), p.title,
-                                                                    p.category, p.size.ToString(),
-                                                                    p.color, p.price.ToString(),
-                                                                    p.count.ToString(), p.id_supply.ToString()}));
+                lvProducts.Rows.Add(new string[] { p.id_product.ToString(), p.title,
+                                                   p.category, p.size.ToString(),
+                                                   p.color, p.price.ToString(),
+                                                   p.count.ToString(), p.id_supply.ToString()});
             }
         }
         private void UpdateListViewProductStruct()
         {
-            lvProductStructure.Items.Clear();
+            lvProductStructure.Rows.Clear();
             foreach (ProductStructureContainer ps in lProductStructure)
             {
-                lvProductStructure.Items.Add(new ListViewItem(new string[] { ps.MaterialName, ps.Count.ToString() }));
+                lvProductStructure.Rows.Add(new string[] { ps.MaterialName, ps.Count.ToString() });
             }
         }
         private void UpdateListViewSupplies()
         {
-            lvSupplies.Items.Clear();
+            lvSupplies.Rows.Clear();
 
             foreach (SUPPLY s in lSupplies)
             {
-                lvSupplies.Items.Add(new ListViewItem(new string[] { s.id_supply.ToString(), s.delivery_date }));
+                lvSupplies.Rows.Add(new string[] { s.id_supply.ToString(), s.delivery_date });
             }
         }
 
@@ -99,7 +99,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             int w = pbChart.Width;
             int h = pbChart.Height;
 
-            if(maxY == 0 && minY == 0)
+            if (maxY == 0 && minY == 0)
             {
                 maxY = 1;
                 minY = 1;
@@ -135,7 +135,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             p.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
 
             //axe X
-            g.DrawLine(p, 25, (int)zeroY, w - 25,(int)zeroY);
+            g.DrawLine(p, 25, (int)zeroY, w - 25, (int)zeroY);
             g.DrawString("Месяц", new Font("Arial", 10), Brushes.Black, w - 50, (int)zeroY + 5);
             //axe Y
             g.DrawLine(p, 25, h - 10, 25, 20);
@@ -145,7 +145,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             int sign = 1;
             if (maxY == minY)
             {
-                
+
                 if (maxY < 0)
                 {
                     sign = -1;
@@ -155,13 +155,13 @@ namespace WorkstationStudioGarment_WinForm.forms
                 {
                     g.DrawLine(Pens.Black, 25, (int)(zeroY + sign * (cdy * y)),
                         w - 25, (int)(zeroY + sign * (cdy * y)));
-                    g.DrawString((sign * y).ToString(), new Font("Arial", 10), Brushes.Black, 
+                    g.DrawString((sign * y).ToString(), new Font("Arial", 10), Brushes.Black,
                                     5, (int)(zeroY + sign * (cdy * y)));
                 }
             }
             else
             {
-                if(maxY < 0 && minY < 0)
+                if (maxY < 0 && minY < 0)
                 {
                     sign = -1;
                     for (int y = 1; y <= Math.Abs(maxY); y++)
@@ -172,7 +172,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                                         5, (int)(zeroY + sign * (cdy * y)));
                     }
                 }
-                else if(maxY > 0 && minY > 0)
+                else if (maxY > 0 && minY > 0)
                 {
                     sign = 1;
                     for (int y = 1; y <= Math.Abs(maxY); y++)
@@ -200,35 +200,35 @@ namespace WorkstationStudioGarment_WinForm.forms
                         g.DrawString((-1 * y).ToString(), new Font("Arial", 10), Brushes.Black,
                                     5, (int)(zeroY + (cdy * y)));
                     }
-                    
+
                 }
 
-                
+
             }
             //grid Y
             for (int x = 0; x < maxX; x++)
             {
                 g.DrawLine(Pens.Black, 25 + (int)(cdx * x), h - 10, 25 + (int)(cdx * x), 10);
-                g.DrawString(dates[x], new Font("Arial", 10), 
+                g.DrawString(dates[x], new Font("Arial", 10),
                                 Brushes.Black, (int)(cdx * x) + 35, (int)zeroY + 4);
             }
 
             for (int i = 0; i < data.Length; i++)
             {
-                if(data[i] > 0)
+                if (data[i] > 0)
                 {
                     g.FillRectangle(Brushes.Red, (int)(i * cdx) + 25, (int)(zeroY - ((int)(data[i] / 1000) * cdy)),
                             10, (int)((int)(data[i] / 1000) * cdy));
                 }
                 else
                 {
-                    g.FillRectangle(Brushes.Red, 
-                            (int)(i * cdx) + 25, 
+                    g.FillRectangle(Brushes.Red,
+                            (int)(i * cdx) + 25,
                             (int)(zeroY),
-                            10, 
+                            10,
                             (int)((int)(Math.Abs(data[i]) / 1000) * cdy));
                 }
-                
+
             }
 
             return bmp;
@@ -239,38 +239,27 @@ namespace WorkstationStudioGarment_WinForm.forms
             lSupplies.Clear();
             lProducts.Clear();
             lProductStructure.Clear();
-            lvSupplies.Items.Clear();
-            lvProducts.Items.Clear();
-            lvProductStructure.Items.Clear();
+            lvSupplies.Rows.Clear();
+            lvProducts.Rows.Clear();
+            lvProductStructure.Rows.Clear();
         }
 
         private void btnLoadSupplies_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ClearAllProductLists();
 
-                lSupplies = productsControlS.AllSupplies();
-
-                UpdateListViewSupplies();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void lvSupplies_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (lvSupplies.SelectedIndices.Count == 0)
+                if (lvSupplies.SelectedRows.Count == 0)
                 {
                     return;
                 }
                 lProducts.Clear();
-                lvProducts.Items.Clear();
-                lProducts = productsControlS.GetSuppliesProducts(lSupplies[lvSupplies.SelectedIndices[0]]);
+                lvProducts.Rows.Clear();
+                lProducts = productsControlS.GetSuppliesProducts(lSupplies[lvSupplies.SelectedRows[0].Index]);
 
                 UpdateListViewProducts();
 
@@ -285,17 +274,17 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                if (lvProducts.SelectedIndices.Count == 0)
+                if (lvProducts.SelectedRows.Count == 0)
                 {
                     return;
                 }
-                Image photo = ImgConverter.ImageFromString(lProducts[lvProducts.SelectedIndices[0]].photo);
+                Image photo = ImgConverter.ImageFromString(lProducts[lvProducts.SelectedRows[0].Index].photo);
                 pictureBoxPhoto.Image = photo;
 
-                PRODUCT product = lProducts[lvProducts.SelectedIndices[0]];
+                PRODUCT product = lProducts[lvProducts.SelectedRows[0].Index];
 
                 lProductStructure.Clear();
-                
+
                 lProductStructure = productsControlS.GetProductStructure(product);
 
                 UpdateListViewProductStruct();
@@ -306,16 +295,16 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        
+
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (lvSupplies.SelectedIndices.Count == 0)
+            if (lvSupplies.SelectedRows.Count == 0)
             {
                 return;
             }
             FAddProduct fAddProduct = new FAddProduct();
-            fAddProduct.IdSupply = lSupplies[lvSupplies.SelectedIndices[0]].id_supply;
+            fAddProduct.IdSupply = lSupplies[lvSupplies.SelectedRows[0].Index].id_supply;
             fAddProduct.ShowDialog();
 
             PRODUCT newProduct = fAddProduct.GetProduct();
@@ -323,10 +312,10 @@ namespace WorkstationStudioGarment_WinForm.forms
             if (newProduct != null)
             {
                 lProducts.Add(newProduct);
-                lvProducts.Items.Add(new ListViewItem(new string[] { newProduct.id_product.ToString(), newProduct.title,
-                                                                    newProduct.category, newProduct.size.ToString(),
-                                                                    newProduct.color, newProduct.price.ToString(),
-                                                                    newProduct.count.ToString(), newProduct.id_supply.ToString()}));
+                lvProducts.Rows.Add(new string[] { newProduct.id_product.ToString(), newProduct.title,
+                                                   newProduct.category, newProduct.size.ToString(),
+                                                   newProduct.color, newProduct.price.ToString(),
+                                                   newProduct.count.ToString(), newProduct.id_supply.ToString()});
             }
 
 
@@ -334,18 +323,18 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnEditProduct_Click(object sender, EventArgs e)
         {
-            if (lvProducts.SelectedIndices.Count == 0)
+            if (lvProducts.SelectedRows.Count == 0)
             {
                 return;
             }
             FEditProduct fEditProduct = new FEditProduct();
-            fEditProduct.Product = lProducts[lvProducts.SelectedIndices[0]];
+            fEditProduct.Product = lProducts[lvProducts.SelectedRows[0].Index];
             fEditProduct.ShowDialog();
 
             UpdateListViewProducts();
         }
 
-        
+
 
         private void btnAddSupply_Click(object sender, EventArgs e)
         {
@@ -356,19 +345,19 @@ namespace WorkstationStudioGarment_WinForm.forms
             if (newSupply != null)
             {
                 lSupplies.Add(newSupply);
-                lvSupplies.Items.Add(new ListViewItem(new string[] { newSupply.id_supply.ToString(),
+                lvSupplies.Rows.Add(new ListViewItem(new string[] { newSupply.id_supply.ToString(),
                                                             newSupply.delivery_date }));
             }
         }
 
         private void btnEditSupply_Click(object sender, EventArgs e)
         {
-            if (lvSupplies.SelectedIndices.Count == 0)
+            if (lvSupplies.SelectedRows.Count == 0)
             {
                 return;
             }
             FEditSupply fEditSupply = new FEditSupply();
-            fEditSupply.Supply = lSupplies[lvSupplies.SelectedIndices[0]];
+            fEditSupply.Supply = lSupplies[lvSupplies.SelectedRows[0].Index];
             fEditSupply.ShowDialog();
 
             UpdateListViewSupplies();
@@ -377,11 +366,11 @@ namespace WorkstationStudioGarment_WinForm.forms
         private void btnAddProductStructure_Click(object sender, EventArgs e)
         {
             FAddProductStructure fAddProductStructure = new FAddProductStructure();
-            fAddProductStructure.IdProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
+            fAddProductStructure.IdProduct = lProducts[lvProducts.SelectedRows[0].Index].id_product;
             fAddProductStructure.ShowDialog();
 
             lProductStructure.Clear();
-            lvProductStructure.Items.Clear();
+            lvProductStructure.Rows.Clear();
             lProductStructure = fAddProductStructure.GetProductStructure();
 
             if (lProductStructure != null)
@@ -401,58 +390,87 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void FPersonalAreaAdmin_Load(object sender, EventArgs e)
         {
+            LoadChartData();
+
+            LoadProductsData();
+
+            LoadClientsData();
+        }
+
+        private void LoadChartData()
+        {
             cbMonthBegin.DataSource = Enum.GetValues(typeof(Months));
             cbMonthEnd.DataSource = Enum.GetValues(typeof(Months));
+        }
 
+        private void LoadProductsData()
+        {
+            try
+            {
+                ClearAllProductLists();
+
+                lSupplies = productsControlS.AllSupplies();
+
+                UpdateListViewSupplies();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void LoadClientsData()
+        {
             try
             {
                 lClients.Clear();
-                lvClients.Items.Clear();
+                lvClients.Rows.Clear();
 
                 lClients = clientControlS.AllClients();
 
                 foreach (CLIENT entity in lClients)
                 {
-                    lvClients.Items.Add(new ListViewItem(new string[] { entity.id_client.ToString(),
-                                                                        entity.surname + " " + entity.name + " " + entity.patronymic,
-                                                                        entity.sex.ToString(), entity.login,
-                                                                        entity.access_level.ToString(), entity.mail,
-                                                                        entity.phone_number, entity.growth.ToString(),
-                                                                        entity.chest.ToString(), entity.waist.ToString(),
-                                                                        entity.hip.ToString() }));
+                    lvClients.Rows.Add(new string[] { entity.id_client.ToString(),
+                                                      entity.login,entity.access_level.ToString(),
+                                                      entity.surname + " " + entity.name + " " + entity.patronymic,
+                                                      entity.sex.ToString(),
+                                                      entity.mail,
+                                                      entity.phone_number, entity.growth.ToString(),
+                                                      entity.chest.ToString(), entity.waist.ToString(),
+                                                      entity.hip.ToString() });
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
+
 
         private void lvClients_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (lvClients.SelectedIndices.Count == 0)
+                if (lvClients.SelectedRows.Count == 0)
                 {
                     return;
                 }
 
-                lvClientsProducts.Items.Clear();
+                lvClientsProducts.Rows.Clear();
                 lClientsProducts.Clear();
 
-                lClientsProducts = clientControlS.GetClientsProduct(lClients[lvClients.SelectedIndices[0]]);
+                lClientsProducts = clientControlS.GetClientsProduct(lClients[lvClients.SelectedRows[0].Index]);
 
                 if (lClientsProducts.Count != 0)
                 {
                     foreach (var item in lClientsProducts)
                     {
-                        lvClientsProducts.Items.Add(new ListViewItem(new string[] { item.Product.id_product.ToString(),
-                                                                                    item.Product.title, item.Product.category,
-                                                                                    item.Product.size.ToString(),
-                                                                                    item.Product.color, item.Product.price.ToString(),
-                                                                                    item.Date.ToString("dd.MM.yyyy"), item.Time.ToString("H:M:s"),
-                                                                                    item.Count.ToString(), item.Price.ToString() }));
+                        lvClientsProducts.Rows.Add(new string[] { item.Product.id_product.ToString(),
+                                                                  item.Product.title, item.Product.category,
+                                                                  item.Product.size.ToString(),
+                                                                  item.Product.color, item.Product.price.ToString(),
+                                                                  item.Date.ToString("dd.MM.yyyy"), item.Time.ToString("H:M:s"),
+                                                                  item.Count.ToString(), item.Price.ToString() });
                     }
                 }
 
@@ -465,12 +483,12 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void lvClientsProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvClientsProducts.SelectedIndices.Count == 0)
+            if (lvClientsProducts.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            pbClientProductPhoto.Image = ImgConverter.ImageFromString(lClientsProducts[lvClientsProducts.SelectedIndices[0]]
+            pbClientProductPhoto.Image = ImgConverter.ImageFromString(lClientsProducts[lvClientsProducts.SelectedRows[0].Index]
                                                                                                         .Product.photo);
 
         }
@@ -496,7 +514,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         private void btnCreateChart_Click(object sender, EventArgs e)
         {
             ReportInfo();
-            if(dateRange.Count == 0 || dataRange.Count == 0)
+            if (dateRange.Count == 0 || dataRange.Count == 0)
             {
                 MessageBox.Show("Нет данных");
                 return;
@@ -508,18 +526,12 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnChangeProductStructure_Click(object sender, EventArgs e)
         {
-            FAddProductStructure fAddProductStructure = new FAddProductStructure();
-            fAddProductStructure.IdProduct = lProducts[lvProducts.SelectedIndices[0]].id_product;
-            fAddProductStructure.ShowDialog();
-
             FEditProductStructure fEditProductStructure = new FEditProductStructure();
             fEditProductStructure.PsEntities = lProductStructure;
             fEditProductStructure.ShowDialog();
 
-
             lProductStructure.Clear();
-            lvProductStructure.Items.Clear();
-            lProductStructure = fAddProductStructure.GetProductStructure();
+            lvProductStructure.Rows.Clear();
 
             if (lProductStructure != null)
             {

@@ -12,6 +12,8 @@ namespace WorkstationStudioGarment_WinForm.user_controls
 {
     public partial class UserControlBasket : MetroFramework.Controls.MetroUserControl
     {
+        public int ID { get; set; }
+
         public UserControlBasket()
         {
             InitializeComponent();

@@ -16,79 +16,40 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FMain : MetroFramework.Forms.MetroForm
     {
-        FAuthorization f = new FAuthorization();
-        CLIENT client;
-        List<PRODUCT> listProduct = new List<PRODUCT>(); //список всех продуктов
-        //DbManager dbManager = new DbManager();
-        OrderControlModule orderControl = new OrderControlModule();
-        Image mannequinImg; //картинка с манекеном
-        List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
-        List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
-        ClientControl clientControl = new ClientControl();
+
+
+        private FAuthorization f = new FAuthorization();
+        private CLIENT client;
+        private List<PRODUCT> listProduct = new List<PRODUCT>(); //список всех продуктов
+        private OrderControlModule orderControl = new OrderControlModule();
+        private Image mannequinImg; //картинка с манекеном
+        private List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
+        private List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
+        private ClientControl clientControl = new ClientControl();
+
+        private List<PRODUCT> filteredListProduct = new List<PRODUCT>();
+
         public FMain()
         {
             InitializeComponent();
         }
 
-        //public void SetClient(CLIENT client) { 
-        //    this.client = client;
-        //}
         private void FMain_Load(object sender, EventArgs e)
         {
-            
             f.ShowDialog();
-          
+
             client = f.ourClient;
-            if (client == null) {
+            if (client == null)
+            {
                 MetroFramework.MetroMessageBox.Show(this, "Ошибка при авторизации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
-                
+
             }
 
             lblClientLogin.Text = client.login;
-            //if (client.sex == 1)
-            //{
-            //    mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Man.png");
-            //}
-            //else
-            //{
-            //    mannequinImg = Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/Woman.png");
-            //}
 
-            mannequinImg = new Bitmap(pbMannequin.Width, pbMannequin.Height);
-
-            //string srt = dbManager.ImageToString(Image.FromFile(@"C:/Users/User/Documents/Visual Studio 2013/Projects/kursach/WorkstationStudioGarment/WorkstationStudioGarment_WinForm/photos/штаны муж.png"));
-            //рисуем изначальный манекен
-            DrawClothesOnMannequin(clothes);
-
-            //список всех продуктов
-            listProduct.Clear();
-            listProduct = orderControl.AllProducts();
-
-            // извлекаются все изображения из бд и добавляются в imagelist
-            imageList.Images.Clear();
-            try
-            {
-                foreach (var product in listProduct)
-                {
-                    imageList.Images.Add(ImgConverter.ImageFromString(product.photo));
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
-
-            //все продукты добавляются в listView 
-            listViewProducts.Clear();
-            for(int i = 0; i < listProduct.Count; i++)  
-            {
-                listViewProducts.Items.Add(new ListViewItem(listProduct[i].title.ToString() + "\n" +
-                                                            listProduct[i].price.ToString(), i));
-            } 
-
-            clothes.Clear(); //очищаем список добавленных на манекен вещей
-            listSelectedProduct.Clear(); //очищаем список выбранных нами вещей
-
+            LoadFilters();
+            LoadProductView();
         }
 
         private void lvProducts_MouseDown(object sender, MouseEventArgs e)
@@ -110,7 +71,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             if (listSelectedProduct.Contains(listProduct[index_selected_product]))
             {
                 return;
-            } 
+            }
 
             clothes.Add(img);
 
@@ -121,8 +82,14 @@ namespace WorkstationStudioGarment_WinForm.forms
             //
             listSelectedProduct.Add(listProduct[index_selected_product]); //сначала добавляем их в обычный список
             PRODUCT selPoduct = listProduct[index_selected_product]; //выбранный продукт
+            UpdateMannequinList();
+        }
+
+        private void UpdateMannequinList()
+        {
             listBoxClothesOnMannequin.Items.Clear();//очищаем листбокс перед обновлением
-            foreach (var pr in listSelectedProduct) {
+            foreach (var pr in listSelectedProduct)
+            {
                 listBoxClothesOnMannequin.Items.Add(pr.title + ", Размер: " + pr.size + ", Цена: " + pr.price);
             }
         }
@@ -135,7 +102,8 @@ namespace WorkstationStudioGarment_WinForm.forms
                 e.Effect = DragDropEffects.None;
         }
 
-        public void DrawClothesOnMannequin(List<Image> clothes) { 
+        public void DrawClothesOnMannequin(List<Image> clothes)
+        {
             SolidBrush br = new SolidBrush(Color.White);
             Image img = new Bitmap(pbMannequin.Width, pbMannequin.Height);
             Graphics gr = Graphics.FromImage(img);
@@ -143,23 +111,11 @@ namespace WorkstationStudioGarment_WinForm.forms
 
             gr.DrawImage(mannequinImg, 0, 0, pbMannequin.Width, pbMannequin.Height);
 
-            foreach(Image i in clothes)
+            foreach (Image i in clothes)
             {
                 gr.DrawImage(i, 0, 0, pbMannequin.Width, pbMannequin.Height);
             }
             pbMannequin.Image = img;
-        }
-		
-		private void FMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //for (int i = 0; i < listSelectedProduct.Count; i++) {
-            //    BASKET b = new BASKET();
-            //    b.id_client = client.id_client;
-            //    b.id_product = listSelectedProduct[i].id_product;
-            //    b.count = 1;
-            //    b.id_order = -1;
-            //    orderControl.Add(b);
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -211,8 +167,221 @@ namespace WorkstationStudioGarment_WinForm.forms
                 f.ClearSelectedProducts();
                 f.SetSelectedProducts(listSelectedProduct);
                 f.ShowDialog();
-
             }
+        }
+
+        private void mlCategoryExpander_Click(object sender, EventArgs e)
+        {
+            if (mPanelCategoryExpand.Visible)
+            {
+                mPanelCategoryExpand.Visible = false;
+                mlCategoryExpander.Text = "Категория >>";
+            }
+            else
+            {
+                mPanelCategoryExpand.Visible = true;
+                mlCategoryExpander.Text = "Категория <<";
+            }
+        }
+
+        private void mlColorExpander_Click(object sender, EventArgs e)
+        {
+            if (mPanelColorExpand.Visible)
+            {
+                mPanelColorExpand.Visible = false;
+                mlColorExpander.Text = "Цвет >>";
+            }
+            else
+            {
+                mPanelColorExpand.Visible = true;
+                mlColorExpander.Text = "Цвет <<";
+            }
+        }
+
+        private void mlSizeExpander_Click(object sender, EventArgs e)
+        {
+            if (mPanelSizeExpand.Visible)
+            {
+                mPanelSizeExpand.Visible = false;
+                mlSizeExpander.Text = "Размер >>";
+            }
+            else
+            {
+                mPanelSizeExpand.Visible = true;
+                mlSizeExpander.Text = "Размер <<";
+            }
+        }
+
+        private void LoadFilters()
+        {
+            FiltersModule filtersModule = new FiltersModule();
+            cListBoxCategories.Items.AddRange(filtersModule.GetCategoriesList().ToArray());
+            cListBoxColors.Items.AddRange(filtersModule.GetColorsList().ToArray());
+            cListBoxSize.Items.AddRange(filtersModule.GetSizeList().ToArray());
+            for (int i = 0; i < cListBoxCategories.Items.Count; i++)
+            {
+                cListBoxCategories.SetItemChecked(i, true);
+            }
+            for (int i = 0; i < cListBoxColors.Items.Count; i++)
+            {
+                cListBoxColors.SetItemChecked(i, true);
+            }
+            for (int i = 0; i < cListBoxSize.Items.Count; i++)
+            {
+                cListBoxSize.SetItemChecked(i, true);
+            }
+        }
+
+        private void LoadProductView()
+        {
+            try
+            {
+                if (client.sex == 1)
+                {
+                    mannequinImg = Image.FromFile(@"res/images/Man.png");
+                }
+                else
+                {
+                    mannequinImg = Image.FromFile(@"res/images/Woman.png");
+                }
+
+                //рисуем изначальный манекен
+                DrawClothesOnMannequin(clothes);
+
+                //список всех продуктов
+                listProduct.Clear();
+                listProduct = orderControl.AllProducts();
+
+                // извлекаются все изображения и добавляются в imagelist
+                imageList.Images.Clear();
+
+                foreach (var product in listProduct)
+                {
+                    imageList.Images.Add(ImgConverter.ImageFromString(product.photo));
+                }
+
+                //все продукты добавляются в listView 
+                UpdateListViewProducts();
+
+                clothes.Clear(); //очищаем список добавленных на манекен вещей
+                listSelectedProduct.Clear(); //очищаем список выбранных нами вещей
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UpdateListViewProducts()
+        {
+            listViewProducts.Items.Clear();
+            for (int i = 0; i < listProduct.Count; i++)
+            {
+                if (cListBoxCategories
+                        .GetItemChecked(cListBoxCategories.Items.IndexOf(listProduct[i].category)) &&
+                    cListBoxColors
+                        .GetItemChecked(cListBoxColors.Items.IndexOf(listProduct[i].color)) &&
+                    cListBoxSize
+                        .GetItemChecked(cListBoxSize.Items.IndexOf(listProduct[i].size.ToString())))
+                {
+                    listViewProducts.Items.Add(new ListViewItem(listProduct[i].title.ToString() + "\n" +
+                                                            listProduct[i].price.ToString(), i));
+                }
+            }
+        }
+
+        private void cListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListViewProducts();
+        }
+
+        private void cListBoxColors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListViewProducts();
+        }
+
+        private void cListBoxSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListViewProducts();
+        }
+
+        private void mlUpProduct_Click(object sender, EventArgs e)
+        {
+            if (listBoxClothesOnMannequin.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            if (listBoxClothesOnMannequin.SelectedIndex == 0)
+            {
+                return;
+            }
+
+            int newSelItem = listBoxClothesOnMannequin.SelectedIndex - 1;
+
+            PRODUCT curItem = listSelectedProduct[listBoxClothesOnMannequin.SelectedIndex];
+            listSelectedProduct[listBoxClothesOnMannequin.SelectedIndex] =
+                listSelectedProduct[newSelItem];
+            listSelectedProduct[newSelItem] = curItem;
+
+            Image curImg = clothes[listBoxClothesOnMannequin.SelectedIndex];
+            clothes[listBoxClothesOnMannequin.SelectedIndex] =
+                clothes[newSelItem];
+            clothes[newSelItem] = curImg;
+
+            UpdateMannequinList();
+            DrawClothesOnMannequin(clothes);
+
+            listBoxClothesOnMannequin.SetSelected(newSelItem, true);
+
+
+        }
+
+        private void mlDownProduct_Click(object sender, EventArgs e)
+        {
+            if (listBoxClothesOnMannequin.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            if (listBoxClothesOnMannequin.SelectedIndex ==
+                listBoxClothesOnMannequin.Items.Count - 1)
+            {
+                return;
+            }
+
+            int newSelItem = listBoxClothesOnMannequin.SelectedIndex + 1;
+
+            PRODUCT curItem = listSelectedProduct[listBoxClothesOnMannequin.SelectedIndex];
+            listSelectedProduct[listBoxClothesOnMannequin.SelectedIndex] =
+                listSelectedProduct[newSelItem];
+            listSelectedProduct[newSelItem] = curItem;
+
+            Image curImg = clothes[listBoxClothesOnMannequin.SelectedIndex];
+            clothes[listBoxClothesOnMannequin.SelectedIndex] =
+                clothes[newSelItem];
+            clothes[newSelItem] = curImg;
+
+
+            UpdateMannequinList();
+            DrawClothesOnMannequin(clothes);
+
+            listBoxClothesOnMannequin.SetSelected(newSelItem, true);
+
+
+        }
+
+        private void mlRemoveProduct_Click(object sender, EventArgs e)
+        {
+            if (listBoxClothesOnMannequin.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            listSelectedProduct.RemoveAt(listBoxClothesOnMannequin.SelectedIndex);
+            clothes.RemoveAt(listBoxClothesOnMannequin.SelectedIndex);
+            UpdateMannequinList();
+            DrawClothesOnMannequin(clothes);
         }
     }
 }

@@ -33,9 +33,9 @@
             this.nUDCount = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbInfo = new MetroFramework.Controls.MetroTextBox();
             this.tbTotal = new MetroFramework.Controls.MetroTextBox();
             this.btnRemove = new MetroFramework.Controls.MetroLink();
+            this.tbInfo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDCount)).BeginInit();
             this.SuspendLayout();
@@ -66,49 +66,20 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // tbInfo
-            // 
-            // 
-            // 
-            // 
-            this.tbInfo.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.tbInfo.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location")));
-            this.tbInfo.CustomButton.Name = "";
-            this.tbInfo.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size")));
-            this.tbInfo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbInfo.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex")));
-            this.tbInfo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbInfo.CustomButton.UseSelectable = true;
-            this.tbInfo.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible")));
-            this.tbInfo.Lines = new string[0];
-            resources.ApplyResources(this.tbInfo, "tbInfo");
-            this.tbInfo.MaxLength = 32767;
-            this.tbInfo.Multiline = true;
-            this.tbInfo.Name = "tbInfo";
-            this.tbInfo.PasswordChar = '\0';
-            this.tbInfo.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbInfo.SelectedText = "";
-            this.tbInfo.SelectionLength = 0;
-            this.tbInfo.SelectionStart = 0;
-            this.tbInfo.ShortcutsEnabled = true;
-            this.tbInfo.UseSelectable = true;
-            this.tbInfo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbInfo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // tbTotal
             // 
             // 
             // 
             // 
-            this.tbTotal.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.tbTotal.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location1")));
+            this.tbTotal.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.tbTotal.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location")));
             this.tbTotal.CustomButton.Name = "";
-            this.tbTotal.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size1")));
+            this.tbTotal.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size")));
             this.tbTotal.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbTotal.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex1")));
+            this.tbTotal.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex")));
             this.tbTotal.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.tbTotal.CustomButton.UseSelectable = true;
-            this.tbTotal.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible1")));
+            this.tbTotal.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible")));
             this.tbTotal.Lines = new string[0];
             resources.ApplyResources(this.tbTotal, "tbTotal");
             this.tbTotal.MaxLength = 32767;
@@ -131,14 +102,22 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.UseSelectable = true;
             // 
+            // tbInfo
+            // 
+            this.tbInfo.BackColor = System.Drawing.Color.White;
+            this.tbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.tbInfo, "tbInfo");
+            this.tbInfo.Name = "tbInfo";
+            this.tbInfo.ReadOnly = true;
+            // 
             // UserControlBasket
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.tbInfo);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.tbTotal);
-            this.Controls.Add(this.tbInfo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nUDCount);
@@ -158,8 +137,8 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.PictureBox pb;
         public System.Windows.Forms.NumericUpDown nUDCount;
-        public MetroFramework.Controls.MetroTextBox tbInfo;
         public MetroFramework.Controls.MetroTextBox tbTotal;
         public MetroFramework.Controls.MetroLink btnRemove;
+        public System.Windows.Forms.TextBox tbInfo;
     }
 }
