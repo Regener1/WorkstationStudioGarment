@@ -25,13 +25,20 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void LoadMaterials()
         {
-            lvMaterials.Rows.Clear();
-            lMaterials.Clear();
-            lMaterials = productsControlS.AllMaterials();
-
-            foreach (MATERIAL m in lMaterials)
+            try
             {
-                lvMaterials.Rows.Add(new string[] { m.id_material.ToString(), m.name, m.count.ToString() });
+                lvMaterials.Rows.Clear();
+                lMaterials.Clear();
+                lMaterials = productsControlS.AllMaterials();
+
+                foreach (MATERIAL m in lMaterials)
+                {
+                    lvMaterials.Rows.Add(new string[] { m.id_material.ToString(), m.name, m.count.ToString() });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -42,13 +49,20 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnAddMaterial_Click(object sender, EventArgs e)
         {
-            MATERIAL newMaterial = new MATERIAL();
-            newMaterial.name = tbName.Text;
-            newMaterial.count = Convert.ToInt32(nudCount.Value);
+            try
+            {
+                MATERIAL newMaterial = new MATERIAL();
+                newMaterial.name = tbName.Text;
+                newMaterial.count = Convert.ToInt32(nudCount.Value);
 
-            productsControlS.Add(newMaterial);
+                productsControlS.Add(newMaterial);
 
-            LoadMaterials();
+                LoadMaterials();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         

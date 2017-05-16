@@ -17,12 +17,26 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         public List<PRODUCT> AllProducts()
         {
-            return productS.All();
+            try { 
+                return productS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<MATERIAL> AllMaterials()
         {
-            return materialS.All();
+            try { 
+                return materialS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<ProductInfoContainer> GetProductsInfo()

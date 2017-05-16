@@ -30,10 +30,17 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            supply = new SUPPLY();
-            supply.delivery_date = mtbDeliveryDate.Text;
-            productsControlS.Add(supply);
-            Close();
+            try
+            {
+                supply = new SUPPLY();
+                supply.delivery_date = mtbDeliveryDate.Text;
+                productsControlS.Add(supply);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

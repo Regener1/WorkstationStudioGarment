@@ -244,11 +244,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             lvProductStructure.Rows.Clear();
         }
 
-        private void btnLoadSupplies_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lvSupplies_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

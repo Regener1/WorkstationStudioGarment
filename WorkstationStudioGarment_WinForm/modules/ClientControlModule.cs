@@ -17,17 +17,38 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         public List<CLIENT> AllClients()
         {
-            return clientS.All();
+            try { 
+                return clientS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Delete(CLIENT entity)
         {
-            clientS.Delete(entity);
+            try { 
+                clientS.Delete(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Update(CLIENT entity) 
         {
-            clientS.Update(entity);
+            try { 
+               clientS.Update(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
         public List<ClientProductContainer> GetClientsProduct(CLIENT entity)
         {

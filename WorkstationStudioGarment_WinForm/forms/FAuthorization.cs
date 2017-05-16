@@ -14,11 +14,11 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FAuthorization : MetroFramework.Forms.MetroForm
     {
-       // FMain fmain = new FMain();
         FRegistration freg;
         ClientControl cl = new ClientControl();
         List<CLIENT> client;
-        public CLIENT ourClient;
+        public CLIENT OurClient { get; set; }
+
         public FAuthorization()
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 else
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Вы успешно вошли в систему.","");
-                    ourClient = client[0];
+                    OurClient = client[0];
                     Close();
                 }
             }
