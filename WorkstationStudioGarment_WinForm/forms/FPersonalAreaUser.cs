@@ -40,6 +40,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             this.listSelectedProduct.AddRange(listSelectedProduct);
         }
+
         public FPersonalAreaUser()
         {
             InitializeComponent();

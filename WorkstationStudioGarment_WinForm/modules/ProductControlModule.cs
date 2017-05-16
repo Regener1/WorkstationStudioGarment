@@ -21,47 +21,110 @@ namespace WorkstationStudioGarment_WinForm.modules
          */
         public void Add(SUPPLY entity)
         {
-            supplyS.Add(entity);
+            try { 
+                supplyS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Add(PRODUCT entity)
         {
-            productS.Add(entity);
+            try { 
+                productS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Add(PRODUCT_STRUCTURE entity)
         {
-            productStructureS.Add(entity);
+            try { 
+                productStructureS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Add(MATERIAL entity)
         {
-            materialS.Add(entity);
+            try { 
+                materialS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<SUPPLY> AllSupplies()
         {
-            return supplyS.All();        
+            try { 
+                return supplyS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<MATERIAL> AllMaterials()
         {
-            return materialS.All();
+            try { 
+                return materialS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Update(PRODUCT entity)
         {
-            productS.Update(entity);
+            try { 
+                productS.Update(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Update(SUPPLY entity)
         {
-            supplyS.Update(entity);
+            try { 
+                supplyS.Update(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Update(PRODUCT_STRUCTURE entity)
         {
-            productStructureS.Update(entity);
+            try { 
+                productStructureS.Update(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
 

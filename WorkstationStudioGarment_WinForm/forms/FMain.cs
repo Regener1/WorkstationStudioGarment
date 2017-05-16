@@ -38,18 +38,19 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             f.ShowDialog();
 
-            client = f.ourClient;
+            client = f.OurClient;
             if (client == null)
             {
-                MetroFramework.MetroMessageBox.Show(this, "Ошибка при авторизации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-
+                //MetroFramework.MetroMessageBox.Show(this, "Ошибка при авторизации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
+            else
+            {
+                lblClientLogin.Text = client.login;
 
-            lblClientLogin.Text = client.login;
-
-            LoadFilters();
-            LoadProductView();
+                LoadFilters();
+                LoadProductView();
+            }
         }
 
         private void lvProducts_MouseDown(object sender, MouseEventArgs e)
@@ -149,24 +150,31 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void lblClientLogin_LinkClicked(object sender, EventArgs e)
         {
-            List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
-            if (client == null)
+            try
             {
-                MessageBox.Show("Ошибка", "Такого клиента не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
+                List<CLIENT> client = clientControl.SearchClientByLogin(lblClientLogin.Text);
+                if (client == null)
+                {
+                    MessageBox.Show("Ошибка", "Такого клиента не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Close();
+                }
+                if (client[0].access_level == 1)
+                {
+                    FPersonalAreaAdmin f = new FPersonalAreaAdmin();
+                    f.ShowDialog();
+                }
+                else
+                {
+                    FPersonalAreaUser f = new FPersonalAreaUser();
+                    f.SetClient(client[0]);
+                    f.ClearSelectedProducts();
+                    f.SetSelectedProducts(listSelectedProduct);
+                    f.ShowDialog();
+                }
             }
-            if (client[0].access_level == 1)
+            catch (Exception ex)
             {
-                FPersonalAreaAdmin f = new FPersonalAreaAdmin();
-                f.ShowDialog();
-            }
-            else
-            {
-                FPersonalAreaUser f = new FPersonalAreaUser();
-                f.SetClient(client[0]);
-                f.ClearSelectedProducts();
-                f.SetSelectedProducts(listSelectedProduct);
-                f.ShowDialog();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -214,21 +222,28 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void LoadFilters()
         {
-            FiltersModule filtersModule = new FiltersModule();
-            cListBoxCategories.Items.AddRange(filtersModule.GetCategoriesList().ToArray());
-            cListBoxColors.Items.AddRange(filtersModule.GetColorsList().ToArray());
-            cListBoxSize.Items.AddRange(filtersModule.GetSizeList().ToArray());
-            for (int i = 0; i < cListBoxCategories.Items.Count; i++)
+            try
             {
-                cListBoxCategories.SetItemChecked(i, true);
+                FiltersModule filtersModule = new FiltersModule();
+                cListBoxCategories.Items.AddRange(filtersModule.GetCategoriesList().ToArray());
+                cListBoxColors.Items.AddRange(filtersModule.GetColorsList().ToArray());
+                cListBoxSize.Items.AddRange(filtersModule.GetSizeList().ToArray());
+                for (int i = 0; i < cListBoxCategories.Items.Count; i++)
+                {
+                    cListBoxCategories.SetItemChecked(i, true);
+                }
+                for (int i = 0; i < cListBoxColors.Items.Count; i++)
+                {
+                    cListBoxColors.SetItemChecked(i, true);
+                }
+                for (int i = 0; i < cListBoxSize.Items.Count; i++)
+                {
+                    cListBoxSize.SetItemChecked(i, true);
+                }
             }
-            for (int i = 0; i < cListBoxColors.Items.Count; i++)
+            catch (Exception ex)
             {
-                cListBoxColors.SetItemChecked(i, true);
-            }
-            for (int i = 0; i < cListBoxSize.Items.Count; i++)
-            {
-                cListBoxSize.SetItemChecked(i, true);
+                MessageBox.Show(ex.Message);
             }
         }
 

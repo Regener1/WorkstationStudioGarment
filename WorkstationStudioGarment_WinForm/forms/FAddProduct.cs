@@ -38,34 +38,48 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnLoadPhoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "PNG (*png) | *.png";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            try { 
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "PNG (*png) | *.png";
+                if(ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxPhoto.Image = Image.FromFile(ofd.FileName);
+                }
+
+                tbPath.Text = ofd.FileName;
+            }
+            catch (Exception ex)
             {
-                pictureBoxPhoto.Image = Image.FromFile(ofd.FileName);
+                MessageBox.Show(ex.Message);
             }
 
-            tbPath.Text = ofd.FileName;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            product = new PRODUCT();
-
-            if (idSupply != -1)
+            try
             {
-                product.title = tbName.Text;
-                product.category = tbCategory.Text;
-                product.size = Convert.ToInt32(tbSize.Text);
-                product.color = tbColor.Text;
-                product.photo = ImgConverter.ImageToString(pictureBoxPhoto.Image);
-                product.price = Convert.ToInt32(tbPrice.Text);
-                product.count = Convert.ToInt32(tbCount.Text);
-                product.id_supply = idSupply;
-            }
+                product = new PRODUCT();
 
-            productsControlS.Add(product);
-            Close();
+                if (idSupply != -1)
+                {
+                    product.title = tbName.Text;
+                    product.category = tbCategory.Text;
+                    product.size = Convert.ToInt32(tbSize.Text);
+                    product.color = tbColor.Text;
+                    product.photo = ImgConverter.ImageToString(pictureBoxPhoto.Image);
+                    product.price = Convert.ToInt32(tbPrice.Text);
+                    product.count = Convert.ToInt32(tbCount.Text);
+                    product.id_supply = idSupply;
+                }
+
+                productsControlS.Add(product);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -88,14 +88,21 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void FEditProductStructure_Load(object sender, EventArgs e)
         {
-            lMaterials = productsControlS.AllMaterials();
-
-            for (int i = 0; i < lMaterials.Count; i++)
+            try
             {
-                cbMaterial.Items.Add(lMaterials[i].name);
-            }
+                lMaterials = productsControlS.AllMaterials();
 
-            UpdateList();
+                for (int i = 0; i < lMaterials.Count; i++)
+                {
+                    cbMaterial.Items.Add(lMaterials[i].name);
+                }
+
+                UpdateList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnRemoveFromList_Click(object sender, EventArgs e)

@@ -25,7 +25,14 @@ namespace WorkstationStudioGarment_WinForm.modules
         /// <param name="entity"></param>
         public void AddBasket(BASKET entity)
         {
-            basketS.Add(entity);
+            try
+            {
+                basketS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>
@@ -33,17 +40,38 @@ namespace WorkstationStudioGarment_WinForm.modules
         /// </summary>
         /// <param name="entity"></param>
         public void AddOrder(ORDER entity) {
-            orderS.Add(entity);
+            try { 
+                orderS.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<PRODUCT> AllProducts()
         {
-            return productS.All();
+            try { 
+                return productS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public List<ORDER> AllOrders()
         {
-            return  orderS.All();
+            try { 
+                return  orderS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public void Update(PRODUCT entity)

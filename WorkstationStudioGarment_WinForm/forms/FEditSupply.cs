@@ -42,9 +42,16 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            supply.delivery_date = mtbDeliveryDate.Text;
-            productsControlS.Update(supply);
-            Close();
+            try
+            {
+                supply.delivery_date = mtbDeliveryDate.Text;
+                productsControlS.Update(supply);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FEditSupply_Load(object sender, EventArgs e)

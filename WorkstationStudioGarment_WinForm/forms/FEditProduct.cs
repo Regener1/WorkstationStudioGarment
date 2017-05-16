@@ -55,30 +55,42 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void btnLoadPhoto_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "PNG (*png) | *.png";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBoxPhoto.Image = Image.FromFile(ofd.FileName);
-            }
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "PNG (*png) | *.png";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxPhoto.Image = Image.FromFile(ofd.FileName);
+                }
 
-            tbPath.Text = ofd.FileName;
+                tbPath.Text = ofd.FileName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnChange_Click(object sender, EventArgs e)
         {
-            //product = new PRODUCT();
+            try
+            {
+                product.title = tbName.Text;
+                product.category = tbCategory.Text;
+                product.size = Convert.ToInt32(tbSize.Text);
+                product.color = tbColor.Text;
+                product.photo = ImgConverter.ImageToString(pictureBoxPhoto.Image);
+                product.price = Convert.ToInt32(tbPrice.Text);
+                product.count = Convert.ToInt32(tbCount.Text);
 
-            product.title = tbName.Text;
-            product.category = tbCategory.Text;
-            product.size = Convert.ToInt32(tbSize.Text);
-            product.color = tbColor.Text;
-            product.photo = ImgConverter.ImageToString(pictureBoxPhoto.Image);
-            product.price = Convert.ToInt32(tbPrice.Text);
-            product.count = Convert.ToInt32(tbCount.Text);
-
-            productsControlS.Update(product);
-            Close();
+                productsControlS.Update(product);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
