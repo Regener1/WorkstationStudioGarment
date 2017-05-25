@@ -72,11 +72,58 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void FPersonalAreaUser_Load(object sender, EventArgs e)
         {
-            
             SetCientInfo();
             SetProductInfo();
             FillListControls();
             FillClientOrdersInfo();
+            CalculateTheSize();
+        }
+
+        private void CalculateTheSize() {
+            int size = 56;
+            int ch = client.chest;
+            int wa = client.waist;
+            int hip = client.hip;
+            if (client.sex == 0)
+            {
+                if ((ch >= 80 && ch < 84) || (wa >= 62 && wa < 66) || (hip >= 86 && hip < 92))
+                    size = 40;
+                if ((ch >= 84 && ch < 88) || (wa >= 66 && wa < 70) || (hip >= 92 && hip < 96))
+                    size = 42;
+                if ((ch >= 88 && ch < 92) || (wa >= 70 && wa < 74) || (hip >= 96 && hip < 100))
+                    size = 44;
+                if ((ch >= 92 && ch < 96) || (wa >= 74 && wa < 78) || (hip >= 100 && hip < 104))
+                    size = 46;
+                if ((ch >= 96 && ch < 100) || (wa >= 78 && wa < 82) || (hip >= 104 && hip < 108))
+                    size = 48;
+                if ((ch >= 100 && ch < 104) || (wa >= 82 && wa < 86) || (hip >= 108 && hip < 112))
+                    size = 50;
+                if ((ch >= 104 && ch < 108) || (wa >= 86 && wa < 90) || (hip >= 112 && hip < 116))
+                    size = 52;
+                if ((ch >= 108 && ch < 112) || (wa >= 90 && wa < 94) || (hip >= 116 && hip < 120))
+                    size = 54;
+            }
+            else {
+                size = 60;
+                if ((ch >= 88 && ch < 92) || (wa >= 70 && wa < 76) || (hip >= 92 && hip < 96))
+                    size = 44;
+                if ((ch >= 92 && ch < 96) || (wa >= 76 && wa < 82) || (hip >= 96 && hip < 100))
+                    size = 46;
+                if ((ch >= 96 && ch < 100) || (wa >= 82 && wa < 88) || (hip >= 100 && hip < 104))
+                    size = 48;
+                if ((ch >= 100 && ch < 104) || (wa >= 88 && wa < 94) || (hip >= 104 && hip < 108))
+                    size = 50;
+                if ((ch >= 104 && ch < 108) || (wa >= 94 && wa < 100) || (hip >= 108 && hip < 112))
+                    size = 52;
+                if ((ch >= 108 && ch < 112) || (wa >= 82 && wa < 86) || (hip >= 112 && hip < 116))
+                    size = 54;
+                if ((ch >= 112 && ch < 116) || (wa >= 106 && wa < 112) || (hip >= 116 && hip < 120))
+                    size = 56;
+                if ((ch >= 116 && ch < 120) || (wa >= 112 && wa < 118) || (hip >= 120 && hip < 124))
+                    size = 58;
+            }
+
+            lblSize.Text = size.ToString();
         }
 
         private void SetCientInfo()
@@ -296,7 +343,7 @@ namespace WorkstationStudioGarment_WinForm.forms
 
                 ORDER o = new ORDER();
                 o.order_date = DateTime.Today.ToString("d");
-                o.order_status = 0; //какие цифры вообще должны использоваться?
+                o.order_status = 0; 
                 o.order_time = DateTime.Now.ToString("H:M:s");
                 o.total_sum = totalSum;
                 orderModule.AddOrder(o);
@@ -330,6 +377,13 @@ namespace WorkstationStudioGarment_WinForm.forms
                     }
                 }
 
+                CreatePDF(listSelectedProduct);
+                ///
+                ///функция для создания пдф
+                ///
+
+
+
                 MessageBox.Show("Ваш заказ успешно оформлен");
 
                 listSelectedProduct.Clear();
@@ -345,6 +399,10 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
+        private void CreatePDF(List<PRODUCT> list) { 
+            
+        }
+
         private void lblInfo_Click(object sender, EventArgs e)
         {
             Close();
@@ -356,6 +414,21 @@ namespace WorkstationStudioGarment_WinForm.forms
             {
                 FillClientOrdersInfo(); 
             }
+        }
+
+        private void tbChest_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTheSize();
+        }
+
+        private void tbWaist_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTheSize();
+        }
+
+        private void tbHip_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTheSize();
         }
     }
 }
