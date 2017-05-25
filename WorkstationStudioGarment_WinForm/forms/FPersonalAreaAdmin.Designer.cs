@@ -136,7 +136,7 @@
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(20, 60);
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 2;
+            this.tabControlMain.SelectedIndex = 1;
             this.tabControlMain.Size = new System.Drawing.Size(1114, 661);
             this.tabControlMain.TabIndex = 56;
             this.tabControlMain.UseSelectable = true;

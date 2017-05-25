@@ -60,6 +60,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Добавить";
             this.btnAdd.UseSelectable = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // metroPanel1
             // 

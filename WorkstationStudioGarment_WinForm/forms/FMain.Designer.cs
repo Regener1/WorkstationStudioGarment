@@ -54,6 +54,7 @@
             this.mlRemoveProduct = new MetroFramework.Controls.MetroLink();
             this.mlDownProduct = new MetroFramework.Controls.MetroLink();
             this.lblSaleInfo = new MetroFramework.Controls.MetroLabel();
+            this.cBoxUserOptions = new MetroFramework.Controls.MetroCheckBox();
             this.panelMannequin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).BeginInit();
             this.mPanelCategoryExpand.SuspendLayout();
@@ -220,9 +221,9 @@
             this.flowLayoutPanel1.Controls.Add(this.mPanelColorExpand);
             this.flowLayoutPanel1.Controls.Add(this.mlSizeExpander);
             this.flowLayoutPanel1.Controls.Add(this.mPanelSizeExpand);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 92);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(25, 117);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(183, 536);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(183, 511);
             this.flowLayoutPanel1.TabIndex = 99;
             // 
             // mlColorExpander
@@ -342,11 +343,23 @@
             this.lblSaleInfo.TabIndex = 103;
             this.lblSaleInfo.Text = "metroLabel3";
             // 
+            // cBoxUserOptions
+            // 
+            this.cBoxUserOptions.AutoSize = true;
+            this.cBoxUserOptions.Location = new System.Drawing.Point(28, 99);
+            this.cBoxUserOptions.Name = "cBoxUserOptions";
+            this.cBoxUserOptions.Size = new System.Drawing.Size(175, 15);
+            this.cBoxUserOptions.TabIndex = 104;
+            this.cBoxUserOptions.Text = "По размерам пользователя";
+            this.cBoxUserOptions.UseSelectable = true;
+            this.cBoxUserOptions.CheckedChanged += new System.EventHandler(this.cBoxUserOptions_CheckedChanged);
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 692);
+            this.Controls.Add(this.cBoxUserOptions);
             this.Controls.Add(this.lblSaleInfo);
             this.Controls.Add(this.mlRemoveProduct);
             this.Controls.Add(this.mlDownProduct);
@@ -404,5 +417,6 @@
         private MetroFramework.Controls.MetroLink mlDownProduct;
         private MetroFramework.Controls.MetroLink mlRemoveProduct;
         private MetroFramework.Controls.MetroLabel lblSaleInfo;
+        private MetroFramework.Controls.MetroCheckBox cBoxUserOptions;
     }
 }

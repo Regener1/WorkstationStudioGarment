@@ -27,7 +27,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         private List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
         private ClientControl clientControl = new ClientControl();
         private TanyaModule tanyaM = new TanyaModule();
-        private int saleSize = 0;
+        private int saleSize = 10;
 
         private List<PRODUCT> filteredListProduct = new List<PRODUCT>();
 
@@ -308,7 +308,19 @@ namespace WorkstationStudioGarment_WinForm.forms
             listViewProducts.Items.Clear();
             for (int i = 0; i < listProduct.Count; i++)
             {
-                if (cListBoxCategories
+                if (cBoxUserOptions.Checked)
+                {
+                    FPersonalAreaUser u = new FPersonalAreaUser();
+                    u.SetClient(client);
+                    int size = u.CalculateTheSize();
+
+                    if (listProduct[i].size == size)
+                    {
+                        listViewProducts.Items.Add(new ListViewItem(listProduct[i].title.ToString() + "\n" +
+                                                            listProduct[i].price.ToString(), i));
+                    }
+                }
+                else if (cListBoxCategories
                         .GetItemChecked(cListBoxCategories.Items.IndexOf(listProduct[i].category)) &&
                     cListBoxColors
                         .GetItemChecked(cListBoxColors.Items.IndexOf(listProduct[i].color)) &&
@@ -419,6 +431,11 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             percent = percent / 100;
             return sum - sum * percent;
+        }
+
+        private void cBoxUserOptions_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateListViewProducts();
         }
     }
 }

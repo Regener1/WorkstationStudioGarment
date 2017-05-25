@@ -76,10 +76,15 @@ namespace WorkstationStudioGarment_WinForm.forms
             SetProductInfo();
             FillListControls();
             FillClientOrdersInfo();
-            CalculateTheSize();
+            SetSize(CalculateTheSize());
         }
 
-        private void CalculateTheSize() {
+        private void SetSize(int size)
+        {
+            lblSize.Text = size.ToString();
+        }
+
+        public int CalculateTheSize() {
             int size = 56;
             int ch = client.chest;
             int wa = client.waist;
@@ -123,7 +128,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                     size = 58;
             }
 
-            lblSize.Text = size.ToString();
+            return size;
         }
 
         private void SetCientInfo()
