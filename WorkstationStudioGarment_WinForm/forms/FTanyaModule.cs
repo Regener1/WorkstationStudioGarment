@@ -18,10 +18,6 @@ namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FTanyaModule : Form
     {
-        /// <summary>
-        /// Надо резделить всё по классам и функциям
-        /// </summary>
-
         BasketService basketService = new BasketService();
         ProductService productServise = new ProductService();
         List<BASKET> lbasket = new List<BASKET>();
@@ -91,37 +87,37 @@ namespace WorkstationStudioGarment_WinForm.forms
                         count--;
                     }
                 }
-
-
-                //клиенты
                 candidates_list = tModule.ShoppersList();
-
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            foreach (PRODUCT entity in productsList)
+            if (productsList != null)
             {
-                string description = entity.title + Environment.NewLine
-                                     + entity.category + Environment.NewLine
-                                     + entity.color + Environment.NewLine
-                                     + entity.price.ToString();
+                foreach (PRODUCT entity in productsList)
+                {
+                    string description = entity.title + Environment.NewLine
+                                         + entity.category + Environment.NewLine
+                                         + entity.color + Environment.NewLine
+                                         + entity.price.ToString();
 
-                ProductViewPanel pvPanel = new ProductViewPanel();
-                //pvPanel.Location = new Point(3,y);
-                pvPanel.pbPhoto.Image = ImgConverter.ImageFromString(entity.photo);
-                pvPanel.tbDescription.Text = description;
-                flpProductsView.Controls.Add(pvPanel);
+                    ProductViewPanel pvPanel = new ProductViewPanel();
+
+                    pvPanel.pbPhoto.Image = ImgConverter.ImageFromString(entity.photo);
+                    pvPanel.tbDescription.Text = description;
+                    flpProductsView.Controls.Add(pvPanel);
+                }
             }
 
-            foreach(var c in candidates_list) {
+            if (candidates_list != null)
+            {
+                foreach (var c in candidates_list)
+                {
 
-                string str = c.login + c.name + c.mail;
-                listView1.Items.Add(new ListViewItem(new string[] { c.id_client.ToString(), c.login, c.surname, c.name, c.mail, c.phone_number.ToString() }));
+                    string str = c.login + c.name + c.mail;
+                    listView1.Items.Add(new ListViewItem(new string[] { c.id_client.ToString(), c.login, c.surname, c.name, c.mail, c.phone_number.ToString() }));
+                }
             }
         }
 
