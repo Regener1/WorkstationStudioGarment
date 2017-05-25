@@ -340,8 +340,8 @@ namespace WorkstationStudioGarment_WinForm.forms
             if (newSupply != null)
             {
                 lSupplies.Add(newSupply);
-                lvSupplies.Rows.Add(new ListViewItem(new string[] { newSupply.id_supply.ToString(),
-                                                            newSupply.delivery_date }));
+                lvSupplies.Rows.Add(new string[] { newSupply.id_supply.ToString(),
+                                                            newSupply.delivery_date });
             }
         }
 

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.panelMannequin = new System.Windows.Forms.Panel();
+            this.pbMannequin = new System.Windows.Forms.PictureBox();
             this.listBoxClothesOnMannequin = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,13 +53,12 @@
             this.mlUpProduct = new MetroFramework.Controls.MetroLink();
             this.mlRemoveProduct = new MetroFramework.Controls.MetroLink();
             this.mlDownProduct = new MetroFramework.Controls.MetroLink();
-            this.pbMannequin = new System.Windows.Forms.PictureBox();
             this.panelMannequin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).BeginInit();
             this.mPanelCategoryExpand.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.mPanelColorExpand.SuspendLayout();
             this.mPanelSizeExpand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList
@@ -77,6 +77,19 @@
             this.panelMannequin.TabIndex = 4;
             this.panelMannequin.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelMannequin_DragDrop);
             this.panelMannequin.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelMannequin_DragEnter);
+            // 
+            // pbMannequin
+            // 
+            this.pbMannequin.BackColor = System.Drawing.Color.White;
+            this.pbMannequin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbMannequin.ImageLocation = "";
+            this.pbMannequin.InitialImage = null;
+            this.pbMannequin.Location = new System.Drawing.Point(0, 0);
+            this.pbMannequin.Name = "pbMannequin";
+            this.pbMannequin.Size = new System.Drawing.Size(214, 536);
+            this.pbMannequin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMannequin.TabIndex = 3;
+            this.pbMannequin.TabStop = false;
             // 
             // listBoxClothesOnMannequin
             // 
@@ -118,6 +131,7 @@
             this.listViewProducts.SmallImageList = this.imageList;
             this.listViewProducts.TabIndex = 2;
             this.listViewProducts.UseCompatibleStateImageBehavior = false;
+            this.listViewProducts.SelectedIndexChanged += new System.EventHandler(this.listViewProducts_SelectedIndexChanged);
             this.listViewProducts.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvProducts_MouseDown);
             // 
             // metroLabel1
@@ -318,19 +332,6 @@
             this.mlDownProduct.UseSelectable = true;
             this.mlDownProduct.Click += new System.EventHandler(this.mlDownProduct_Click);
             // 
-            // pbMannequin
-            // 
-            this.pbMannequin.BackColor = System.Drawing.Color.White;
-            this.pbMannequin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbMannequin.ImageLocation = "";
-            this.pbMannequin.InitialImage = null;
-            this.pbMannequin.Location = new System.Drawing.Point(0, 0);
-            this.pbMannequin.Name = "pbMannequin";
-            this.pbMannequin.Size = new System.Drawing.Size(214, 536);
-            this.pbMannequin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbMannequin.TabIndex = 3;
-            this.pbMannequin.TabStop = false;
-            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,11 +357,11 @@
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.Load += new System.EventHandler(this.FMain_Load);
             this.panelMannequin.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).EndInit();
             this.mPanelCategoryExpand.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.mPanelColorExpand.ResumeLayout(false);
             this.mPanelSizeExpand.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbMannequin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

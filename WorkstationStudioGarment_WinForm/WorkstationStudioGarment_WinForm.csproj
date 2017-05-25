@@ -43,6 +43,9 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>D:\Загрузки\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
       <Private>True</Private>
@@ -330,6 +333,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="res\database\studio.db" />
+    <None Include="res\fonts\arial.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -347,6 +352,8 @@
       <DependentUpon>StudioDB.edmx</DependentUpon>
       <LastGenOutput>StudioDB.cs</LastGenOutput>
     </Content>
+    <Content Include="res\images\Man.png" />
+    <Content Include="res\images\Woman.png" />
     <None Include="Resources\u5.png" />
     <None Include="Resources\Services-03.png" />
     <None Include="Resources\go-up.png" />

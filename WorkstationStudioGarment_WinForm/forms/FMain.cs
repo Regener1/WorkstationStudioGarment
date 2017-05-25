@@ -253,11 +253,11 @@ namespace WorkstationStudioGarment_WinForm.forms
             {
                 if (client.sex == 1)
                 {
-                    mannequinImg = Image.FromFile(@"res/images/Man.png");
+                    mannequinImg = Image.FromFile(@"C:\Users\User\Documents\Visual Studio 2013\Projects\kursach\WorkstationStudioGarment\WorkstationStudioGarment_WinForm\bin\res\images\Man.png");
                 }
                 else
                 {
-                    mannequinImg = Image.FromFile(@"res/images/Woman.png");
+                    mannequinImg = Image.FromFile(@"C:\Users\User\Documents\Visual Studio 2013\Projects\kursach\WorkstationStudioGarment\WorkstationStudioGarment_WinForm\bin\res\images\Woman.png");
                 }
 
                 //рисуем изначальный манекен
@@ -397,6 +397,11 @@ namespace WorkstationStudioGarment_WinForm.forms
             clothes.RemoveAt(listBoxClothesOnMannequin.SelectedIndex);
             UpdateMannequinList();
             DrawClothesOnMannequin(clothes);
+        }
+
+        private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
