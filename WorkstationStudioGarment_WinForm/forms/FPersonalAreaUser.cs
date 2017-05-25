@@ -13,6 +13,11 @@ using WorkstationStudioGarment_WinForm.manager;
 using WorkstationStudioGarment_WinForm.modules;
 using WorkstationStudioGarment_WinForm.tool;
 using WorkstationStudioGarment_WinForm.user_controls;
+using iTextSharp.text;
+using iTextSharp;
+using System.IO;
+using iTextSharp.text.pdf;
+using System.Diagnostics;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
@@ -382,11 +387,11 @@ namespace WorkstationStudioGarment_WinForm.forms
                     }
                 }
 
-                CreatePDF(listSelectedProduct);
+                
                 ///
                 ///функция для создания пдф
                 ///
-
+                CreatePDF(listSelectedProduct);
 
 
                 MessageBox.Show("Ваш заказ успешно оформлен");
@@ -404,8 +409,42 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        private void CreatePDF(List<PRODUCT> list) { 
-            
+        private void CreatePDF(List<PRODUCT> list) {
+            var doc = new Document();
+            PdfWriter.GetInstance(doc, new FileStream(@"C:\Order.pdf", FileMode.Create)); 
+            doc.Open();
+
+            BaseFont baseFont = BaseFont.CreateFont(@"res\fonts\arial.ttf",
+                                BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED); 
+
+            iTextSharp.text.Phrase main = new Phrase("Заказ на имя ", new
+                            iTextSharp.text.Font(baseFont, 11,
+                            iTextSharp.text.Font.BOLDITALIC, new BaseColor(Color.Black)));
+            Paragraph a1 = new Paragraph(main);
+            a1.Add(Environment.NewLine);
+            a1.Alignment = Element.ALIGN_CENTER;
+            doc.Add(a1);
+
+            iTextSharp.text.Phrase name = new Phrase(""+ client.surname + " " + client.name, new
+                           iTextSharp.text.Font(baseFont, 11,
+                           iTextSharp.text.Font.NORMAL, new BaseColor(Color.Black)));
+            Paragraph a2 = new Paragraph(name);
+            a2.Add(Environment.NewLine);
+            a2.Alignment = Element.ALIGN_CENTER;
+            doc.Add(a2);
+            doc.Close();
+
+            System.Diagnostics.Process command = new System.Diagnostics.Process();
+            command.StartInfo.FileName = @"C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe";
+            command.StartInfo.Arguments = " /p " + @"C:\Order.pdf";
+            command.StartInfo.UseShellExecute = false;
+            command.StartInfo.CreateNoWindow = true;
+            command.Start();
+
+            command.WaitForExit(31000);
+            if (!command.HasExited)
+                command.Kill();
+            else command.Close(); 
         }
 
         private void lblInfo_Click(object sender, EventArgs e)

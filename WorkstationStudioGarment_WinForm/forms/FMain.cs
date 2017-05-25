@@ -252,11 +252,11 @@ namespace WorkstationStudioGarment_WinForm.forms
             {
                 if (client.sex == 1)
                 {
-                    mannequinImg = Image.FromFile(@"res/images/Man.png");
+                    mannequinImg = Image.FromFile(@"res\images\Man.png");
                 }
                 else
                 {
-                    mannequinImg = Image.FromFile(@"res/images/Woman.png");
+                    mannequinImg = Image.FromFile(@"res\images\Woman.png");
                 }
 
                 listProduct.Clear();
