@@ -8,7 +8,7 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.modules
 {
-    class UserPreferenceModule
+    public class UserPreferenceModule
     {
         private CLIENT client;
 
@@ -27,6 +27,7 @@ namespace WorkstationStudioGarment_WinForm.modules
         private Dictionary<string, int> colors = new Dictionary<string, int>();
 
 
+
         private List<string> summary = new List<string>();
 
         public CLIENT Client
@@ -42,12 +43,78 @@ namespace WorkstationStudioGarment_WinForm.modules
             }
         }
 
+        public Dictionary<string, int> Names
+        {
+            get
+            {
+                return names;
+            }
+
+            set
+            {
+                names = value;
+            }
+        }
+
+        public Dictionary<string, int> Categories
+        {
+            get
+            {
+                return categories;
+            }
+
+            set
+            {
+                categories = value;
+            }
+        }
+
+        public Dictionary<string, int> Colors
+        {
+            get
+            {
+                return colors;
+            }
+
+            set
+            {
+                colors = value;
+            }
+        }
+
+        public decimal MaxPrice
+        {
+            get
+            {
+                return maxPrice;
+            }
+
+            set
+            {
+                maxPrice = value;
+            }
+        }
+
+        public decimal MinPrice
+        {
+            get
+            {
+                return minPrice;
+            }
+
+            set
+            {
+                minPrice = value;
+            }
+        }
+
         public UserPreferenceModule() { }
 
         public UserPreferenceModule(CLIENT entity)
         {
             this.client = entity;
         }
+
 
         
         public void Load()
@@ -60,6 +127,24 @@ namespace WorkstationStudioGarment_WinForm.modules
                 }
                 LoadAllProducts();
                 LoadCriteriaLists();
+                ApplyFilters();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void ApplyUserFilter()
+        {
+            try
+            {
+                if (!LoadClientProducts())
+                {
+                    return;
+                }
+                LoadAllProducts();
+                
                 ApplyFilters();
             }
             catch (Exception e)
@@ -102,6 +187,45 @@ namespace WorkstationStudioGarment_WinForm.modules
         private void LoadAllProducts()
         {
             allProducts = productS.All();
+        }
+
+        private void LoadEditableList()
+        {
+            string[] productName;
+            foreach (PRODUCT e in clientProducts)
+            {
+                productName = e.title.Split(' ');
+                if (names.ContainsKey(productName[0].ToLower()))
+                {
+                    names[productName[0].ToLower()] += 1;
+                }
+                else
+                {
+                    names.Add(productName[0].ToLower(), 0);
+                }
+
+                if (categories.ContainsKey(e.category.ToLower()))
+                {
+                    categories[e.category.ToLower()] += 1;
+                }
+                else
+                {
+                    categories.Add(e.category.ToLower(), 0);
+                }
+
+                if (colors.ContainsKey(e.color.ToLower()))
+                {
+                    colors[e.color.ToLower()] += 1;
+                }
+                else
+                {
+                    colors.Add(e.color.ToLower(), 0);
+                }
+            }
+
+            names = names.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            categories = categories.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            colors = colors.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
         }
 
         private void LoadCriteriaLists()
@@ -174,6 +298,7 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         private void ApplyFilters()
         {
+            summaryProducts.Clear();
             int count = 0;
             foreach(PRODUCT e in allProducts)
             {

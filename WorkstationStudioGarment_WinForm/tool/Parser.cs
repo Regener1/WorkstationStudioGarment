@@ -8,7 +8,7 @@ namespace WorkstationStudioGarment_WinForm.tool
 {
     public class Parser
     {
-        public static int[] ParseStringToArray(string str, char separator)
+        public static int[] ParseStringToIntArray(string str, char separator)
         {
             try
             {
@@ -24,6 +24,12 @@ namespace WorkstationStudioGarment_WinForm.tool
             {
                 throw e;
             }
+        }
+
+        public static string[] ParseStringToStringArray(string str, char separator)
+        {
+
+            return str.Split(separator);
         }
     }
 }

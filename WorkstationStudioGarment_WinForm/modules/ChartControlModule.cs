@@ -31,8 +31,8 @@ namespace WorkstationStudioGarment_WinForm.modules
                     decimal res = 0;
                     foreach(var item in orders)
                     {
-                        if (Parser.ParseStringToArray(item.order_date, '.')[1] == month &&
-                            Parser.ParseStringToArray(item.order_date, '.')[2] == year)
+                        if (Parser.ParseStringToIntArray(item.order_date, '.')[1] == month &&
+                            Parser.ParseStringToIntArray(item.order_date, '.')[2] == year)
                         {
                             res += item.total_sum;
                         }
@@ -64,8 +64,8 @@ namespace WorkstationStudioGarment_WinForm.modules
                     int idSupply = -1;
                     foreach (var item in supplies)
                     {
-                        if (Parser.ParseStringToArray(item.delivery_date, '.')[1] == month &&
-                            Parser.ParseStringToArray(item.delivery_date, '.')[2] == year)
+                        if (Parser.ParseStringToIntArray(item.delivery_date, '.')[1] == month &&
+                            Parser.ParseStringToIntArray(item.delivery_date, '.')[2] == year)
                         {
                             idSupply = item.id_supply;
                         }
@@ -74,15 +74,21 @@ namespace WorkstationStudioGarment_WinForm.modules
                     decimal res = 0;
                     if (idSupply != -1)
                     {
-                        res = db.PRODUCTs
-                            .Where(x => x.id_supply == idSupply)
-                            .Sum(x => x.price * x.count);
+                        var products = db.PRODUCTs.Where(x => x.id_supply == idSupply);
+                        foreach(var item in products)
+                        {
+                            res += DecrementPercentages(item.price, 10) * item.count;
+                        }
+
                         var salesProducts = from b in db.BASKETs
                                             join p in db.PRODUCTs
                                             on b.id_product equals p.id_product
                                             where p.id_supply == idSupply
-                                            select b.count * p.price;
-                        res += salesProducts.Sum();
+                                            select new { b.count, p.price };
+                        foreach(var item in salesProducts)
+                        {
+                            res += DecrementPercentages(item.price, 10) * item.count;
+                        }
                     }
                     return res;
                 }
@@ -91,6 +97,12 @@ namespace WorkstationStudioGarment_WinForm.modules
             {
                 throw e;
             }
+        }
+
+        private decimal DecrementPercentages(decimal sum, decimal percent)
+        {
+            percent = percent / 100;
+            return sum - sum * percent;
         }
     }
 }

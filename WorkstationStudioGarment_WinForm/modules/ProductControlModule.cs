@@ -16,9 +16,6 @@ namespace WorkstationStudioGarment_WinForm.modules
         private ProductStructureService productStructureS = new ProductStructureService();
         private MaterialService materialS = new MaterialService();
 
-        /*
-         * НУЖНЫ TRY CATCH
-         */
         public void Add(SUPPLY entity)
         {
             try { 

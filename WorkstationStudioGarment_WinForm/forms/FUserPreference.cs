@@ -18,6 +18,9 @@ namespace WorkstationStudioGarment_WinForm.forms
     {
         private List<PRODUCT> productsList;
         private UserPreferenceModule upm;
+        Dictionary<string, int> categories;
+        Dictionary<string, int> names;
+        Dictionary<string, int> colors;
 
         public FUserPreference()
         {
@@ -32,7 +35,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        internal UserPreferenceModule Upm
+        public UserPreferenceModule Upm
         {
             get
             {
@@ -47,6 +50,48 @@ namespace WorkstationStudioGarment_WinForm.forms
 
         private void FUserPreference_Load(object sender, EventArgs e)
         {
+            tbPriceBegin.Text = upm.MinPrice.ToString();
+            tbPriceEnd.Text = upm.MaxPrice.ToString();
+
+
+            categories = new Dictionary<string, int>();
+            names = new Dictionary<string, int>();
+            colors = new Dictionary<string, int>();
+
+            foreach (var item in upm.Names)
+            {
+                names.Add(item.Key, item.Value);
+                checkedLBNames.Items.Add(item.Key);
+            }
+
+            foreach (var item in upm.Categories)
+            {
+                categories.Add(item.Key, item.Value);
+                checkedLBCategories.Items.Add(item.Key);
+            }
+
+            foreach (var item in upm.Colors)
+            {
+                colors.Add(item.Key, item.Value);
+                checkedLBColors.Items.Add(item.Key);
+            }
+
+
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(upm.GetRules());
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            flpProductsView.Controls.Clear();
+            upm.MinPrice = decimal.Parse(tbPriceBegin.Text);
+            upm.MaxPrice = decimal.Parse(tbPriceEnd.Text);
+            
+            upm.ApplyUserFilter();
+            productsList = upm.GetPreferenceList();
             foreach (PRODUCT entity in productsList)
             {
                 string description = entity.title + Environment.NewLine
@@ -55,17 +100,43 @@ namespace WorkstationStudioGarment_WinForm.forms
                                      + entity.price.ToString();
 
                 ProductViewPanel pvPanel = new ProductViewPanel();
-                //pvPanel.Location = new Point(3,y);
                 pvPanel.pbPhoto.Image = ImgConverter.ImageFromString(entity.photo);
                 pvPanel.tbDescription.Text = description;
                 flpProductsView.Controls.Add(pvPanel);
             }
-
         }
 
-        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void checkedLBNames_SelectedValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(upm.GetRules());
+            Dictionary<string, int> categories = new Dictionary<string, int>();
+            Dictionary<string, int> names = new Dictionary<string, int>();
+            Dictionary<string, int> colors = new Dictionary<string, int>();
+
+
+            for (int i = 0; i < this.names.Count; i++)
+            {
+                if (checkedLBNames.GetItemChecked(i))
+                {
+                    names.Add(this.names.Keys.ToList()[i], 0);
+                }
+            }
+            for (int i = 0; i < this.categories.Count; i++)
+            {
+                if (checkedLBCategories.GetItemChecked(i))
+                {
+                    categories.Add(this.categories.Keys.ToList()[i], 0);
+                }
+            }
+            for (int i = 0; i < this.colors.Count; i++)
+            {
+                if (checkedLBColors.GetItemChecked(i))
+                {
+                    colors.Add(this.colors.Keys.ToList()[i], 0);
+                }
+            }
+            upm.Names = names;
+            upm.Categories = categories;
+            upm.Colors = colors;
         }
     }
 }

@@ -26,6 +26,8 @@ namespace WorkstationStudioGarment_WinForm.forms
         private List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
         private List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
         private ClientControl clientControl = new ClientControl();
+        private TanyaModule tanyaM = new TanyaModule();
+        private int saleSize = 0;
 
         private List<PRODUCT> filteredListProduct = new List<PRODUCT>();
 
@@ -41,7 +43,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             client = f.OurClient;
             if (client == null)
             {
-                //MetroFramework.MetroMessageBox.Show(this, "Ошибка при авторизации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             else
@@ -133,12 +134,10 @@ namespace WorkstationStudioGarment_WinForm.forms
                     fUserpreference.Upm = upm;
                     fUserpreference.Show();
                 }
-                Console.WriteLine("Thread Stop");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("Thread Stop Exception");
             }
         }
 
@@ -260,12 +259,29 @@ namespace WorkstationStudioGarment_WinForm.forms
                     mannequinImg = Image.FromFile(@"res/images/Woman.png");
                 }
 
+                listProduct.Clear();
+                if (tanyaM.ShoppersList()
+                    .Where(x => x.id_client == client.id_client)
+                    .ToList().Count != 0)
+                {
+                    
+                    listProduct = orderControl.AllProducts();
+                    for(int i = 0; i < listProduct.Count; i++)
+                    {
+                        listProduct[i].price = DecrementPercentages(listProduct[i].price, (decimal) saleSize);
+                    }
+
+                    lblSaleInfo.Text = "Вам предоставлена специальная скидка на товары в размере " + saleSize + "%";
+                }
+                else
+                {
+                    listProduct = orderControl.AllProducts();
+
+                    lblSaleInfo.Text = "";
+                }
+
                 //рисуем изначальный манекен
                 DrawClothesOnMannequin(clothes);
-
-                //список всех продуктов
-                listProduct.Clear();
-                listProduct = orderControl.AllProducts();
 
                 // извлекаются все изображения и добавляются в imagelist
                 imageList.Images.Clear();
@@ -397,6 +413,12 @@ namespace WorkstationStudioGarment_WinForm.forms
             clothes.RemoveAt(listBoxClothesOnMannequin.SelectedIndex);
             UpdateMannequinList();
             DrawClothesOnMannequin(clothes);
+        }
+
+        private decimal DecrementPercentages(decimal sum, decimal percent)
+        {
+            percent = percent / 100;
+            return sum - sum * percent;
         }
     }
 }

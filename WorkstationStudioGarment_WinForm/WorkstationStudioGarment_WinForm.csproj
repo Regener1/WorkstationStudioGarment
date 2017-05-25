@@ -112,6 +112,12 @@
     <Compile Include="forms\FEditSupply.Designer.cs">
       <DependentUpon>FEditSupply.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\FLogicModelProductCompability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FLogicModelProductCompability.Designer.cs">
+      <DependentUpon>FLogicModelProductCompability.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\FTanyaModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,7 @@
     <Compile Include="modules\ChartControlModule.cs" />
     <Compile Include="modules\ClientControlModule.cs" />
     <Compile Include="modules\FiltersModule.cs" />
+    <Compile Include="modules\LogicModelModule.cs" />
     <Compile Include="modules\OrderControlModule.cs" />
     <Compile Include="control\OrderService.cs" />
     <Compile Include="modules\ProductControlModule.cs" />
@@ -269,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FEditSupply.resx">
       <DependentUpon>FEditSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FLogicModelProductCompability.resx">
+      <DependentUpon>FLogicModelProductCompability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>

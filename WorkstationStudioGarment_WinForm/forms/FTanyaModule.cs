@@ -112,7 +112,6 @@ namespace WorkstationStudioGarment_WinForm.forms
                                      + entity.price.ToString();
 
                 ProductViewPanel pvPanel = new ProductViewPanel();
-                //pvPanel.Location = new Point(3,y);
                 pvPanel.pbPhoto.Image = ImgConverter.ImageFromString(entity.photo);
                 pvPanel.tbDescription.Text = description;
                 flpProductsView.Controls.Add(pvPanel);

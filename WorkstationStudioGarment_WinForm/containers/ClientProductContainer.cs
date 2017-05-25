@@ -24,9 +24,9 @@ namespace WorkstationStudioGarment_WinForm.containers
             this.product = product;
             this.price = price;
             this.count = count;
-            int[] values = Parser.ParseStringToArray(date, '.');
+            int[] values = Parser.ParseStringToIntArray(date, '.');
             this.date = new DateTime(values[2],values[1],values[0]);
-            values = Parser.ParseStringToArray(time, ':');
+            values = Parser.ParseStringToIntArray(time, ':');
             this.time = new DateTime(1, 1, 1, values[0], values[1], values[2]);
         }
 
