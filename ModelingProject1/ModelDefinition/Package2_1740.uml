@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="9b4c7fcc-578a-4dcd-b568-12339afe932e"
+  name="manager"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="a2a121ca-f766-4ba2-9962-fdcaf7d8ed78"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWorkstationStudioGarment_WinForm.manager"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="dca2a8d8-f73d-49fb-ae27-86145ac5e900">
+      <profileInstance
+        Id="4f70041c-cf76-4dae-a0f4-42644adf77f5"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="87507536-2aec-4f9c-a51b-4e6006872ad6"
+        name="PRODUCT"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ed8871c5-d17d-4ec6-968b-bc8024142133"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2FWorkstationStudioGarment_WinForm%2Fbin%2FDebug%2FWorkstationStudioGarment_WinForm.exe&quot; Namespace%3DWorkstationStudioGarment_WinForm.manager Type%3DPRODUCT"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d489499b-7370-48cc-a893-5f436e58e67f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6bf7a514-fa87-4ad7-8855-d0fd61ddcb51">
+                <propertyInstance
+                  Id="faa85f2d-3cc2-4d7a-82c5-f15ea97ad8c7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0227f38a-1b74-470d-91da-94570aa741de">
+                <propertyInstance
+                  Id="60a33115-ee43-43c7-8a53-d2cb9647ce5d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0d61e217-460b-4470-a719-ba3f49b4c4b0">
+                <propertyInstance
+                  Id="4ec33435-bb2b-4015-96f8-699a5b10f436"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="82ce7884-f9a3-424b-9931-e530861eb99b">
+                <propertyInstance
+                  Id="f1727db2-0a68-4782-9ca2-db54a544d8ca"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a197c20d-74ae-4778-9702-2d608e4c06b8">
+                <propertyInstance
+                  Id="5bb504f6-a342-4556-81ff-441dc69b90f0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bf09e272-003d-4197-9d8b-a29164a9222f"
+        name="MATERIAL"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="63979fa2-a335-4754-a485-80bf4be75a06"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2FWorkstationStudioGarment_WinForm%2Fbin%2FDebug%2FWorkstationStudioGarment_WinForm.exe&quot; Namespace%3DWorkstationStudioGarment_WinForm.manager Type%3DMATERIAL"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="75f26a0d-2169-4f81-9a54-f21f581aed4d"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="129b2a45-04fc-48d8-a32b-b323251f9c3f">
+                <propertyInstance
+                  Id="755a6dc0-f489-40bd-a0be-4f45de4fe090"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8b7f15c-b886-49ee-a683-32214acc7ad7">
+                <propertyInstance
+                  Id="9d453214-3608-4e94-95b4-b288e696c7e5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7264a4a2-38cd-4ac9-a950-acc2e0bd5109">
+                <propertyInstance
+                  Id="ae7a3cb3-da32-4d98-a4f7-fa73d0089cf0"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1b0295b4-7e78-4663-b703-7d5b43e1c7b2">
+                <propertyInstance
+                  Id="39fb9ce3-e7de-41ea-8dd2-6f38a59e59f5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="caae0117-3ff2-4db9-8978-c4b627ada325">
+                <propertyInstance
+                  Id="f2e4d0d4-49c8-49b2-8527-76bc7718cf21"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="78c3baad-23b6-4b72-89e3-d35128dd1e7e"
+        name="PRODUCT_STRUCTURE"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5997e93f-8f9c-4713-8977-3b30fee4a5e6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2FWorkstationStudioGarment_WinForm%2Fbin%2FDebug%2FWorkstationStudioGarment_WinForm.exe&quot; Namespace%3DWorkstationStudioGarment_WinForm.manager Type%3DPRODUCT_STRUCTURE"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c25784a6-a08f-4f3a-9645-eefbaec60461"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="707073fc-f580-4c28-8c1f-6452bbff6dfe">
+                <propertyInstance
+                  Id="0f6cfa62-d3b1-4516-897b-db9bdf25e080"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4dbeca7b-1bea-4a1c-9543-b4998f5daf31">
+                <propertyInstance
+                  Id="7b13c6ef-f731-4657-b5b5-7b2d72984677"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="48f2b83f-0c5a-4930-b9b0-9a53b001a4cc">
+                <propertyInstance
+                  Id="972af0a2-1215-4a30-9562-60fd7c4a96ee"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a132079c-1f15-4382-acd6-5a729e6bb54c">
+                <propertyInstance
+                  Id="03047b81-f2f3-412d-a5d0-1bdaf5d4e071"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="392e9ade-cb60-4077-a45a-38bec5aa2a0c">
+                <propertyInstance
+                  Id="449a983c-12e4-4a72-948c-379e1323f50f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="02799e38-72a6-4b31-9e02-80ea7adf1438"
+        name="CLIENT"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a13b7445-0270-404e-8466-95256db22407"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2FWorkstationStudioGarment_WinForm%2Fbin%2FDebug%2FWorkstationStudioGarment_WinForm.exe&quot; Namespace%3DWorkstationStudioGarment_WinForm.manager Type%3DCLIENT"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3cbb2238-a3e1-45ee-ae16-b588dd985b8b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="61cde58f-9942-4d72-b76f-114c1e18a319">
+                <propertyInstance
+                  Id="f3fc1d4e-153e-4793-ab99-9e29cd016dab"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="221ac6be-e9a9-4c5c-af2a-d2dd1c6072a2">
+                <propertyInstance
+                  Id="d6722746-d5b0-4918-8742-491f9f0d13ca"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc2e0e4b-71a8-4c85-b32a-f974feee1436">
+                <propertyInstance
+                  Id="f1c1bcb7-c91e-4ae1-b6a1-ac3cb57d4924"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7ed7656c-34e0-4662-91ce-0242d5c8c3e4">
+                <propertyInstance
+                  Id="b5d699a7-b7ac-4e7f-b651-d62b8938b8a7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3c853227-762b-4001-af7c-7474530d5ab7">
+                <propertyInstance
+                  Id="b2c451f6-d423-4dd8-930c-f3bfc7098058"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="82cd77e3-5123-4a2f-80e4-dc2867261353"
+        name="SUPPLY"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e4564f57-3dfd-44d4-bcc1-d7c9dbb1ceea"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2FWorkstationStudioGarment_WinForm%2Fbin%2FDebug%2FWorkstationStudioGarment_WinForm.exe&quot; Namespace%3DWorkstationStudioGarment_WinForm.manager Type%3DSUPPLY"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="579c3f49-e321-4b24-abc1-b05bfb766e91"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c3b6415b-2131-43ca-b967-3ce85c53a046">
+                <propertyInstance
+                  Id="67afb5fc-e3ca-4585-aebd-02f9552d1dd8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f7535335-081d-48a2-8180-f3ba09e4b0f1">
+                <propertyInstance
+                  Id="5a53d279-afb5-4352-981c-c2adf54f1d3e"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="33978b18-ee1d-429a-aa5e-b62b7ca00b21">
+                <propertyInstance
+                  Id="4304ebb4-abf0-4eca-8eaf-11a79956b9d1"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a1d8463c-3979-40d3-b93f-4c132d3ad02a">
+                <propertyInstance
+                  Id="64656228-8013-4630-b6c8-bf7254524689"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5c639e1c-0d6c-4c85-8f0b-b8d881d3af5b">
+                <propertyInstance
+                  Id="7b2ce8e4-d36c-43f6-8c67-9db6a8357aaf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6ae960a8-fa39-4b75-8d4b-6127965f98c9"
+  name="WorkstationStudioGarment_WinForm"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="573b0b7f-5d9f-4ca0-9544-8f380b1a6ddc"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWorkstationStudioGarment_WinForm"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="70ca2993-6402-428e-8393-872cac1ba6fa"
+        LastKnownName="containers"
+        LastKnownLocation="Package1_1740.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9b4c7fcc-578a-4dcd-b568-12339afe932e"
+        LastKnownName="manager"
+        LastKnownLocation="Package2_1740.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="774c17a5-f392-46dd-a6ef-ca3bbeb0f733"
+        LastKnownName="forms"
+        LastKnownLocation="Package_1741.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="fd3bebce-1548-4995-b510-83d402f3ed44"
+        LastKnownName="modules"
+        LastKnownLocation="Package6_1741.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e8d184ee-e5ce-4302-a957-4baa2b571a0c"
+        LastKnownName="control"
+        LastKnownLocation="Package_1743.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

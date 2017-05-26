@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="59b33970-393a-4244-aa07-1b5f35490924"
+  name="MetroFramework"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="6c8d17cc-9955-4279-ac24-1d608659bd51"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DMetroFramework"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="15b8062c-e5e8-4d02-bc92-ff004855fa54"
+        LastKnownName="Controls"
+        LastKnownLocation="Package2_1741.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a948cf15-1eab-4baf-9c94-277921c2dff0"
+        LastKnownName="Forms"
+        LastKnownLocation="Package7_1741.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
