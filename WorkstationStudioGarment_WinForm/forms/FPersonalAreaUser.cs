@@ -354,7 +354,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 ORDER o = new ORDER();
                 o.order_date = DateTime.Today.ToString("d");
                 o.order_status = 0; 
-                o.order_time = DateTime.Now.ToString("H:M:s");
+                o.order_time = DateTime.Now.ToString("H:mm:ss");
                 o.total_sum = totalSum;
                 orderModule.AddOrder(o);
 

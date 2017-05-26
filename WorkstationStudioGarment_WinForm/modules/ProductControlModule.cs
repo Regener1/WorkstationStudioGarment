@@ -88,6 +88,19 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         }
 
+        public List<PRODUCT> AllProducts()
+        {
+            try
+            {
+                return productS.All();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
         public void Update(PRODUCT entity)
         {
             try { 

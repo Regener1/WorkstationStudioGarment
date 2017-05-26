@@ -11,13 +11,12 @@ using System.Windows.Forms;
 using WorkstationStudioGarment_WinForm.control;
 using WorkstationStudioGarment_WinForm.tool;
 using WorkstationStudioGarment_WinForm.modules;
+using WorkstationStudioGarment_WinForm.containers;
 
 namespace WorkstationStudioGarment_WinForm.forms
 {
     public partial class FMain : MetroFramework.Forms.MetroForm
     {
-
-
         private FAuthorization f = new FAuthorization();
         private CLIENT client;
         private List<PRODUCT> listProduct = new List<PRODUCT>(); //список всех продуктов
@@ -27,7 +26,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         private List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
         private ClientControl clientControl = new ClientControl();
         private TanyaModule tanyaM = new TanyaModule();
-        private int saleSize = 10;
+        private decimal saleSize = 10;
 
         private List<PRODUCT> filteredListProduct = new List<PRODUCT>();
 
@@ -264,19 +263,31 @@ namespace WorkstationStudioGarment_WinForm.forms
                     .Where(x => x.id_client == client.id_client)
                     .ToList().Count != 0)
                 {
-                    
-                    listProduct = orderControl.AllProducts();
-                    for(int i = 0; i < listProduct.Count; i++)
+                    ProductSaleContainer prodSaleC = Serializer.DeserializeClass(typeof(ProductSaleContainer), "ProductSale.xml") as
+                                                                                                            ProductSaleContainer;
+                    if(prodSaleC != null)
                     {
-                        listProduct[i].price = DecrementPercentages(listProduct[i].price, (decimal) saleSize);
-                    }
+                        saleSize = prodSaleC.sale;
+                        listProduct = orderControl.AllProducts();
 
-                    lblSaleInfo.Text = "Вам предоставлена специальная скидка на товары в размере " + saleSize + "%";
+                        for (int i = 0; i < listProduct.Count; i++)
+                        {
+                            if(prodSaleC.productsId.Contains(listProduct[i].id_product))
+                                listProduct[i].price = DecrementPercentages(listProduct[i].price, saleSize);
+                        }
+
+                        lblSaleInfo.Text = "Вам предоставлена специальная скидка на товары в размере " + saleSize + "%";
+                    }
+                    else
+                    {
+                        listProduct = orderControl.AllProducts();
+                        lblSaleInfo.Text = "";
+                    }
+                    
                 }
                 else
                 {
                     listProduct = orderControl.AllProducts();
-
                     lblSaleInfo.Text = "";
                 }
 

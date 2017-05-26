@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,11 @@ namespace WorkstationStudioGarment_WinForm.forms
         private List<string> dateRange = new List<string>();
         private List<decimal> dataRange = new List<decimal>();
         private ChartControlModule chartControlM = new ChartControlModule();
+
+        /*
+         * Product special offer 
+         */
+        private List<PRODUCT> lProductSrecOffer = new List<PRODUCT>();
 
         public FPersonalAreaAdmin()
         {
@@ -622,6 +628,79 @@ namespace WorkstationStudioGarment_WinForm.forms
             excelchart.ChartTitle.Text = "Прибыль по месяцам";
 
             excelapp.Visible = true;
+        }
+
+        private void lvProductSrecOffer_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lvProductSrecOffer.SelectedRows.Count == 0)
+                {
+                    return;
+                }
+
+                Image photo = ImgConverter.ImageFromString(lProductSrecOffer[lvProductSrecOffer.SelectedRows[0].Index].photo);
+                pbImage.Image = photo;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tabControlMain.SelectedIndex == 3)
+                {
+                    lProductSrecOffer.Clear();
+                    lProductSrecOffer.AddRange(productsControlS.AllProducts());
+                    lvProductSrecOffer.Rows.Clear();
+
+                    foreach (PRODUCT p in lProductSrecOffer)
+                    {
+                        lvProductSrecOffer.Rows.Add(new object[] { false, p.id_product.ToString(), p.title,
+                                                                       p.category, p.size.ToString(),
+                                                                       p.color, p.price.ToString(),
+                                                                       p.count.ToString(), p.id_supply.ToString()});
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCreateSale_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProductSaleContainer prodSaleCont = new ProductSaleContainer();
+                for (int i = 0; i < lvProductSrecOffer.Rows.Count; i++)
+                {
+                    if ((bool)lvProductSrecOffer.Rows[i].Cells[0].Value)
+                    {
+                        prodSaleCont.productsId.Add(lProductSrecOffer[i].id_product);
+                    }
+                }
+
+                prodSaleCont.sale = nudSale.Value;
+
+                if (File.Exists("ProductSale.xml"))
+                {
+                    File.Delete("ProductSale.xml");
+                }
+
+                Serializer.SerializeClass(typeof(ProductSaleContainer), prodSaleCont, "ProductSale.xml");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

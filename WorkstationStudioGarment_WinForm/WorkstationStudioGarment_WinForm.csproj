@@ -90,6 +90,7 @@
     <Compile Include="containers\MaterialInfoContainer.cs" />
     <Compile Include="containers\ProductContainer.cs" />
     <Compile Include="containers\ProductInfoContainer.cs" />
+    <Compile Include="containers\ProductSaleContainer.cs" />
     <Compile Include="containers\ProductStructureAvailableContainer.cs" />
     <Compile Include="containers\ProductStructureContainer.cs" />
     <Compile Include="control\BasketService.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="tool\GraphModel.cs" />
     <Compile Include="tool\GraphNode.cs" />
     <Compile Include="tool\Parser.cs" />
+    <Compile Include="tool\Serializer.cs" />
     <Compile Include="user_controls\ProductViewPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
