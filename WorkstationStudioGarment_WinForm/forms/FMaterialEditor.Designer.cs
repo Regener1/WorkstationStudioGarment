@@ -222,6 +222,7 @@
             this.Controls.Add(this.nudCount);
             this.Name = "FMaterialEditor";
             this.Text = "Редактор материалов";
+            this.Load += new System.EventHandler(this.FMaterialEditor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvMaterials)).EndInit();
             this.ResumeLayout(false);

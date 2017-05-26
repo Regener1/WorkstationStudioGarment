@@ -65,6 +65,9 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        
+        private void FMaterialEditor_Load(object sender, EventArgs e)
+        {
+            LoadMaterials();
+        }
     }
 }

@@ -435,7 +435,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             a2.Alignment = Element.ALIGN_CENTER;
             doc.Add(a2);  
 
-            int res = 0;
             for (int i = 0; i < listSelectedProduct.Count; i++) {
                 string s = "";
                 PRODUCT temp = listSelectedProduct[i];
