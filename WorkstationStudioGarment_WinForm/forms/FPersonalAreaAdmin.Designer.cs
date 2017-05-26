@@ -127,6 +127,10 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbImage = new System.Windows.Forms.PictureBox();
+            this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
+            this.metroButtonSend = new MetroFramework.Controls.MetroButton();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.tabControlMain.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -149,6 +153,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvProductSrecOffer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.metroTabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -157,6 +162,7 @@
             this.tabControlMain.Controls.Add(this.metroTabPage2);
             this.tabControlMain.Controls.Add(this.metroTabPage3);
             this.tabControlMain.Controls.Add(this.metroTabPage4);
+            this.tabControlMain.Controls.Add(this.metroTabPage5);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Location = new System.Drawing.Point(20, 60);
             this.tabControlMain.Name = "tabControlMain";
@@ -1234,6 +1240,74 @@
             this.pbImage.TabIndex = 70;
             this.pbImage.TabStop = false;
             // 
+            // metroTabPage5
+            // 
+            this.metroTabPage5.Controls.Add(this.metroButtonSend);
+            this.metroTabPage5.Controls.Add(this.metroTextBox1);
+            this.metroTabPage5.Controls.Add(this.metroLabel3);
+            this.metroTabPage5.HorizontalScrollbarBarColor = true;
+            this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.HorizontalScrollbarSize = 10;
+            this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.metroTabPage5.Name = "metroTabPage5";
+            this.metroTabPage5.Size = new System.Drawing.Size(1106, 619);
+            this.metroTabPage5.TabIndex = 4;
+            this.metroTabPage5.Text = "Спец. предложения";
+            this.metroTabPage5.VerticalScrollbarBarColor = true;
+            this.metroTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroTabPage5.VerticalScrollbarSize = 10;
+            // 
+            // metroButtonSend
+            // 
+            this.metroButtonSend.Location = new System.Drawing.Point(448, 394);
+            this.metroButtonSend.Name = "metroButtonSend";
+            this.metroButtonSend.Size = new System.Drawing.Size(158, 31);
+            this.metroButtonSend.TabIndex = 4;
+            this.metroButtonSend.Text = "Отправить на почту";
+            this.metroButtonSend.UseSelectable = true;
+            this.metroButtonSend.Click += new System.EventHandler(this.metroButtonSend_Click);
+            // 
+            // metroTextBox1
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(450, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(217, 217);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Lines = new string[] {
+        "metroTextBox1"};
+            this.metroTextBox1.Location = new System.Drawing.Point(197, 93);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(668, 219);
+            this.metroTextBox1.TabIndex = 3;
+            this.metroTextBox1.Text = "metroTextBox1";
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(307, 32);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(408, 19);
+            this.metroLabel3.TabIndex = 2;
+            this.metroLabel3.Text = "Опишите специальное предложение для клиентов в поле ниже:";
+            // 
             // metroPanel2
             // 
             this.metroPanel2.HorizontalScrollbarBarColor = true;
@@ -1280,6 +1354,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudSale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lvProductSrecOffer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.metroTabPage5.ResumeLayout(false);
+            this.metroTabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1367,5 +1443,9 @@
         private MetroFramework.Controls.MetroButton btnCreateSale;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroTabPage metroTabPage5;
+        private MetroFramework.Controls.MetroButton metroButtonSend;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
     }
 }

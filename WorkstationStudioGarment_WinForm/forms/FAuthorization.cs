@@ -15,7 +15,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FAuthorization : MetroFramework.Forms.MetroForm
     {
         FRegistration freg;
-        ClientControl cl = new ClientControl();
+        ClientControlService cl = new ClientControlService();
         List<CLIENT> client;
         public CLIENT OurClient { get; set; }
 

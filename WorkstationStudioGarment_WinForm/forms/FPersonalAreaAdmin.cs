@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -470,7 +472,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                                                                   item.Product.title, item.Product.category,
                                                                   item.Product.size.ToString(),
                                                                   item.Product.color, item.Product.price.ToString(),
-                                                                  item.Date.ToString("dd.MM.yyyy"), item.Time.ToString("H:M:s"),
+                                                                  item.Date.ToString("dd.MM.yyyy"), item.Time.ToString("H:mm:ss"),
                                                                   item.Count.ToString(), item.Price.ToString() });
                     }
                 }
@@ -696,6 +698,45 @@ namespace WorkstationStudioGarment_WinForm.forms
 
                 Serializer.SerializeClass(typeof(ProductSaleContainer), prodSaleCont, "ProductSale.xml");
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void metroButtonSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 465);
+                //Smtp.UseDefaultCredentials = false;
+                //Smtp.Credentials = new NetworkCredential("zirael36", "tANYA12345");
+                //Smtp.EnableSsl = true;
+
+                SmtpClient client1 = new SmtpClient();
+                client1.Host = "smtp.yandex.ru";
+                client1.Port = 25;
+                client1.EnableSsl = true;
+                client1.Credentials = new NetworkCredential("BelousovaTanya1995@yandex.ru", "tANYA12345");
+                client1.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+
+                //CredentialCache.DefaultNetworkCredentials;
+                List<string> mails = clientControlS.GetMailClients();
+
+                MailMessage message = new MailMessage();
+
+                message.From = new MailAddress("BelousovaTanya1995@yandex.ru", "Ателье по пошиву и продаже одежды");//от кого
+                message.Subject = "Новое специальное предложение для вас от ателье!";//тема
+                message.Body = metroTextBox1.Text;//текст письма
+                for (int i = 0; i < mails.Count; i++)
+                {
+                    message.To.Add(new MailAddress(mails[i].ToString()));//кому 
+                }
+
+                client1.Send(message);
+                MessageBox.Show("You send messages");
             }
             catch (Exception ex)
             {

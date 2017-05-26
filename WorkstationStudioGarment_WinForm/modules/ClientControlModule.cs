@@ -15,6 +15,8 @@ namespace WorkstationStudioGarment_WinForm.modules
         private ProductService productS = new ProductService();
         private BasketService basketS = new BasketService();
 
+        private TanyaModule tanyaM = new TanyaModule();
+
         public List<CLIENT> AllClients()
         {
             try { 
@@ -74,6 +76,18 @@ namespace WorkstationStudioGarment_WinForm.modules
             }
         }
 
-        
+        public List<string> GetMailClients()
+        {
+            List<CLIENT> list = tanyaM.ShoppersList();
+            List<string> l = new List<string>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                l.Add(list[i].mail.ToString());
+            }
+            return l;
+        }
+
+
     }
 }

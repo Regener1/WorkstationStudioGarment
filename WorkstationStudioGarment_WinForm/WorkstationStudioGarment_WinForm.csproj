@@ -94,9 +94,8 @@
     <Compile Include="containers\ProductStructureAvailableContainer.cs" />
     <Compile Include="containers\ProductStructureContainer.cs" />
     <Compile Include="control\BasketService.cs" />
-    <Compile Include="control\ClientControl.cs" />
+    <Compile Include="control\ClientControlService.cs" />
     <Compile Include="control\ClientService.cs" />
-    <Compile Include="control\DbManager.cs" />
     <Compile Include="control\MaterialService.cs" />
     <Compile Include="forms\FAddProduct.cs">
       <SubType>Form</SubType>
@@ -115,12 +114,6 @@
     </Compile>
     <Compile Include="forms\FEditSupply.Designer.cs">
       <DependentUpon>FEditSupply.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\FLogicModelProductCompability.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\FLogicModelProductCompability.Designer.cs">
-      <DependentUpon>FLogicModelProductCompability.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\FTanyaModule.cs">
       <SubType>Form</SubType>
@@ -281,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FEditSupply.resx">
       <DependentUpon>FEditSupply.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\FLogicModelProductCompability.resx">
-      <DependentUpon>FLogicModelProductCompability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FMain.resx">
       <DependentUpon>FMain.cs</DependentUpon>

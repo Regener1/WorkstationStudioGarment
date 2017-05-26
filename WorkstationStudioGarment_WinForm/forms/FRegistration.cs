@@ -14,7 +14,7 @@ namespace WorkstationStudioGarment_WinForm.forms
     public partial class FRegistration : MetroFramework.Forms.MetroForm
     {
 
-        ClientControl cl = new ClientControl();
+        ClientControlService cl = new ClientControlService();
 
         public FRegistration()
         {

@@ -24,9 +24,9 @@ namespace WorkstationStudioGarment_WinForm.forms
         private Image mannequinImg; //картинка с манекеном
         private List<Image> clothes = new List<Image>(); //фотки, добавленные на манекен
         private List<PRODUCT> listSelectedProduct = new List<PRODUCT>(); //список выбранных и добавленных на манекен продуктов
-        private ClientControl clientControl = new ClientControl();
+        private ClientControlService clientControl = new ClientControlService();
         private TanyaModule tanyaM = new TanyaModule();
-        private decimal saleSize = 10;
+        private decimal saleSize = 0;
 
         private List<PRODUCT> filteredListProduct = new List<PRODUCT>();
 
