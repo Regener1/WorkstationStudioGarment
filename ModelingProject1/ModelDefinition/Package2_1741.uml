@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="15b8062c-e5e8-4d02-bc92-ff004855fa54"
+  name="Controls"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d5e9fbd9-a22c-4d24-a4f2-78ee0020cc5d"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DMetroFramework.Controls"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="e974b8ff-aff6-4bd6-959d-87b51cb95c05"
+        name="MetroButton"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ab120853-87f4-4e96-af6f-13ac7003b830"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroButton"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="59d8603c-a36d-463c-8fbe-f91086ebc85b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4ce6c853-fd24-4b3f-ac6f-cfcf4b3b7b9c">
+                <propertyInstance
+                  Id="389505ed-4b71-4d83-8dce-155e4f636786"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="165573df-10d4-4345-9433-b23ce4d76fe6">
+                <propertyInstance
+                  Id="ac46512a-3912-409a-8ffd-104cf61cad8c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ea5304cd-707d-44ef-bec5-b705f5784fd7">
+                <propertyInstance
+                  Id="a278d71a-e513-4a82-aa7b-5f0e7805bfdb"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1ee96d89-7b9f-4892-a8ca-9ba7c190ec7f">
+                <propertyInstance
+                  Id="332a0898-f712-45ef-b3ce-b98cdc7410d8"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aecd7393-ad5c-4d49-8775-1d75241460af">
+                <propertyInstance
+                  Id="40cc60e0-2f78-43ed-905e-87226886be2c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="228c6f5f-24ed-4dbd-8106-09f8717a4def"
+        name="MetroLabel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f9155723-7e66-42c2-8df2-b72d4c3beefd"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroLabel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6815d67a-b94d-4720-9ccc-f6d27e5ba5a0"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4227ff45-fdaa-4071-8b9a-043ea020b9a8">
+                <propertyInstance
+                  Id="826c27de-0617-43bf-ad26-eb19c53c1f70"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="191cb0e0-dc5c-4ed6-a019-80da966c7ed1">
+                <propertyInstance
+                  Id="53aa9b65-323b-447f-a82c-f89aa7b94359"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0e3e1b69-107d-4813-81af-8f3ad1b05916">
+                <propertyInstance
+                  Id="a14d8a35-8659-48e2-b42c-7a7be59bf410"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6aba4b05-5f19-4c13-85af-53022f177400">
+                <propertyInstance
+                  Id="86c63bdf-a4d7-4073-898f-608034240ec0"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="18cb5cb2-647d-4495-851e-ca77fc97b36b">
+                <propertyInstance
+                  Id="ffae2316-6d9a-4b84-bab0-9dfc89f5bc37"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="74ad5341-d371-4c8f-a854-e6c7f0489eb3"
+        name="MetroPanel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="7d8c92ee-04aa-4c64-95f0-a9c923bfb98e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroPanel"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="fb5c0309-2194-459b-924a-ff9740a4ca04"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2547ab03-c1a6-4823-8be9-d3c5d570a622">
+                <propertyInstance
+                  Id="a0fbd734-aff5-4178-bf7a-b11489bafbdd"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="109e5e43-e7a4-44ca-9bd1-c335c29e1b79">
+                <propertyInstance
+                  Id="27db1de0-eebd-46d5-8b06-0b08ad273cdd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="47e97151-73ab-4f2a-b2d2-4f3e44540cd3">
+                <propertyInstance
+                  Id="aa406a60-d837-4951-b174-44cb9892c227"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a6843dbb-988b-4176-a194-54f59ba56c62">
+                <propertyInstance
+                  Id="3b6f5142-4af6-43de-834b-9a301c34adbd"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c2ba3acd-fac2-427d-865f-5a00d3aca4c1">
+                <propertyInstance
+                  Id="0662a549-6cd5-45ee-afbb-cf372156a9a8"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9a4bad91-2fc8-4379-b2db-8234c7aecfee"
+        name="MetroGrid"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="9732981b-25c5-4bf0-bb2f-9a1bfd7721b1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroGrid"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1fcadf3e-531c-46c9-918d-23d295e25195"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="006f9a30-ad21-4ed6-a933-92e6524a37de">
+                <propertyInstance
+                  Id="a9436662-ae37-4eb2-bdd2-92a3d471d46a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="444751c2-9493-41c3-b196-8924ccbb4cae">
+                <propertyInstance
+                  Id="4318c6df-ae55-4aa7-88f9-7b1149733519"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="82350dc4-4628-4ef2-9491-dca969718681">
+                <propertyInstance
+                  Id="0104b499-2e2a-4cb3-bfaa-17f37cc914ae"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1a4d6515-f86a-4868-8629-86acbfcc34dd">
+                <propertyInstance
+                  Id="2d2d0e6d-6b9a-48ed-951d-e4054f72e403"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ffc4e229-db7c-4df5-a236-1583327ecb3c">
+                <propertyInstance
+                  Id="a144d44d-e28e-42f1-9cdb-5e1e8f7a4877"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="04bc2b20-0977-4ada-a985-f17fe84d97cc"
+        name="MetroTabPage"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6b9e20e2-d2cf-48e6-bf39-72e9d57db6c9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroTabPage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d8e097ab-aac0-43f8-bcb6-fff49cafb518"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4d9ade5e-4af7-470d-8f2e-c09a3a848f0d">
+                <propertyInstance
+                  Id="1558ed3d-460f-4242-a56b-86819a7d9b2c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4de6693c-227e-435b-9bc1-c5995175d501">
+                <propertyInstance
+                  Id="9d7dd7f8-3391-4855-a8bc-ebd5f834f904"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a2c16a1c-6292-4f6a-a9c3-b21e07fb4164">
+                <propertyInstance
+                  Id="5ef58ee3-fd77-4306-bec9-cca365dfc372"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="150a7ed0-b847-4303-a312-969299020cfb">
+                <propertyInstance
+                  Id="43a962d4-f495-4dfd-8ffb-62912000c5b7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9a984b32-0fdb-4330-bb1f-7aced654ea5b">
+                <propertyInstance
+                  Id="c48210d4-4673-4e1a-a622-620d9010d489"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="3896b85c-9efd-4135-bcca-e93517a819b0"
+            isSubstitutable="false">
+            <classMoniker
+              Id="76811ff3-d387-4d75-affb-d8b8ba05827e"
+              LastKnownName="TabPage"
+              LastKnownLocation="Package5_1741.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fea57142-336b-465d-8d9f-27961b638135"
+        name="MetroRadioButton"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6aebd3a0-6590-4b82-84ac-d96166d5ff77"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroRadioButton"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="9700b8de-7aac-4b2d-86d0-3c5c1f6f75d7"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0dbdb90a-8f39-4756-a5a2-886789197e96">
+                <propertyInstance
+                  Id="f20a761f-0d38-472c-8106-94e2e2e5992a"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bf90cc1f-3a51-4c11-82a8-8870fbb98491">
+                <propertyInstance
+                  Id="a493dded-0145-442f-a57a-df9acff9a8fb"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d71a301a-2cce-4ec0-a773-eec17171efed">
+                <propertyInstance
+                  Id="550906c4-08bc-4ad7-b631-1280c95dad28"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="de394202-eb77-4d66-9d5e-39246ecdeb2a">
+                <propertyInstance
+                  Id="79711cff-8e08-4ebb-b50b-eb600f544c47"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cfcfd5bb-960d-4b12-804e-c897c0a2ca15">
+                <propertyInstance
+                  Id="6e9c0af0-2a44-45da-bc47-7e99fbd2daaf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="47ad0928-0f73-40af-9129-cfbb49a15075"
+        name="MetroTabControl"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="3f5903d4-ea09-49be-a3d0-cf59ac022120"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FUser%2FDocuments%2FVisual Studio 2013%2FProjects%2Fkursach%2FWorkstationStudioGarment%2Fpackages%2FMetroModernUI.1.4.0.0%2Flib%2Fnet%2FMetroFramework.dll&quot; Namespace%3DMetroFramework.Controls Type%3DMetroTabControl"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4970af8f-59a4-40d1-89a8-e37b3c684006"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fd96f187-e590-47ec-9082-4b353a071002">
+                <propertyInstance
+                  Id="999ec930-8171-4bf4-a943-9ae00d601ab5"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="77183de7-702d-493d-89ca-7a0e80807768">
+                <propertyInstance
+                  Id="163a2945-3815-49ad-ba37-62a7ea7acdd7"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7c9f8616-9a73-498a-9433-88ccf1e14111">
+                <propertyInstance
+                  Id="f2d60f96-e788-4c0e-b964-0a366512089f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cf36e77a-98db-4d36-a8a2-401541a25f76">
+                <propertyInstance
+                  Id="8389d4a3-25b2-4d57-a0fb-1c21304ec095"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="298a145e-4146-4baf-a171-00d09a5f3c98">
+                <propertyInstance
+                  Id="d78147ec-c3f1-41b5-9628-8823a5b45525"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

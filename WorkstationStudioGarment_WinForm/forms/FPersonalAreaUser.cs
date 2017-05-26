@@ -28,6 +28,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         List<PRODUCT> listSelectedProduct = new List<PRODUCT>();
         OrderControlModule orderModule = new OrderControlModule();
         List<UserControlBasket> listControls = new List<UserControlBasket>();
+        decimal totalSum = 0;
 
         /// <summary>
         /// Передача текущего клиента в класс формы
@@ -336,7 +337,7 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                decimal totalSum = 0;
+                
                 for (int i = 0; i < listSelectedProduct.Count; i++)
                 {
                     if (listControls[i].nUDCount.Value == 0)
@@ -391,7 +392,7 @@ namespace WorkstationStudioGarment_WinForm.forms
                 ///
                 ///функция для создания пдф
                 ///
-                CreatePDF(listSelectedProduct);
+                CreatePDF(listSelectedProduct, o);
 
 
                 MessageBox.Show("Ваш заказ успешно оформлен");
@@ -409,7 +410,7 @@ namespace WorkstationStudioGarment_WinForm.forms
             }
         }
 
-        private void CreatePDF(List<PRODUCT> list) {
+        private void CreatePDF(List<PRODUCT> list, ORDER order) {
             var doc = new Document();
             PdfWriter.GetInstance(doc, new FileStream(@"C:\Order.pdf", FileMode.Create)); 
             doc.Open();
@@ -430,8 +431,41 @@ namespace WorkstationStudioGarment_WinForm.forms
                            iTextSharp.text.Font.NORMAL, new BaseColor(Color.Black)));
             Paragraph a2 = new Paragraph(name);
             a2.Add(Environment.NewLine);
+            a2.Add(Environment.NewLine);
             a2.Alignment = Element.ALIGN_CENTER;
-            doc.Add(a2);
+            doc.Add(a2);  
+
+            int res = 0;
+            for (int i = 0; i < listSelectedProduct.Count; i++) {
+                string s = "";
+                PRODUCT temp = listSelectedProduct[i];
+                s = " Наименование: " + temp.title + ", цвет: " + temp.color
+                        + ", размер: " + temp.size + ", количество:" + listControls[i].nUDCount.Value
+                        + ", стоимость:" + (listControls[i].nUDCount.Value *
+                                                listSelectedProduct[i].price);
+                iTextSharp.text.Phrase phrase = new Phrase(s, new iTextSharp.text.Font(baseFont, 11,
+                           iTextSharp.text.Font.NORMAL, new BaseColor(Color.Black)));
+                Paragraph paragraph = new Paragraph(phrase);
+                paragraph.Add(Environment.NewLine);
+                paragraph.Add(Environment.NewLine);
+                paragraph.Alignment = Element.ALIGN_LEFT;
+                doc.Add(paragraph);
+            }
+
+            iTextSharp.text.Phrase phr1 = new Phrase("Итого: " + totalSum, new iTextSharp.text.Font(baseFont, 11,
+                           iTextSharp.text.Font.NORMAL, new BaseColor(Color.Black)));
+            Paragraph par1 = new Paragraph(phr1);
+            par1.Add(Environment.NewLine);
+            par1.Alignment = Element.ALIGN_RIGHT;
+            doc.Add(par1);
+
+            iTextSharp.text.Phrase phr2 = new Phrase("Дата: " + order.order_date  + " " + order.order_time, new iTextSharp.text.Font(baseFont, 11,
+                           iTextSharp.text.Font.NORMAL, new BaseColor(Color.Black)));
+            Paragraph par2 = new Paragraph(phr2);
+            par2.Add(Environment.NewLine);
+            par2.Alignment = Element.ALIGN_RIGHT;
+            doc.Add(par2);
+
             doc.Close();
 
             System.Diagnostics.Process command = new System.Diagnostics.Process();
@@ -440,11 +474,6 @@ namespace WorkstationStudioGarment_WinForm.forms
             command.StartInfo.UseShellExecute = false;
             command.StartInfo.CreateNoWindow = true;
             command.Start();
-
-            command.WaitForExit(31000);
-            if (!command.HasExited)
-                command.Kill();
-            else command.Close(); 
         }
 
         private void lblInfo_Click(object sender, EventArgs e)
