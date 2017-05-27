@@ -8,9 +8,8 @@ using WorkstationStudioGarment_WinForm.manager;
 
 namespace WorkstationStudioGarment_WinForm.containers
 {
-    class ProductContainer
+    public class ProductContainer
     {
-        //заполнить id поставки и id материала
         private PRODUCT product;
         private List<PRODUCT_STRUCTURE> productStructures;
 

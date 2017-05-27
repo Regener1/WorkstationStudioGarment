@@ -709,10 +709,6 @@ namespace WorkstationStudioGarment_WinForm.forms
         {
             try
             {
-                //SmtpClient Smtp = new SmtpClient("smtp.gmail.com", 465);
-                //Smtp.UseDefaultCredentials = false;
-                //Smtp.Credentials = new NetworkCredential("zirael36", "tANYA12345");
-                //Smtp.EnableSsl = true;
 
                 SmtpClient client1 = new SmtpClient();
                 client1.Host = "smtp.yandex.ru";

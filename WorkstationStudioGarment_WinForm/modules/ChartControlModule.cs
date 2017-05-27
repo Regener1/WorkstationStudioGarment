@@ -15,12 +15,7 @@ namespace WorkstationStudioGarment_WinForm.modules
         private ProductService productS = new ProductService();
         private OrderService orderS = new OrderService();
 
-        /// <summary>
-        /// Возвращает сумму проданных товаров за месяц
-        /// </summary>
-        /// <param name="month"></param>
-        /// <param name="year"></param>
-        /// <returns></returns>
+
         public decimal GetTotalSumMonth(int month, int year)
         {
             try
@@ -46,13 +41,6 @@ namespace WorkstationStudioGarment_WinForm.modules
                 throw e;
             }
         }
-
-        /// <summary>
-        /// Возвращает затраченную сумму за месяц поставки
-        /// </summary>
-        /// <param name="month"></param>
-        /// <param name="year"></param>
-        /// <returns></returns>
 
         public decimal GetTotalSumMonthSupply(int month, int year)
         {

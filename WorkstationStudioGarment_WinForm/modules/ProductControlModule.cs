@@ -137,12 +137,6 @@ namespace WorkstationStudioGarment_WinForm.modules
 
         }
 
-
-        /// <summary>
-        /// Получить все продукты относящиеся к данной поставке
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <returns></returns>
         public List<PRODUCT> GetSuppliesProducts(SUPPLY entity)
         {
             try
@@ -161,11 +155,6 @@ namespace WorkstationStudioGarment_WinForm.modules
             }
         }
 
-        /// <summary>
-        /// Получить весь состав выбранного товара
-        /// </summary>
-        /// <param name="productStruct"></param>
-        /// <returns></returns>
         public List<ProductStructureContainer> GetProductStructure(PRODUCT product)
         {
             try

@@ -11,12 +11,9 @@ namespace WorkstationStudioGarment_WinForm.modules
 {
     class OrderControlModule
     {
-        private ClientService clientS = new ClientService();
         private BasketService basketS = new BasketService();
         private OrderService orderS = new OrderService();
         private ProductService productS = new ProductService();
-        private SupplyService supplyS = new SupplyService();
-        private ProductStructureService productStructureS = new ProductStructureService();
         private MaterialService materialS = new MaterialService();
 
         /// <summary>
@@ -78,26 +75,6 @@ namespace WorkstationStudioGarment_WinForm.modules
         {
             productS.Update(entity);
         }
-        /// <summary>
-        /// Уменьшить количество имеющегося товара 
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="count"></param>
-        //public void DecreaseCountOfProduct(PRODUCT entity, int count)
-        //{
-        //    try
-        //    {
-        //        using (StudioDB db = new StudioDB())
-        //        {
-        //            entity.count -= count;
-        //            db.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex) 
-        //    {
-        //        throw ex;
-        //    }
-        //}
 
         /// <summary>
         /// Уменьшить количество имеющегося материала
